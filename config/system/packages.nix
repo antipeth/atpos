@@ -12,7 +12,7 @@
     pkg-config meson gnumake ninja symbola
     noto-fonts-color-emoji material-icons brightnessctl yazi
     toybox  swappy ripgrep appimage-run neovim zellij helix
-    networkmanagerapplet yad playerctl nh fzf docker docker-compose
+    networkmanagerapplet yad playerctl nh fzf
     tlp nodejs
     # hugo go nodejs virt-viewer libvirt  
   ];
