@@ -14,13 +14,12 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a321aa7c-d836-45c4-b4b1-b2e2b7a7a56b";
-      fsType = "btrfs";
-      options = [ "subvol=@" ];
+    { device = "/dev/disk/by-uuid/439caaef-4f10-4e86-9347-76e05a7baeb6";
+      fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A180-29CD";
+    { device = "/dev/disk/by-uuid/3E93-C735";
       fsType = "vfat";
     };
 
@@ -31,7 +30,8 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-3d6b9bd7570b.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-593a1ab816c0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-a088bdb3025d.useDHCP = lib.mkDefault true;
   # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp57s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp58s0.useDHCP = lib.mkDefault true;

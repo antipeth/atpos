@@ -1,7 +1,10 @@
-{ inputs, username, ... }:
+{ config, pkgs, inputs, username,
+  gtkThemeFromScheme, ... }:
 let 
   inherit (import ./options.nix)
-    gitUsername gitEmail theme ;
+    gitUsername gitEmail theme browser 
+    wallpaperDir wallpaperGit flakeDir 
+    waybarStyle;
 in {
   # Home Manager Settings
   home.username = "${username}";

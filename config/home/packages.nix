@@ -8,11 +8,17 @@ in {
   home.packages = with pkgs; [
     pkgs."${browser}" libvirt swww grim slurp kitty 
     swaynotificationcenter rofi-wayland imv transmission-gtk 
-    audacity pavucontrol tree libzip gnutar devbox
+    audacity pavucontrol tree devbox
     font-awesome swayidle swaylock firefox-devedition 
-    betterbird-unwrapped brave nodejs rustc cargo jdk17 python3 go # lldb rust-analyzer 
-    anytype bitwarden gcc gdb clang-tools
-    telegram-desktop element-desktop libreoffice marktext keepassxc yarn
+    betterbird-unwrapped brave   # lldb rust-analyzer 
+    anytype bitwarden  bun deno discord
+    telegram-desktop element-desktop libreoffice keepassxc yarn spotify ungoogled-chromium
+    lapce  lshw
+    taplo 
+    lua-language-server stylua marksman nil nodePackages_latest.vscode-css-languageserver-bin
+    python3 rustc cargo wasmtime 
+
+    # rustc cargo clang-tools clang jdk17 python3 go
 
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
@@ -26,11 +32,13 @@ in {
         (base.targetPkgs pkgs) ++ (with pkgs; [
           pkg-config
           ncurses
+          rust-analyzer
+          rustc cargo 
           # 如果你的 FHS 程序还有其他依赖，把它们添加在这里
         ])
       );
       profile = "export FHS=1";
-      runScript = "bash";
+      runScript = "zsh";
       extraOutputsToInstall = ["dev"];
     }))
 
@@ -56,7 +64,7 @@ in {
 
   programs.gh.enable = false;
   programs.vscode = {
-    enable = true;
+    enable = false;
     package = pkgs.vscodium.fhs;
     extensions = with pkgs.vscode-extensions; [
      #  ms-ceintl.vscode-language-pack-zh-hans

@@ -11,9 +11,10 @@
     v4l-utils ydotool wl-clipboard socat cowsay lsd lshw
     pkg-config meson gnumake ninja symbola
     noto-fonts-color-emoji material-icons brightnessctl yazi
-    toybox  swappy ripgrep appimage-run neovim tmux
-    networkmanagerapplet yad playerctl nh 
-    # hugo go nodejs virt-viewer libvirt 
+    toybox  swappy ripgrep appimage-run neovim zellij helix
+    networkmanagerapplet yad playerctl nh fzf docker docker-compose
+    tlp nodejs
+    # hugo go nodejs virt-viewer libvirt  
   ];
 
   programs = {

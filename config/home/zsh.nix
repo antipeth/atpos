@@ -25,7 +25,7 @@ lib.mkIf (theShell == "zsh") {
       bindkey '^[[1;3C' forward-word                  # Key Alt + Right
       bindkey '^[[H' beginning-of-line                # Key Home
       bindkey '^[[F' end-of-line                      # Key End
-      neofetch
+      # neofetch
       if [ -f $HOME/.zshrc-personal ]; then
         source $HOME/.zshrc-personal
       fi
@@ -39,6 +39,15 @@ lib.mkIf (theShell == "zsh") {
       unsetopt beep extendedglob notify
       autoload -Uz compinit
       compinit
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
     '';
     sessionVariables = {
 

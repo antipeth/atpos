@@ -4,32 +4,19 @@
 
 let
   # THINGS YOU NEED TO CHANGE
-  username = "antipeth";
-  hostname = "antipeth";
+  username = "icetank";
+  hostname = "icetank";
   userHome = "/home/${username}";
-  flakeDir = "${userHome}/antipethos";
-  waybarStyle = "slickbar-num"; # simplebar, slickbar, slickbar-num, or default
+  flakeDir = "${userHome}/icetankos";
+  # waybarStyle = "slickbar-num"; # simplebar, slickbar, slickbar-num, or default
 in {
   # User Variables
   username = "${username}";
   hostname = "${hostname}";
-  gitUsername = "antipeth";
-  gitEmail = "0pt@disroot.org";
-  theme = "tokyo-night-storm";
-  slickbar = if waybarStyle == "slickbar" then true else false;
-  slickbar-num = if waybarStyle == "slickbar-num" then true else false;
-  simplebar = if waybarStyle == "simplebar" then true else false;
-  borderAnim = true;
-  browser = "librewolf";
-  wallpaperGit = "https://github.com/antipeth/mywallpaper.git"; # This will give you my wallpapers
-  # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
-  wallpaperDir = "${userHome}/Pictures/Wallpapers";
-  screenshotDir = "${userHome}/Pictures/Screenshots";
   flakeDir = "${flakeDir}";
   flakePrev = "${userHome}/.antipethos-previous";
   flakeBackup = "${userHome}/.antipethos-backup";
-  terminal = "kitty"; # This sets the terminal that is used by the hyprland terminal keybinding
-
+ 
   # System Settings
   clock24h = false;
   theLocale = "zh_CN.UTF-8";
@@ -38,13 +25,12 @@ in {
   theKBDVariant = "";
   theLCVariables = "zh_CN.UTF-8";
   theTimezone = "Asia/Shanghai";
-  theShell = "zsh"; # Possible options: bash, zsh
-  theKernel = "xanmod"; # Possible options: default, latest, lqx, xanmod, zen
-  sdl-videodriver = "wayland"; # Either x11 or wayland ONLY. Games might require x11 set here
+  theShell = "bash"; # Possible options: bash, zsh
+  theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
   cpuType = "intel";
-  gpuType = "nvidia";
+  gpuType = "intel";
 
   # Nvidia Hybrid Devices
   # ONLY NEEDED FOR HYBRID
@@ -73,12 +59,6 @@ in {
   # Enable Support For
   # Logitech Devices
   logitech = true;
-
-  # Enable Terminals
-  # If You Disable All You Get Kitty
-  wezterm = false;
-  alacritty = false;
-  kitty = true;
 
   # Enable Python & PyCharm
   python = false;
