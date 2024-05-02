@@ -13,8 +13,6 @@ in {
     betterbird-unwrapped brave   # lldb rust-analyzer 
     anytype bitwarden  bun deno discord
     telegram-desktop element-desktop libreoffice keepassxc yarn ungoogled-chromium
-    lapce  
-    rustc cargo wasmtime 
     libsForQt5.ghostwriter atuin just
 
     # rustc cargo clang-tools clang jdk17 python3 go
