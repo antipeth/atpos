@@ -24,6 +24,16 @@
       fsType = "vfat";
     };
 
+  fileSystems."/var/lib/docker/overlay2/4d29ede6e54287b1279e17ed70f1e6ff1e4335ab84c01688da417aac9381a2c1/merged" =
+    { device = "overlay";
+      fsType = "overlay";
+    };
+
+  fileSystems."/var/lib/docker/overlay2/d57df402d0c1e0c22c415f8f639a9d315d9a9631ca15c2be7fd03ef7d2b20a36/merged" =
+    { device = "overlay";
+      fsType = "overlay";
+    };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -34,6 +44,8 @@
   # networking.interfaces.br-3d6b9bd7570b.useDHCP = lib.mkDefault true;
   # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp57s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.veth1085574.useDHCP = lib.mkDefault true;
+  # networking.interfaces.veth6ab459d.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp58s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

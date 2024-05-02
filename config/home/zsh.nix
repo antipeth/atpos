@@ -48,6 +48,8 @@ function yy() {
 	fi
 	rm -f -- "$tmp"
 }
+
+eval "$(atuin init zsh)"
     '';
     sessionVariables = {
 
