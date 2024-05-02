@@ -12,11 +12,9 @@ in {
     font-awesome swayidle swaylock firefox-devedition 
     betterbird-unwrapped brave   # lldb rust-analyzer 
     anytype bitwarden  bun deno discord
-    telegram-desktop element-desktop libreoffice keepassxc yarn spotify ungoogled-chromium
+    telegram-desktop element-desktop libreoffice keepassxc yarn ungoogled-chromium
     lapce  
-    taplo 
-    lua-language-server stylua marksman nil nodePackages_latest.vscode-css-languageserver-bin
-    python3 rustc cargo wasmtime 
+    rustc cargo wasmtime 
     libsForQt5.ghostwriter atuin just
 
     # rustc cargo clang-tools clang jdk17 python3 go
