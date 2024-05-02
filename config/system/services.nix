@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 
 {
-  virtualisation.docker.enable = true;
+  virtualisation.docker.enable = false;
   # List services that you want to enable:
   services.openssh.enable = true;
   services.fstrim.enable = true;
