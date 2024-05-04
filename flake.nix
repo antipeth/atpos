@@ -11,13 +11,13 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland/v0.39.1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
     hy3 = {
-      url = "github:outfoxxed/hy3?ref=hl0.34.0"; # where {version} is the hyprland release version
+      url = "github:outfoxxed/hy3?ref=hl0.39.1"; # where {version} is the hyprland release version
 
       # url = "github:outfoxxed/hy3?ref=hl{version}"; # where {version} is the hyprland release version
       # or "github:outfoxxed/hy3" to follow the development branch.

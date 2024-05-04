@@ -15,8 +15,8 @@ in with lib; {
     xwayland.enable = true;
     systemd.enable = true;
     plugins = [
-      hyprplugins.hyprtrails
-      inputs.hy3.packages.x86_64-linux.hy3
+      # hyprplugins.hyprtrails
+      # inputs.hy3.packages.x86_64-linux.hy3
     ];
     extraConfig = let
       modifier = "SUPER";
@@ -120,104 +120,10 @@ in with lib; {
         }
       }
       plugin {
-        hyprtrails {
-          color = rgba(${theme.base0A}ff)
-        }
-  hy3 {
-    # disable gaps when only one window is onscreen
-    # 0 - always show gaps
-    # 1 - hide gaps with a single window onscreen
-    # 2 - 1 but also show the window border
-    no_gaps_when_only = <int> # default: 0
-
-    # policy controlling what happens when a node is removed from a group,
-    # leaving only a group
-    # 0 = remove the nested group
-    # 1 = keep the nested group
-    # 2 = keep the nested group only if its parent is a tab group
-    node_collapse_policy = <int> # default: 2
-
-    # offset from group split direction when only one window is in a group
-    group_inset = <int> # default: 10
-
-    # if a tab group will automatically be created for the first window spawned in a workspace
-    tab_first_window = <bool>
-
-    # tab group settings
-    tabs {
-      # height of the tab bar
-      height = <int> # default: 15
-
-      # padding between the tab bar and its focused node
-      padding = <int> # default: 5
-
-      # the tab bar should animate in/out from the top instead of below the window
-      from_top = <bool> # default: false
-
-      # rounding of tab bar corners
-      rounding = <int> # default: 3
-
-      # render the window title on the bar
-      render_text = <bool> # default: true
-
-      # center the window title
-      text_center = <bool> # default: false
-
-      # font to render the window title with
-      text_font = <string> # default: Sans
-
-      # height of the window title
-      text_height = <int> # default: 8
-
-      # left padding of the window title
-      text_padding = <int> # default: 3
-
-      # active tab bar segment color
-      col.active = <color> # default: 0xff32b4ff
-
-      # urgent tab bar segment color
-      col.urgent = <color> # default: 0xffff4f4f
-
-      # inactive tab bar segment color
-      col.inactive = <color> # default: 0x80808080
-
-      # active tab bar text color
-      col.text.active = <color> # default: 0xff000000
-
-      # urgent tab bar text color
-      col.text.urgent = <color> # default: 0xff000000
-
-      # inactive tab bar text color
-      col.text.inactive = <color> # default: 0xff000000
-    }
-
-    # autotiling settings
-    autotile {
-      # enable autotile
-      enable = <bool> # default: false
-
-      # make autotile-created groups ephemeral
-      ephemeral_groups = <bool> # default: true
-
-      # if a window would be squished smaller than this width, a vertical split will be created
-      # -1 = never automatically split vertically
-      # 0 = always automatically split vertically
-      # <number> = pixel height to split at
-      trigger_width = <int> # default: 0
-
-      # if a window would be squished smaller than this height, a horizontal split will be created
-      # -1 = never automatically split horizontally
-      # 0 = always automatically split horizontally
-      # <number> = pixel height to split at
-      trigger_height = <int> # default: 0
-
-      # a space or comma separated list of workspace ids where autotile should be enabled
-      # it's possible to create an exception rule by prefixing the definition with "not:"
-      # workspaces = 1,2 # autotiling will only be enabled on workspaces 1 and 2
-      # workspaces = not:1,2 # autotiling will be enabled on all workspaces except 1 and 2
-      workspaces = <string> # default: all
-    }
-  }        
+      #  hyprtrails {
+      #    color = rgba(${theme.base0A}ff)
+      #  }
+       
       }
       exec-once = $POLKIT_BIN
       exec-once = dbus-update-activation-environment --systemd --all
@@ -352,46 +258,19 @@ bind = $mainMod SHIFT, S, exec, screenshootin
 # bind = SHIFT, Print, exec, screenshot-wayland select
 
 # Move focus with mainMod + arrow keys
-bind = $mainMod, h, hy3:movefocus, l
-bind = $mainMod, l, hy3:movefocus, r
-bind = $mainMod, k, hy3:movefocus, u
-bind = $mainMod, j, hy3:movefocus, d
-bind = $mainMod, left, hy3:movefocus, l
-bind = $mainMod, down, hy3:movefocus, d
-bind = $mainMod, up, hy3:movefocus, u
-bind = $mainMod, right, hy3:movefocus, r
+bind = $mainMod, h, movefocus, l
+bind = $mainMod, l, movefocus, r
+bind = $mainMod, k, movefocus, u
+bind = $mainMod, j, movefocus, d
+bind = $mainMod, left, movefocus, l
+bind = $mainMod, down, movefocus, d
+bind = $mainMod, up, movefocus, u
+bind = $mainMod, right, movefocus, r
 
-bind = $mainMod+CONTROL, h, hy3:movefocus, l, visible
-bind = $mainMod+CONTROL, j, hy3:movefocus, d, visible
-bind = $mainMod+CONTROL, k, hy3:movefocus, u, visible
-bind = $mainMod+CONTROL, l, hy3:movefocus, r, visible
-bind = $mainMod+CONTROL, left, hy3:movefocus, l, visible
-bind = $mainMod+CONTROL, down, hy3:movefocus, d, visible
-bind = $mainMod+CONTROL, up, hy3:movefocus, u, visible
-bind = $mainMod+CONTROL, right, hy3:movefocus, r, visible
-
-bind = $mainMod+SHIFT, h, hy3:movewindow, l, once
-bind = $mainMod+SHIFT, j, hy3:movewindow, d, once
-bind = $mainMod+SHIFT, k, hy3:movewindow, u, once
-bind = $mainMod+SHIFT, l, hy3:movewindow, r, once
-bind = $mainMod+SHIFT, left, hy3:movewindow, l, once
-bind = $mainMod+SHIFT, down, hy3:movewindow, d, once
-bind = $mainMod+SHIFT, up, hy3:movewindow, u, once
-bind = $mainMod+SHIFT, right, hy3:movewindow, r, once
-
-bind = $mainMod+CONTROL+SHIFT, h, hy3:movewindow, l, once, visible
-bind = $mainMod+CONTROL+SHIFT, j, hy3:movewindow, d, once, visible
-bind = $mainMod+CONTROL+SHIFT, k, hy3:movewindow, u, once, visible
-bind = $mainMod+CONTROL+SHIFT, l, hy3:movewindow, r, once, visible
-bind = $mainMod+CONTROL+SHIFT, left, hy3:movewindow, l, once, visible
-bind = $mainMod+CONTROL+SHIFT, down, hy3:movewindow, d, once, visible
-bind = $mainMod+CONTROL+SHIFT, up, hy3:movewindow, u, once, visible
-bind = $mainMod+CONTROL+SHIFT, right, hy3:movewindow, r, once, visible
-
-# bind = $mainmainMod, h, movefocus, l
-# bind = $mainmainMod, l, movefocus, r
-# bind = $mainmainMod, k, movefocus, u
-# bind = $mainmainMod, j, movefocus, d
+# bind = $mainMod, h, movefocus, l
+# bind = $mainMod, l, movefocus, r
+# bind = $mainMod, k, movefocus, u
+# bind = $mainMod, j, movefocus, d
 
 # Switch workspaces with mainMod + [0-9]
 bind = $mainMod, 1, workspace, 1
@@ -440,17 +319,6 @@ bind = $mainMod+SHIFT, F8, movetoworkspace, 18
 bind = $mainMod+SHIFT, F9, movetoworkspace, 19
 bind = $mainMod+SHIFT, F10,movetoworkspace, 20
 
-bind = $mainMod+CONTROL, 1, hy3:focustab, index, 01
-bind = $mainMod+CONTROL, 2, hy3:focustab, index, 02
-bind = $mainMod+CONTROL, 3, hy3:focustab, index, 03
-bind = $mainMod+CONTROL, 4, hy3:focustab, index, 04
-bind = $mainMod+CONTROL, 5, hy3:focustab, index, 05
-bind = $mainMod+CONTROL, 6, hy3:focustab, index, 06
-bind = $mainMod+CONTROL, 7, hy3:focustab, index, 07
-bind = $mainMod+CONTROL, 8, hy3:focustab, index, 08
-bind = $mainMod+CONTROL, 9, hy3:focustab, index, 09
-bind = $mainMod+CONTROL, 0, hy3:focustab, index, 10
-
 # Scroll through existing workspaces with mainMod + scroll
 bind = $mainMod, mouse_down, workspace, e+1
 bind = $mainMod, mouse_up, workspace, e-1
@@ -459,21 +327,9 @@ bind = $mainMod, mouse_up, workspace, e-1
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
 
-bindn = , mouse:272, hy3:focustab, mouse
-bindn = , mouse_down, hy3:focustab, l, require_hovered
-bindn = , mouse_up, hy3:focustab, r, require_hovered
-
 # bindm = $mainMod, mouse:272, movewindow
 
-bind = $mainMod, d, hy3:makegroup, h  
 
-bind = $mainMod, s, hy3:makegroup, v  
-bind = $mainMod, z, hy3:makegroup, tab 
-bind = $mainMod ALT, k, hy3:changefocus, raise 
-bind = $mainMod ALT, j, hy3:changefocus, lower
-bind = $mainMod, e, hy3:expand, expand
-bind = $mainMod, e, hy3:expand, base
-bind = $mainMod, e, hy3:changegroup, opposite
     '' ];
   };
 }

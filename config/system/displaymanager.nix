@@ -9,6 +9,8 @@ theKBDLayout theSecondKBDLayout; in
       variant = "${theKBDVariant}";
       layout = "${theKBDLayout}, ${theSecondKBDLayout}";
     };
+  };
+  services={
     libinput.enable = true;
     displayManager.sddm = {
       enable = true;
@@ -17,7 +19,6 @@ theKBDLayout theSecondKBDLayout; in
       theme = "tokyo-night-sddm";
     };
   };
-
   environment.systemPackages =
 let
     sugar = pkgs.callPackage ../pkgs/sddm-sugar-dark.nix {};
