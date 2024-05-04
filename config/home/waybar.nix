@@ -2,7 +2,7 @@
 
 let
   palette = config.colorScheme.palette;
-  inherit (import ../../options.nix) slickbar slickbar-num simplebar clock24h;
+  inherit (import ../../options.nix) slickbar slickbar-num simplebar clock24h appLauncher;
 in with lib; {
   # Configure & Theme Waybar
   programs.waybar = {
@@ -104,7 +104,7 @@ in with lib; {
         tooltip = false;
         format = " ";
         # exec = "rofi -show drun";
-        on-click = "sleep 0.1 && rofi-launcher";
+        on-click = "sleep 0.1 && ${appLauncher}-launcher";
       };
 #      "custom/hyprbindings" = {
 #        tooltip = false;

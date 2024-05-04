@@ -1,7 +1,9 @@
-{
-  pkgs,inputs,
-  ...
-}: {
+{ pkgs, inputs, config, lib, ...}:
+
+let
+  palette=config.colorScheme.palette;
+  inherit (import ../../options.nix) appLauncher;
+in lib.mkIf (appLauncher == "anyrun") {
   programs.anyrun = {
     enable = true;
     config = {
@@ -10,24 +12,33 @@
       # randr
       #  rink
         shell
-      # symbols
+        symbols
       #  translate
       ];
 
       width.fraction = 0.3;
-      y.absolute = 15;
+      #y.absolute = 115;
+      x.fraction = 0.5;
+      y.fraction = 0.3;
       hidePluginInfo = true;
       closeOnClick = true;
     };
 
     # custom css for anyrun, based on catppuccin-mocha
     extraCss = ''
-      @define-color bg-col  rgba(30, 30, 46, 0.7);
+      @define-color bg-col #${palette.base00};
+      @define-color bg-col-light #${palette.base0C};
+      @define-color border-col #${palette.base00};
+      @define-color selected-col #${palette.base0C};
+      @define-color fg-col #${palette.base05};
+      @define-color fg-col2 #${palette.base01};
+
+      /*@define-color bg-col  rgba(30, 30, 46, 0.7);
       @define-color bg-col-light rgba(150, 220, 235, 0.7);
       @define-color border-col rgba(30, 30, 46, 0.7);
       @define-color selected-col rgba(150, 205, 251, 0.7);
       @define-color fg-col #D9E0EE;
-      @define-color fg-col2 #F28FAD;
+      @define-color fg-col2 #F28FAD;*/
 
       * {
         transition: 200ms ease;

@@ -8,7 +8,9 @@ let
     wallpaperDir borderAnim
     theKBDLayout terminal
     theSecondKBDLayout
-    theKBDVariant sdl-videodriver;
+    theKBDVariant sdl-videodriver 
+    appLauncher;
+
 in with lib; {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -229,15 +231,16 @@ $mainMod = SUPER
 bind = $mainMod, Q, killactive,
 bind = $mainMod, W, exec, brave
 bind = $mainMod, RETURN, exec, ${terminal}
-bind = $mainMod, SPACE, exec, rofi -show drun
+bind = $mainMod, SPACE, exec, ${appLauncher}-launcher
+#bind = $mainMod, SPACE, exec, rofi -show drun
 # bind = $mainMod, B, exec, $TERMINAL -e newsboat
 bind = $mainMod , y, exec, ${terminal} -e yazi
 bind = $mainMod , V, exec, ${terminal} -e nvim
 bind = $mainMod , M, exec, betterbird
-bind = $mainMod , N, exec, anytype
+# bind = $mainMod , N, exec, anytype
 bind = $mainMod SHIFT, F, togglefloating,
 bind = $mainMod, F, fullscreen,
-bind = $mainMod SHIFT, ESCAPE, exit,
+# bind = $mainMod SHIFT, ESCAPE, exit,
 
 bind = $mainMod, X, exec, swaylock
 # bind = $mainMod, ESCAPE, exec, pkill waybar; waybar & disown
