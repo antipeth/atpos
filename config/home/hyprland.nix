@@ -21,7 +21,7 @@ in with lib; {
       # inputs.hy3.packages.x86_64-linux.hy3
     ];
     extraConfig = let
-      modifier = "SUPER";
+      mainMod = "SUPER";
     in concatStrings [ ''
 
       monitor=HDMI-A-1,3840x2160@60,0x0 ,1
@@ -124,8 +124,8 @@ in with lib; {
       #  hyprtrails {
       #    color = rgba(${theme.base0A}ff)
       #  }
-       
       }
+
       exec-once = $POLKIT_BIN
       exec-once = dbus-update-activation-environment --systemd --all
       exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -135,203 +135,107 @@ in with lib; {
       exec-once = wallsetter
       exec-once = nm-applet --indicator
       exec-once = swayidle -w timeout 720 'swaylock -f' timeout 800 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f -c 000000'
+
+      exec-once = copyq
+
       dwindle {
         pseudotile = true
         preserve_split = true
       }
+
       master {
         new_is_master = true
       }
 
-#      bind = ${modifier},Return,exec,${terminal}
-#      # bind = ${modifier}SHIFT,Return,exec,rofi-launcher
-#      bind = ${modifier}SHIFT,W,exec,web-search
-#      bind = ${modifier}SHIFT,N,exec,swaync-client -rs
-#      ${if browser == "google-chrome" then ''
-#	bind = ${modifier},W,exec,google-chrome-stable
-#      '' else ''
-#	bind = ${modifier},W,exec,${browser}
-#      ''}
-#      bind = ${modifier},E.exec,yazi
-#      # bind = ${modifier},E,exec,emopicker9000
-#      # bind = ${modifier},S,exec,screenshootin
-#      bind = ${modifier}SHIFT,S,exec,screenshootin
-#      bind = ${modifier},SPACE,exec,rofi-launcher
-#      # bind = ${modifier},D,exec,discord
-#      # bind = ${modifier},O,exec,obs
-#      # bind = ${modifier},G,exec,gimp
-#      # bind = ${modifier}SHIFT,G,exec,godot4
-#      # bind = ${modifier},T,exec,thunar
-#      # bind = ${modifier},M,exec,spotify
-#      bind = ${modifier},Q,killactive,
-#      bind = ${modifier},P,pseudo,
-#      bind = ${modifier}SHIFT,I,togglesplit,
-#      bind = ${modifier},F,fullscreen,
-#      bind = ${modifier}SHIFT,F,togglefloating,
-#      bind = ${modifier}SHIFT,ESC,exit,
-#      bind = ${modifier}SHIFT,left,movewindow,l
-#      bind = ${modifier}SHIFT,right,movewindow,r
-#      bind = ${modifier}SHIFT,up,movewindow,u
-#      bind = ${modifier}SHIFT,down,movewindow,d
-#      bind = ${modifier}SHIFT,h,movewindow,l
-#      bind = ${modifier}SHIFT,l,movewindow,r
-#      bind = ${modifier}SHIFT,k,movewindow,u
-#      bind = ${modifier}SHIFT,j,movewindow,d
-#      bind = ${modifier},left,movefocus,l
-#      bind = ${modifier},right,movefocus,r
-#      bind = ${modifier},up,movefocus,u
-#      bind = ${modifier},down,movefocus,d
-#      bind = ${modifier},h,movefocus,l
-#      bind = ${modifier},l,movefocus,r
-#      bind = ${modifier},k,movefocus,u
-#      bind = ${modifier},j,movefocus,d
-#      bind = ${modifier},1,workspace,1
-#      bind = ${modifier},2,workspace,2
-#      bind = ${modifier},3,workspace,3
-#      bind = ${modifier},4,workspace,4
-#      bind = ${modifier},5,workspace,5
-#      bind = ${modifier},6,workspace,6
-#      bind = ${modifier},7,workspace,7
-#      bind = ${modifier},8,workspace,8
-#      bind = ${modifier},9,workspace,9
-#      bind = ${modifier},0,workspace,10
-#      bind = ${modifier}SHIFT,SPACE,movetoworkspace,special
-#      # bind = ${modifier},SPACE,togglespecialworkspace
-#      bind = ${modifier},S,togglespecialworkspace
-#      bind = ${modifier}SHIFT,1,movetoworkspace,1
-#      bind = ${modifier}SHIFT,2,movetoworkspace,2
-#      bind = ${modifier}SHIFT,3,movetoworkspace,3
-#      bind = ${modifier}SHIFT,4,movetoworkspace,4
-#      bind = ${modifier}SHIFT,5,movetoworkspace,5
-#      bind = ${modifier}SHIFT,6,movetoworkspace,6
-#      bind = ${modifier}SHIFT,7,movetoworkspace,7
-#      bind = ${modifier}SHIFT,8,movetoworkspace,8
-#      bind = ${modifier}SHIFT,9,movetoworkspace,9
-#      bind = ${modifier}SHIFT,0,movetoworkspace,10
-#      bind = ${modifier}CONTROL,right,workspace,e+1
-#      bind = ${modifier}CONTROL,left,workspace,e-1
-#      bind = ${modifier},mouse_down,workspace, e+1
-#      bind = ${modifier},mouse_up,workspace, e-1
-#      bindm = ${modifier},mouse:272,movewindow
-#      bindm = ${modifier},mouse:273,resizewindow
-#      bind = ALT,Tab,cyclenext
-#      bind = ALT,Tab,bringactivetotop
-#      bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-#      bind = ,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-#      binde = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-#      bind = ,XF86AudioPlay, exec, playerctl play-pause
-#      bind = ,XF86AudioPause, exec, playerctl play-pause
-#      bind = ,XF86AudioNext, exec, playerctl next
-#      bind = ,XF86AudioPrev, exec, playerctl previous
-#      bind = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
-#      bind = ,XF86MonBrightnessUp,exec,brightnessctl set +5%
+      bind = ${mainMod}, Q, killactive,
+      bind = ${mainMod}, W, exec, brave
+      bind = ${mainMod}, RETURN, exec, ${terminal}
+      bind = ${mainMod}, SPACE, exec, ${appLauncher}-launcher
+      bind = ${mainMod} , y, exec, ${terminal} -e yazi
+      bind = ${mainMod} , V, exec, ${terminal} -e nvim
+      bind = ${mainMod} , C, exec, copyq toggle
+      bind = ${mainMod} , M, exec, betterbird
+      bind = ${mainMod} , N, exec, anytype
+      bind = ${mainMod} SHIFT, F, togglefloating,
+      bind = ${mainMod}, F, fullscreen,
+      bind = ${mainMod}, X, exec, swaylock
 
-$mainMod = SUPER
+      bind = , XF86MonBrightnessUp, exec, changebrightness up
+      bind = , XF86MonBrightnessDown, exec, changebrightness down
+      bind = , XF86AudioPrev, exec, playerctl prev
+      bind = , XF86AudioNext, exec, playerctl next
+      bind = , XF86AudioPlay, exec, playerctl play-pause
+      bind = , XF86AudioRaiseVolume, exec, changevolume up
+      bind = , XF86AudioLowerVolume, exec, changevolume down
+      bind = , XF86AudioMute, exec, changevolume mute
 
-bind = $mainMod, Q, killactive,
-bind = $mainMod, W, exec, brave
-bind = $mainMod, RETURN, exec, ${terminal}
-bind = $mainMod, SPACE, exec, ${appLauncher}-launcher
-#bind = $mainMod, SPACE, exec, rofi -show drun
-# bind = $mainMod, B, exec, $TERMINAL -e newsboat
-bind = $mainMod , y, exec, ${terminal} -e yazi
-bind = $mainMod , V, exec, ${terminal} -e nvim
-bind = $mainMod , M, exec, betterbird
-# bind = $mainMod , N, exec, anytype
-bind = $mainMod SHIFT, F, togglefloating,
-bind = $mainMod, F, fullscreen,
-# bind = $mainMod SHIFT, ESCAPE, exit,
+      # Screenshots
+      bind = ${mainMod} SHIFT, S, exec, screenshootin
 
-bind = $mainMod, X, exec, swaylock
-# bind = $mainMod, ESCAPE, exec, pkill waybar; waybar & disown
+      # Move focus with mainMod + arrow keys
+      bind = ${mainMod}, h, movefocus, l
+      bind = ${mainMod}, l, movefocus, r
+      bind = ${mainMod}, k, movefocus, u
+      bind = ${mainMod}, j, movefocus, d
+      bind = ${mainMod}, left, movefocus, l
+      bind = ${mainMod}, down, movefocus, d
+      bind = ${mainMod}, up, movefocus, u
+      bind = ${mainMod}, right, movefocus, r
 
-bind = , XF86MonBrightnessUp, exec, changebrightness up
-bind = , XF86MonBrightnessDown, exec, changebrightness down
-bind = , XF86AudioPrev, exec, playerctl prev
-bind = , XF86AudioNext, exec, playerctl next
-bind = , XF86AudioPlay, exec, playerctl play-pause
-bind = , XF86AudioRaiseVolume, exec, changevolume up
-bind = , XF86AudioLowerVolume, exec, changevolume down
-bind = , XF86AudioMute, exec, changevolume mute
+      # Switch workspaces with mainMod + [0-9]
+      bind = ${mainMod}, 1, workspace, 1
+      bind = ${mainMod}, 2, workspace, 2
+      bind = ${mainMod}, 3, workspace, 3
+      bind = ${mainMod}, 4, workspace, 4
+      bind = ${mainMod}, 5, workspace, 5
+      bind = ${mainMod}, 6, workspace, 6
+      bind = ${mainMod}, 7, workspace, 7
+      bind = ${mainMod}, 8, workspace, 8
+      bind = ${mainMod}, 9, workspace, 9
+      bind = ${mainMod}, 0, workspace, 10
+      bind = ${mainMod}, F1, workspace, 11
+      bind = ${mainMod}, F2, workspace, 12
+      bind = ${mainMod}, F3, workspace, 13
+      bind = ${mainMod}, F4, workspace, 14
+      bind = ${mainMod}, F5, workspace, 15
+      bind = ${mainMod}, F6, workspace, 16
+      bind = ${mainMod}, F7, workspace, 17
+      bind = ${mainMod}, F8, workspace, 18
+      bind = ${mainMod}, F9, workspace, 19
+      bind = ${mainMod}, F0, workspace, 20
 
-# Screenshots
-bind = $mainMod SHIFT, S, exec, screenshootin
-# bind = , Print, exec, screenshot-wayland
-# bind = SHIFT, Print, exec, screenshot-wayland select
+      # Switch between most recent workspace
+      bind = ${mainMod}, TAB, workspace, previous
 
-# Move focus with mainMod + arrow keys
-bind = $mainMod, h, movefocus, l
-bind = $mainMod, l, movefocus, r
-bind = $mainMod, k, movefocus, u
-bind = $mainMod, j, movefocus, d
-bind = $mainMod, left, movefocus, l
-bind = $mainMod, down, movefocus, d
-bind = $mainMod, up, movefocus, u
-bind = $mainMod, right, movefocus, r
+      # Move active window to a workspace with mainMod + SHIFT + [0-9]
+      bind = ${mainMod} SHIFT, 1, movetoworkspace, 1
+      bind = ${mainMod} SHIFT, 2, movetoworkspace, 2
+      bind = ${mainMod} SHIFT, 3, movetoworkspace, 3
+      bind = ${mainMod} SHIFT, 4, movetoworkspace, 4
+      bind = ${mainMod} SHIFT, 5, movetoworkspace, 5
+      bind = ${mainMod} SHIFT, 6, movetoworkspace, 6
+      bind = ${mainMod} SHIFT, 7, movetoworkspace, 7
+      bind = ${mainMod} SHIFT, 8, movetoworkspace, 8
+      bind = ${mainMod} SHIFT, 9, movetoworkspace, 9
+      bind = ${mainMod} SHIFT, 0, movetoworkspace, 10
+      bind = ${mainMod}+SHIFT, F1, movetoworkspace, 11
+      bind = ${mainMod}+SHIFT, F2, movetoworkspace, 12
+      bind = ${mainMod}+SHIFT, F3, movetoworkspace, 13
+      bind = ${mainMod}+SHIFT, F4, movetoworkspace, 14
+      bind = ${mainMod}+SHIFT, F5, movetoworkspace, 15
+      bind = ${mainMod}+SHIFT, F6, movetoworkspace, 16
+      bind = ${mainMod}+SHIFT, F7, movetoworkspace, 17
+      bind = ${mainMod}+SHIFT, F8, movetoworkspace, 18
+      bind = ${mainMod}+SHIFT, F9, movetoworkspace, 19
+      bind = ${mainMod}+SHIFT, F10,movetoworkspace, 20
 
-# bind = $mainMod, h, movefocus, l
-# bind = $mainMod, l, movefocus, r
-# bind = $mainMod, k, movefocus, u
-# bind = $mainMod, j, movefocus, d
+      # Scroll through existing workspaces with mainMod + scroll
+      bind = ${mainMod}, mouse_down, workspace, e+1
+      bind = ${mainMod}, mouse_up, workspace, e-1
 
-# Switch workspaces with mainMod + [0-9]
-bind = $mainMod, 1, workspace, 1
-bind = $mainMod, 2, workspace, 2
-bind = $mainMod, 3, workspace, 3
-bind = $mainMod, 4, workspace, 4
-bind = $mainMod, 5, workspace, 5
-bind = $mainMod, 6, workspace, 6
-bind = $mainMod, 7, workspace, 7
-bind = $mainMod, 8, workspace, 8
-bind = $mainMod, 9, workspace, 9
-bind = $mainMod, 0, workspace, 10
-bind = $mainMod, F1, workspace, 11
-bind = $mainMod, F2, workspace, 12
-bind = $mainMod, F3, workspace, 13
-bind = $mainMod, F4, workspace, 14
-bind = $mainMod, F5, workspace, 15
-bind = $mainMod, F6, workspace, 16
-bind = $mainMod, F7, workspace, 17
-bind = $mainMod, F8, workspace, 18
-bind = $mainMod, F9, workspace, 19
-bind = $mainMod, F0, workspace, 20
-
-# Switch between most recent workspace
-bind = $mainMod, TAB, workspace, previous
-
-# Move active window to a workspace with mainMod + SHIFT + [0-9]
-bind = $mainMod SHIFT, 1, movetoworkspace, 1
-bind = $mainMod SHIFT, 2, movetoworkspace, 2
-bind = $mainMod SHIFT, 3, movetoworkspace, 3
-bind = $mainMod SHIFT, 4, movetoworkspace, 4
-bind = $mainMod SHIFT, 5, movetoworkspace, 5
-bind = $mainMod SHIFT, 6, movetoworkspace, 6
-bind = $mainMod SHIFT, 7, movetoworkspace, 7
-bind = $mainMod SHIFT, 8, movetoworkspace, 8
-bind = $mainMod SHIFT, 9, movetoworkspace, 9
-bind = $mainMod SHIFT, 0, movetoworkspace, 10
-bind = $mainMod+SHIFT, F1, movetoworkspace, 11
-bind = $mainMod+SHIFT, F2, movetoworkspace, 12
-bind = $mainMod+SHIFT, F3, movetoworkspace, 13
-bind = $mainMod+SHIFT, F4, movetoworkspace, 14
-bind = $mainMod+SHIFT, F5, movetoworkspace, 15
-bind = $mainMod+SHIFT, F6, movetoworkspace, 16
-bind = $mainMod+SHIFT, F7, movetoworkspace, 17
-bind = $mainMod+SHIFT, F8, movetoworkspace, 18
-bind = $mainMod+SHIFT, F9, movetoworkspace, 19
-bind = $mainMod+SHIFT, F10,movetoworkspace, 20
-
-# Scroll through existing workspaces with mainMod + scroll
-bind = $mainMod, mouse_down, workspace, e+1
-bind = $mainMod, mouse_up, workspace, e-1
-
-# Move/resize windows with mainMod + LMB/RMB and dragging
-bindm = $mainMod, mouse:272, movewindow
-bindm = $mainMod, mouse:273, resizewindow
-
-# bindm = $mainMod, mouse:272, movewindow
-
-
-    '' ];
+      # Move/resize windows with mainMod + LMB/RMB and dragging
+      bindm = ${mainMod}, mouse:272, movewindow
+      bindm = ${mainMod}, mouse:273, resizewindow
+  '' ];
   };
 }

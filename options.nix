@@ -31,7 +31,7 @@ in {
   terminal = "alacritty"; # This sets the terminal that is used by the hyprland terminal keybinding
 
   # System Settings
-  clock24h = false;
+  clock24h = true;
   theLocale = "zh_CN.UTF-8";
   theKBDLayout = "us";
   theSecondKBDLayout = "";
@@ -39,9 +39,9 @@ in {
   theLCVariables = "zh_CN.UTF-8";
   theTimezone = "Asia/Shanghai";
   theShell = "nushell"; # Possible options: bash, zsh, nushell
+  appLauncher = "anyrun"; # Possible options: rofi, anyrun
   theKernel = "xanmod"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "wayland"; # Either x11 or wayland ONLY. Games might require x11 set here
-  appLauncher = "anyrun"; # Possible options: rofi anyrun
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
   cpuType = "intel";
@@ -80,8 +80,11 @@ in {
   wezterm = false;
   alacritty = true;
   kitty = false;
+  
+  # Enable Editor
+  vscodium = false;
+  nvim = false;
 
-  vscodium = true;
   # Enable Python & PyCharm
   python = false;
   

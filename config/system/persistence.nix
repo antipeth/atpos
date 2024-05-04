@@ -22,6 +22,7 @@ in
 	"Music"
 	"Documents"
 	"Pictures"
+	"Pictures/Screenshots"
 	"Videos"
 	".local/share/sddm"
 	# ".mozilla"
@@ -31,9 +32,10 @@ in
 	#  ".config/discord"
 	# ".config/obs-studio"
 	# ".steam"
-  #     ];
+       ];
   #     files = [
   #     ];
   #   };
   };
-}
+};
+} 

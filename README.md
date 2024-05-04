@@ -1,32 +1,19 @@
-<div align="center">
+# ❄️AntipethOS❄️ 
+==========
 
-## AntipethOS 🟰 My ❄️ NixOS Configs
+![ci-badge](https://img.shields.io/static/v1?label=Built%20with&message=NixOS&color=blue&logo=nixos&link=https://nixos.org&labelColor=111212)
 
-AntipethOS is a folk from [https://gitlab.com/Zaney/zaneyos](https://gitlab.com/Zaney/zaneyos) . This includes my wallpaper, scripts, applications, config files, and more.
+![Antipethos1](https://github.com/antipeth/antipethos/blob/main/config/home/files/demo/desktop.png)
+![Antipethos2](https://github.com/antipeth/antipethos/blob/main/config/home/files/demo/apps.png)
 
-<img align="center" width="80%" src="https://github.com/antipeth/antipethos/blob/main/config/home/files/demo/desktop.png" />
-
-<img align="center" width="80%" src="https://github.com/antipeth/antipethos/blob/main/config/home/files/demo/apps.png" />
-
-
-</div>
-
-#### 🍖 Requirements
+##  How to Require 🧊
 - You must be running on NixOS.
 - Must have installed using GPT & UEFI.
-- Change settings by manually editing options.nix file.
+- Please manually edit options.nix file.
 
+##  How to Install 👊
 
-#### 📦 How To Install Packages?
-- You can search the [Nix Packages](https://search.nixos.org/packages?) & [Options](https://search.nixos.org/options?) pages for what a package may be named or if it has options available that take care of configuration hurdles you may face.
-- To add a package there are the packages.nix files located in config/system and config/home folders. One is for programs available system wide and the other for your users environment only.
-
-### ⬇️ Install
-
-
-#### 🦽 Manual:
-
-Run this command to ensure Git & Vim are installed:
+Run this command to ensure Git & Vim are installed (Because flake need git!!!):
 
 ```
 nix-shell -p git vim
@@ -35,13 +22,11 @@ nix-shell -p git vim
 Clone this repo & enter it:
 
 ```
-git clone https://github.com/antipethos/antipethos.git
-cd zaneyos
+git clone https://github.com/antipeth/antipethos.git
+cd antipethos
 ```
 
-- *You should stay in this folder for the rest of the install*
-
-**🪧🪧🪧 Edit options.nix 🪧🪧🪧**
+Edit options.nix
 
 Generate your hardware.nix like so:
 
@@ -56,14 +41,6 @@ NIX_CONFIG="experimental-features = nix-command flakes"
 sudo nixos-rebuild switch --flake .#hostname
 ```
 
-This Flake's user will have the password be set for them as *password*. If you want to change it run a command replacing password with whatever you want to be your password. You then need to copy the output that it gives you like below into your hashedPassword in the system.nix file.
+Make you ❄️  🥶!
 
-```
-  mkpasswd -m sha-512 password
-
-$6$YdPBODxytqUWXCYL$AHW1U9C6Qqkf6PZJI54jxFcPVm2sm/XWq3Z1qa94PFYz0FF.za9gl5WZL/z/g4nFLQ94SSEzMg5GMzMjJ6Vd7.
-```
-
-Now when you want to rebuild the configuration you have access to an alias called flake-rebuild that will rebuild the flake based of the flakeDir variable you set in options.nix!
-
-Hope you enjoy!
+![notbyai](https://notbyai.fyi/img/written-by-human-not-by-ai-white.svg)

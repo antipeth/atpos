@@ -24,11 +24,11 @@
   };
   hardware.pulseaudio.enable = false;
   sound.enable = true;
-  security.rtkit.enable = false;
+  security.rtkit.enable = true;
   programs.thunar.enable = false;
   services.gvfs.enable = false;
   services.tumbler.enable = false;
-  services.gnome.gnome-keyring.enable=false;
+  services.gnome.gnome-keyring.enable=true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;

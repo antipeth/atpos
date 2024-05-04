@@ -24,6 +24,7 @@
     ./fcitx5.nix
     ./nushell.nix
     ./anyrun.nix
+    ./password-store.nix
   ];
 
 }

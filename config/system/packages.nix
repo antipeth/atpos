@@ -13,7 +13,7 @@
     noto-fonts-color-emoji material-icons brightnessctl yazi
     toybox  swappy ripgrep appimage-run neovim zellij helix
     networkmanagerapplet yad playerctl nh fzf
-    tlp nodejs
+    tlp nodejs libvirt
     # hugo go nodejs virt-viewer libvirt  
   ];
 
@@ -29,11 +29,12 @@
     fuse.userAllowOther = true;
     mtr.enable = true;
     gnupg.agent = {
-      enable = false;
-      enableSSHSupport = false;
+      enable = true;
+      enableSSHSupport = true;
+      # pinentryPackage = pkgs.pinentry-qt;
     };
-    virt-manager.enable = false;
+    virt-manager.enable = true;
   };
 
-  virtualisation.libvirtd.enable = false;
+  virtualisation.libvirtd.enable = true;
 }

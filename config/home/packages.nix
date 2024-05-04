@@ -13,8 +13,8 @@ in {
     betterbird brave   # lldb rust-analyzer 
     anytype bitwarden
     telegram-desktop element-desktop libreoffice keepassxc yarn ungoogled-chromium
-    ghostwriter atuin just gitui gopass wayshot satty copyq
-
+    ghostwriter atuin just gitui wayshot satty copyq
+    zed-editor virtualboxKvm discord gopass
     # rustc cargo clang-tools clang jdk17 python3 go grim 
 
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!

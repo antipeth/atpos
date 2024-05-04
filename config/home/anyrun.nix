@@ -9,15 +9,14 @@ in lib.mkIf (appLauncher == "anyrun") {
     config = {
       plugins = with inputs.anyrun.packages.${pkgs.system}; [
         applications
-      # randr
-      #  rink
+        # randr
+        #  rink
         shell
         symbols
-      #  translate
+        #  translate
       ];
 
       width.fraction = 0.3;
-      #y.absolute = 115;
       x.fraction = 0.5;
       y.fraction = 0.3;
       hidePluginInfo = true;
