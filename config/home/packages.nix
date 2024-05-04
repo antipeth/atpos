@@ -6,16 +6,16 @@ let
 in {
   # Install Packages For The User
   home.packages = with pkgs; [
-    pkgs."${browser}" libvirt swww grim slurp kitty 
+    pkgs."${browser}" libvirt swww slurp kitty 
     swaynotificationcenter rofi-wayland imv transmission-gtk 
-    pavucontrol tree devbox
+    pavucontrol tree 
     font-awesome swayidle swaylock firefox-devedition 
-    betterbird-unwrapped brave   # lldb rust-analyzer 
-    anytype bitwarden  bun deno discord
+    betterbird brave   # lldb rust-analyzer 
+    anytype bitwarden
     telegram-desktop element-desktop libreoffice keepassxc yarn ungoogled-chromium
-    libsForQt5.ghostwriter atuin just
+    ghostwriter atuin just gitui gopass wayshot satty copyq
 
-    # rustc cargo clang-tools clang jdk17 python3 go
+    # rustc cargo clang-tools clang jdk17 python3 go grim 
 
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
@@ -57,22 +57,11 @@ in {
     (import ./../scripts/rofi-launcher.nix { inherit pkgs; })
     (import ./../scripts/anyrun-launcher.nix { inherit pkgs; })
 
-    (import ./../scripts/screenshootin.nix { inherit pkgs; })
+    #(import ./../scripts/screenshootin.nix { inherit pkgs; })
+    (import ./../scripts/NewScreenshootin.nix { inherit pkgs; })
     # (import ./../scripts/list-hypr-bindings.nix { inherit pkgs; })
   ];
 
   programs.gh.enable = false;
-  programs.vscode = {
-    enable = false;
-    package = pkgs.vscodium.fhs;
-    extensions = with pkgs.vscode-extensions; [
-     #  ms-ceintl.vscode-language-pack-zh-hans
-       formulahendry.code-runner
-       ms-vscode.cpptools
-     #  vadimcn.vscode-lldb
-       vscodevim.vim
-     #  rust-lang.rust-analyzer
 
-     ];
-  };
 }

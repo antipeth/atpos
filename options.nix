@@ -81,6 +81,7 @@ in {
   alacritty = true;
   kitty = false;
 
+  vscodium = true;
   # Enable Python & PyCharm
   python = false;
   
