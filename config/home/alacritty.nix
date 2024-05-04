@@ -27,7 +27,7 @@ in lib.mkIf (alacritty == true) {
 	bold.family = "JetBrainsMono NFM";
 	italic.family = "JetBrainsMono NFM";
 	bold_italic.family = "JetBrainsMono NFM";
-	size = 14;
+	size = 24;
       };
       colors = {
 	bright = {

@@ -22,6 +22,7 @@
     # Place Home Files Like Pictures
     ./files.nix
     ./fcitx5.nix
+    ./nushell.nix
   ];
 
 }

@@ -28,7 +28,7 @@ in {
   flakeDir = "${flakeDir}";
   flakePrev = "${userHome}/.antipethos-previous";
   flakeBackup = "${userHome}/.antipethos-backup";
-  terminal = "kitty"; # This sets the terminal that is used by the hyprland terminal keybinding
+  terminal = "alacritty"; # This sets the terminal that is used by the hyprland terminal keybinding
 
   # System Settings
   clock24h = false;
@@ -38,7 +38,7 @@ in {
   theKBDVariant = "";
   theLCVariables = "zh_CN.UTF-8";
   theTimezone = "Asia/Shanghai";
-  theShell = "zsh"; # Possible options: bash, zsh
+  theShell = "nushell"; # Possible options: bash, zsh, nushell
   theKernel = "xanmod"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "wayland"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
@@ -77,8 +77,8 @@ in {
   # Enable Terminals
   # If You Disable All You Get Kitty
   wezterm = false;
-  alacritty = false;
-  kitty = true;
+  alacritty = true;
+  kitty = false;
 
   # Enable Python & PyCharm
   python = false;
