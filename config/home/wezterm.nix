@@ -5,7 +5,7 @@ let
   inherit (import ../../options.nix) wezterm;
 in lib.mkIf (wezterm == true) {
   home.packages = with pkgs; [
-    pkgs.wezterm
+    wezterm
   ];
 
   home.file.".config/wezterm/wezterm.lua".text = ''

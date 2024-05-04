@@ -32,13 +32,6 @@ in lib.mkIf (appLauncher == "anyrun") {
       @define-color fg-col #${palette.base05};
       @define-color fg-col2 #${palette.base01};
 
-      /*@define-color bg-col  rgba(30, 30, 46, 0.7);
-      @define-color bg-col-light rgba(150, 220, 235, 0.7);
-      @define-color border-col rgba(30, 30, 46, 0.7);
-      @define-color selected-col rgba(150, 205, 251, 0.7);
-      @define-color fg-col #D9E0EE;
-      @define-color fg-col2 #F28FAD;*/
-
       * {
         transition: 200ms ease;
         font-family: "JetBrainsMono Nerd Font";

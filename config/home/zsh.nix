@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ lib, ... }:
 
 let inherit (import ../../options.nix) flakeDir theShell hostname; in
 lib.mkIf (theShell == "zsh") {
@@ -40,16 +40,16 @@ lib.mkIf (theShell == "zsh") {
       autoload -Uz compinit
       compinit
 
-function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
+      function yy() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+          cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+      }
 
-eval "$(atuin init zsh)"
+      eval "$(atuin init zsh)"
     '';
     sessionVariables = {
 

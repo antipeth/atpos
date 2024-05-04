@@ -6,13 +6,12 @@ in lib.mkIf (vscodium == true) {
     enable = false;
     package = pkgs.vscodium.fhs;
     extensions = with pkgs.vscode-extensions; [
-     #  ms-ceintl.vscode-language-pack-zh-hans
+       # ms-ceintl.vscode-language-pack-zh-hans
        formulahendry.code-runner
-       ms-vscode.cpptools
-     #  vadimcn.vscode-lldb
+       # ms-vscode.cpptools
+       vadimcn.vscode-lldb
        vscodevim.vim
-     #  rust-lang.rust-analyzer
-
+       rust-lang.rust-analyzer
      ];
   };
 }

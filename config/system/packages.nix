@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   # Allow unfree packages
@@ -6,16 +6,12 @@
 
   # List System Programs
   environment.systemPackages = with pkgs; [
-    wget curl git cmatrix lolcat neofetch htop btop 
-    polkit_gnome lm_sensors unzip unrar libnotify eza
-    v4l-utils ydotool wl-clipboard socat cowsay lsd lshw
-    pkg-config meson gnumake ninja symbola
-    noto-fonts-color-emoji material-icons brightnessctl yazi
-    toybox  swappy ripgrep appimage-run neovim zellij helix
-    networkmanagerapplet yad playerctl nh fzf
-    tlp nodejs libvirt
-    # hugo go nodejs virt-viewer libvirt  
-  ];
+    appimage-run brightnessctl btop cmatrix cowsay curl eza fzf git gnumake helix htop
+    libnotify libvirt lm_sensors lolcat lsd lshw material-icons meson neofetch neovim
+    networkmanagerapplet nh ninja nodejs noto-fonts-color-emoji pkg-config playerctl
+    polkit_gnome ripgrep socat symbola tlp toybox unrar unzip v4l-utils virt-viewer wget
+    wl-clipboard yad yazi ydotool zellij
+    ];
 
   programs = {
     # steam.gamescopeSession.enable = true;
@@ -31,7 +27,6 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      # pinentryPackage = pkgs.pinentry-qt;
     };
     virt-manager.enable = true;
   };

@@ -12,20 +12,12 @@ in with lib; {
       layer = "top";
       position = "top";
 
-#      modules-center = if simplebar == true then [ "hyprland/window" ]
-#      else [ "custom/hyprbindings" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" ];
-#      modules-left = if simplebar == true then ["custom/startmenu" "hyprland/workspaces" "cpu" "memory" "custom/hyprbindings"  ]
-#      else [ "custom/startmenu" "hyprland/window" ];
-#      modules-right = if simplebar == true then [ "idle_inhibitor" "custom/themeselector" "custom/notification" "pulseaudio" "clock"  "tray" ]
-#      else [ "custom/exit" "idle_inhibitor" "custom/themeselector" "custom/notification" "battery" "tray" ];
-
       modules-center = if simplebar == true then [ "hyprland/window" ] 
       else [ "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" ];
       modules-left = if simplebar == true then ["custom/startmenu" "hyprland/workspaces" "cpu" "memory" "custom/hyprbindings"  ]
       else [ "custom/startmenu" "hyprland/window" ];
       modules-right = if simplebar == true then [ "idle_inhibitor" "custom/themeselector" "custom/notification" "pulseaudio" "clock"  "tray" ]
       else [ "custom/exit" "idle_inhibitor" "custom/themeselector" "custom/notification" "battery" "tray" ];
-
 
       "hyprland/workspaces" = {
       	format = if simplebar == true ||

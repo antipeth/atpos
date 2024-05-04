@@ -1,4 +1,4 @@
-{ pkgs, config, username, ... }:
+{ pkgs, username, ... }:
 
 let 
   inherit (import ../../options.nix) 
@@ -6,32 +6,22 @@ let
 in {
   # Install Packages For The User
   home.packages = with pkgs; [
-    pkgs."${browser}" libvirt swww slurp kitty 
-    swaynotificationcenter rofi-wayland imv transmission-gtk 
-    pavucontrol tree 
-    font-awesome swayidle swaylock firefox-devedition 
-    betterbird brave   # lldb rust-analyzer 
-    anytype bitwarden
-    telegram-desktop element-desktop libreoffice keepassxc yarn ungoogled-chromium
-    ghostwriter atuin just gitui wayshot satty copyq
-    zed-editor virtualboxKvm discord gopass
-    # rustc cargo clang-tools clang jdk17 python3 go grim 
+    pkgs."${browser}" _64gram anytype atuin betterbird bitwarden brave copyq discord 
+    firefox-devedition font-awesome ghostwriter gitui gopass imv just keepassxc
+    libreoffice pavucontrol rofi-wayland satty slurp swayidle swaylock  
+    swaynotificationcenter swww transmission-gtk tree ungoogled-chromium virtualboxKvm 
+    wayshot zed-editor 
 
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSUserEnv (base // {
       name = "fhs";
       targetPkgs = pkgs: (
-        # pkgs.buildFHSUserEnv 只提供一个最小的 FHS 环境，缺少很多常用软件所必须的基础包
-        # 所以直接使用它很可能会报错
-        #
-        # pkgs.appimageTools 提供了大多数程序常用的基础包，所以我们可以直接用它来补充
         (base.targetPkgs pkgs) ++ (with pkgs; [
           pkg-config
           ncurses
           rust-analyzer
           rustc cargo 
-          # 如果你的 FHS 程序还有其他依赖，把它们添加在这里
         ])
       );
       profile = "export FHS=1";
@@ -56,12 +46,9 @@ in {
     (import ./../scripts/web-search.nix { inherit pkgs; })
     (import ./../scripts/rofi-launcher.nix { inherit pkgs; })
     (import ./../scripts/anyrun-launcher.nix { inherit pkgs; })
-
     #(import ./../scripts/screenshootin.nix { inherit pkgs; })
     (import ./../scripts/NewScreenshootin.nix { inherit pkgs; })
     # (import ./../scripts/list-hypr-bindings.nix { inherit pkgs; })
   ];
-
   programs.gh.enable = false;
-
 }

@@ -1,4 +1,4 @@
-{ pkgs, config, lib, gpuType, ... }:
+{ config, lib, ... }:
 
 let inherit (import ../../options.nix) gpuType; in
 lib.mkIf ("${gpuType}" == "nvidia") { 

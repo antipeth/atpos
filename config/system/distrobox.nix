@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let inherit (import ../../options.nix) distrobox; in
 lib.mkIf (distrobox == true) {

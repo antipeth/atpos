@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ lib, ... }:
 
 let inherit (import ../../options.nix) flakeDir flakePrev 
 	     hostname flakeBackup theShell; in

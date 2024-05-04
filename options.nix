@@ -83,7 +83,7 @@ in {
   
   # Enable Editor
   vscodium = false;
-  nvim = false;
+  nixvim = false;
 
   # Enable Python & PyCharm
   python = false;

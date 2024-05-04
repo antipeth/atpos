@@ -1,5 +1,3 @@
-{ pkgs, config, ... }:
-
 let
   inherit (import ../../options.nix) screenshotDir;
 in {

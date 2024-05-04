@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 let inherit (import ../../options.nix) theKBDVariant
 theKBDLayout theSecondKBDLayout; in

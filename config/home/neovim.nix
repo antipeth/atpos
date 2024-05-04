@@ -1,15 +1,16 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   plugins = pkgs.vimPlugins;
   theme = config.colorScheme.palette;
-in {
+  inherit (import ../../options.nix) nixvim;
+in lib.mkIf (nixvim == true) {
   programs.nixvim = {
     enable = true;
 
     globals.mapleader = " "; # Sets the leader key to space
     
-    options = {
+    opts = {
       clipboard="unnamedplus";
       number = true;         # Show line numbers
       relativenumber = true; # Show relative line numbers
@@ -27,7 +28,7 @@ in {
     };
 
     colorschemes.base16.enable = true;
-    colorschemes.base16.customColorScheme = {
+    colorschemes.base16.colorscheme = {
       base00 = "#${theme.base00}";
       base01 = "#${theme.base01}";
       base02 = "#${theme.base02}";
@@ -60,7 +61,7 @@ in {
       nvim-colorizer.enable = true;
       nvim-autopairs.enable = true;
       nix.enable = true;
-      comment-nvim.enable = true;
+      comment.enable = true;
       lualine = {
         enable = true;
       };
@@ -95,22 +96,6 @@ in {
       treesitter = {
 	enable = true;
 	nixGrammars = true;
-      };
-      nvim-cmp = {
-	enable = true;
-	autoEnableSources = true;
-	sources = [
-	  { name = "nvim_lsp"; }
-	  { name = "path"; }
-	  { name = "buffer"; }
-	];
-	mapping = {
-	  "<CR>" = "cmp.mapping.confirm({ select = true })";
-	  "<Tab>" = {
-	    action = ''cmp.mapping.select_next_item()'';
-	    modes = [ "i" "s" ];
-	  };
-	};
       };
     };
 
@@ -150,7 +135,7 @@ in {
       }
 
       require('lualine').setup {
-        options = {
+        opts = {
           theme = bubbles_theme,
           component_separators = '|',
           section_separators = { left = '', right = '' },

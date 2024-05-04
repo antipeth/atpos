@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ lib, ... }:
 
 let inherit (import ../../options.nix) nfs nfsMountPoint nfsDevice; in
 lib.mkIf (nfs == true) {
