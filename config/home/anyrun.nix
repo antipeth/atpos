@@ -9,7 +9,7 @@
         applications
       # randr
       #  rink
-      # shell
+        shell
       # symbols
       #  translate
       ];

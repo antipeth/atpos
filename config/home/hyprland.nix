@@ -26,7 +26,6 @@ in with lib; {
       monitor=eDP-2,2560x1440@165,auto,1,mirror,HDMI-A-1
 
       #monitor=eDP-2,2560x1440@165,0x0,1
-
       #monitor=HDMI-A-1,3840x2160@60,3840x0 ,1
       #monitor=,preferred,auto,1
       # windowrule = float, ^(steam)$

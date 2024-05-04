@@ -23,6 +23,7 @@
     ./files.nix
     ./fcitx5.nix
     ./nushell.nix
+    ./anyrun.nix
   ];
 
 }

@@ -18,7 +18,6 @@
     };
     hy3 = {
       url = "github:outfoxxed/hy3?ref=hl0.39.1"; # where {version} is the hyprland release version
-
       # url = "github:outfoxxed/hy3?ref=hl{version}"; # where {version} is the hyprland release version
       # or "github:outfoxxed/hy3" to follow the development branch.
       # (you may encounter issues if you dont do the same for hyprland)
@@ -29,6 +28,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence.url = "github:nix-community/impermanence";
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ nixpkgs, home-manager, impermanence, ...}:

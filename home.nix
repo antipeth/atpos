@@ -16,6 +16,7 @@ in {
     inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
     inputs.hyprland.homeManagerModules.default
+    inputs.anyrun.homeManagerModules.default
     ./config/home
   ];
 
