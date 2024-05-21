@@ -1,17 +1,17 @@
 { pkgs, username, ... }:
 
 let 
-  inherit (import ../../options.nix) 
-    browser wallpaperDir wallpaperGit flakeDir;
+  inherit (import ../../options.nix) wallpaperDir wallpaperGit flakeDir;
 in {
   # Install Packages For The User
   home.packages = with pkgs; [
-    pkgs."${browser}" _64gram anytype atuin betterbird bitwarden brave copyq discord 
-    firefox-devedition font-awesome ghostwriter gitui gopass imv just keepassxc
-    libreoffice pavucontrol rofi-wayland satty slurp swayidle swaylock  
+    _64gram anytype atuin betterbird bitwarden copyq discord devbox firefox-devedition
+    floorp font-awesome ghostwriter gitui gopass imv just keepassxc
+    librewolf libreoffice pavucontrol rofi-wayland slurp swayidle swaylock  
     swaynotificationcenter swww transmission-gtk tree ungoogled-chromium virtualboxKvm 
-    wayshot zed-editor 
-
+    zed-editor 
+grim swappy #satty wayshot
+rustc rust-analyzer cargo
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSUserEnv (base // {
@@ -25,7 +25,7 @@ in {
         ])
       );
       profile = "export FHS=1";
-      runScript = "zsh";
+      runScript = "nu";
       extraOutputsToInstall = ["dev"];
     }))
 
@@ -46,8 +46,8 @@ in {
     (import ./../scripts/web-search.nix { inherit pkgs; })
     (import ./../scripts/rofi-launcher.nix { inherit pkgs; })
     (import ./../scripts/anyrun-launcher.nix { inherit pkgs; })
-    #(import ./../scripts/screenshootin.nix { inherit pkgs; })
-    (import ./../scripts/NewScreenshootin.nix { inherit pkgs; })
+    (import ./../scripts/screenshootin.nix { inherit pkgs; })
+    #(import ./../scripts/NewScreenshootin.nix { inherit pkgs; })
     # (import ./../scripts/list-hypr-bindings.nix { inherit pkgs; })
   ];
   programs.gh.enable = false;

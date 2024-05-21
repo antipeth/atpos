@@ -20,7 +20,6 @@ in {
   slickbar-num = if waybarStyle == "slickbar-num" then true else false;
   simplebar = if waybarStyle == "simplebar" then true else false;
   borderAnim = true;
-  browser = "librewolf";
   wallpaperGit = "https://github.com/antipeth/mywallpaper.git"; # This will give you my wallpapers
   # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
@@ -80,11 +79,21 @@ in {
   wezterm = false;
   alacritty = true;
   kitty = false;
-  
+ 
+
+  # Enable Chrome Browser
+  brave = true;
+  ungoogle-chromium = true;
+
   # Enable Editor
   vscodium = false;
   nixvim = false;
 
+  tool=true;
+
+  # Enable WM&DM
+  gnome=true;
+ 
   # Enable Python & PyCharm
   python = false;
   
