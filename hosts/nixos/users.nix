@@ -31,6 +31,8 @@ in
         just
         joplin-desktop
         gcc
+        peazip
+        syncthingtray
       ];
     };
     # "newuser" = {
