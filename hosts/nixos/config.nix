@@ -325,7 +325,7 @@ in
       noto-fonts-emoji
       noto-fonts-cjk
       font-awesome
-      symbola
+      # symbola
       material-icons
     ];
   };
