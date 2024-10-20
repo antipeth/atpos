@@ -102,13 +102,13 @@ in
 
   # Extra Module Options
   drivers.amdgpu.enable = false;
-  drivers.nvidia.enable = true;
+  drivers.nvidia.enable = false;
   drivers.nvidia-prime = {
     enable = false;
     intelBusID = "";
     nvidiaBusID = "";
   };
-  drivers.intel.enable = false;
+  drivers.intel.enable = true;
   vm.guest-services.enable = false;
   local.hardware-clock.enable = false;
 
@@ -261,8 +261,17 @@ in
     git
     cmatrix
     lolcat
-    htop 
+    htop
     (brave.override {
+      commandLineArgs = [
+        "--ozone-platform-hint=auto"
+        "--ozone-platform=wayland"
+        "--gtk-version=4"
+        "--enable-wayland-ime"
+        "--password-store=basic"
+      ];
+    })
+    (ungoogled-chromium.override {
       commandLineArgs = [
         "--ozone-platform-hint=auto"
         "--ozone-platform=wayland"

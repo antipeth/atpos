@@ -33,6 +33,13 @@ in
         gcc
         peazip
         syncthingtray
+        zellij
+        ladybird
+        floorp
+        vesktop
+        firefox-devedition-bin-unwrapped
+        libreoffice
+        nemo
       ];
     };
     # "newuser" = {
