@@ -6,7 +6,7 @@
 ##  How to Require 🧊
 - You must be running on NixOS.
 - Must have installed using GPT & UEFI.
-- Please manually edit options.nix file.
+- Please manually edit your config files.
 
 ##  How to Install 👊
 
@@ -28,8 +28,11 @@ copy the example and create your machine config, please replace YourHostname wit
 ```
 cp -r hosts/default hosts/YourHostname
 ```
+configurate your config files in YourHostname dir
 
-Generate your hardware.nix like so:
+change the `host` in `flake.nix` to your `YourHostname`
+
+Generate your `hardware.nix` like so:
 
 ```
 nixos-generate-config --show-hardware-config > hosts/YourHostname/hardware.nix
