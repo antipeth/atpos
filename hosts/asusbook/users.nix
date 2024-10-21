@@ -34,7 +34,6 @@ in
         peazip
         syncthingtray
         zellij
-        ladybird
         floorp
         vesktop
         firefox-devedition-bin-unwrapped
