@@ -228,7 +228,7 @@ in
       enable = true;
       enableSSHSupport = true;
     };
-    virt-manager.enable = true;
+    virt-manager.enable = false;
     steam = {
       enable = false;
       gamescopeSession.enable = false;
@@ -421,6 +421,7 @@ in
     };
     rpcbind.enable = false;
     nfs.server.enable = false;
+    cockpit.enable = true;
   };
   systemd.services.flatpak-repo = {
     path = [ pkgs.flatpak ];

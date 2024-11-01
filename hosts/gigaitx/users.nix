@@ -39,6 +39,7 @@ in
         firefox-devedition-bin-unwrapped
         libreoffice
         nemo
+        remmina
       ];
     };
     # "newuser" = {
