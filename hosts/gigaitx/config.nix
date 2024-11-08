@@ -303,7 +303,7 @@ in
     hyprpicker
     ninja
     brightnessctl
-    virt-viewer
+    # virt-viewer
     swappy
     appimage-run
     networkmanagerapplet
@@ -332,7 +332,7 @@ in
   fonts = {
     packages = with pkgs; [
       noto-fonts-emoji
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       font-awesome
       # symbola
       material-icons

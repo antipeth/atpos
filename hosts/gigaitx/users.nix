@@ -40,6 +40,7 @@ in
         libreoffice
         nemo
         remmina
+        podman-desktop
       ];
     };
     # "newuser" = {

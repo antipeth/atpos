@@ -332,7 +332,7 @@ in
   fonts = {
     packages = with pkgs; [
       noto-fonts-emoji
-      noto-fonts-cjk
+      noto-fonts-cjksans
       font-awesome
       # symbola
       material-icons
@@ -421,7 +421,7 @@ in
     };
     rpcbind.enable = false;
     nfs.server.enable = false;
-    cockpit.enable = true;
+    cockpit.enable = false;
   };
   systemd.services.flatpak-repo = {
     path = [ pkgs.flatpak ];
