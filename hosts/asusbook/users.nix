@@ -26,7 +26,6 @@ in
         anytype
         neovim
         devbox
-        bitwarden
         keepassxc
         just
         joplin-desktop

@@ -38,7 +38,6 @@ in
         libreoffice
         nemo
         remmina
-        lens
         pragtical
       ];
     };

@@ -325,7 +325,7 @@ in
     pavucontrol
     tree
     # spotify
-    neovide
+    # neovide
     greetd.tuigreet
   ];
 
