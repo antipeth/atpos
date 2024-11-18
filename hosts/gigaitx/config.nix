@@ -421,7 +421,8 @@ in
     };
     rpcbind.enable = false;
     nfs.server.enable = false;
-    cockpit.enable = true;
+    cockpit.enable = false;
+    netbird.enable = true;
   };
   systemd.services.flatpak-repo = {
     path = [ pkgs.flatpak ];
@@ -471,7 +472,17 @@ in
       auth include login
     '';
   };
-
+  security.sudo.enable = true;
+  # security.doas={
+  #   enable = true;
+  #   extraRules = [
+  #     {
+  #       users = [ "atp" ];
+  #       keepEnv = true;
+  #       persist = true;
+  #     }
+  #   ];
+  # };
   # Optimization settings and garbage collection automation
   nix = {
     settings = {
@@ -493,11 +504,12 @@ in
   # Virtualization / Containers
   virtualisation.libvirtd.enable = true;
   virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
+    enable = false;
+    dockerCompat = false;
     defaultNetwork.settings.dns_enabled = true;
   };
 
+  virtualisation.docker.enable=false;
   # OpenGL
   # hardware.graphics = {
   #   enable = true;
@@ -509,7 +521,7 @@ in
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

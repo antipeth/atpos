@@ -26,21 +26,20 @@ in
         anytype
         neovim
         devbox
-        bitwarden
         keepassxc
         just
         joplin-desktop
         gcc
         peazip
-        syncthingtray
         zellij
         floorp
         vesktop
-        firefox-devedition-bin-unwrapped
+        firefox-devedition-bin
         libreoffice
         nemo
         remmina
-        podman-desktop
+        lens
+        pragtical
       ];
     };
     # "newuser" = {
