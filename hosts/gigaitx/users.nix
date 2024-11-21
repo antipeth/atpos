@@ -35,7 +35,6 @@ in
         floorp
         vesktop
         firefox-devedition-bin
-        libreoffice
         nemo
         remmina
         pragtical

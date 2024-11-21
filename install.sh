@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
-echo "Generating The Hardware Configuration"
-sudo nixos-generate-config --show-hardware-config >./hosts/nixos/hardware.nix
+if [ -z "$1" ]; then
+  echo "Usage: $0 <hostname>"
+  exit 1
+fi
 
-echo "-----"
+HOSTNAME="$1"
 
 echo "Now Going To Build AntipethOS, 🤞"
-NIX_CONFIG="experimental-features = nix-command flakes"
-sudo nixos-rebuild switch --flake .#nixos
+nixos-generate-config --show-hardware-config >hosts/"$HOSTNAME"/hardware.nix
+export NIX_CONFIG="experimental-features = nix-command flakes"
+sudo nixos-rebuild switch --flake .#"$HOSTNAME"
