@@ -18,13 +18,17 @@ in
     ../../config/emoji.nix
     ../../config/fastfetch
     ../../config/hyprland.nix
+    ../../config/kitty.nix
+    ../../config/nushell.nix
     # ../../config/neovim.nix
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix
     ../../config/rofi/config-long.nix
+    ../../config/starship.nix
     ../../config/swaync.nix
     ../../config/waybar.nix
     ../../config/wlogout.nix
+    ../../config/yazi.nix
   ];
 
   # Place Files Inside Home Directory
@@ -74,9 +78,11 @@ in
   };
 
   # Styling Options
-  stylix.targets.waybar.enable = false;
-  stylix.targets.rofi.enable = false;
-  stylix.targets.hyprland.enable = false;
+  stylix.targets =  {
+    hyprland.enable = false;
+    rofi.enable = false;
+    waybar.enable = false;
+  };
   gtk = {
     iconTheme = {
       name = "Papirus-Dark";
@@ -114,28 +120,7 @@ in
     })
   ];
 
-  services = {
-    hypridle = {
-      settings = {
-        general = {
-          after_sleep_cmd = "hyprctl dispatch dpms on";
-          ignore_dbus_inhibit = false;
-          lock_cmd = "hyprlock";
-        };
-        listener = [
-          {
-            timeout = 900;
-            on-timeout = "hyprlock";
-          }
-          {
-            timeout = 1200;
-            on-timeout = "hyprctl dispatch dpms off";
-            on-resume = "hyprctl dispatch dpms on";
-          }
-        ];
-      };
-    };
-  };
+
 
   programs = {
     gh.enable = true;
@@ -144,26 +129,6 @@ in
       settings = {
         vim_keys = true;
       };
-    };
-    kitty = {
-      enable = true;
-      package = pkgs.kitty;
-      settings = {
-        scrollback_lines = 2000;
-        wheel_scroll_min_lines = 1;
-        window_padding_width = 4;
-        confirm_os_window_close = 0;
-      };
-      extraConfig = ''
-        tab_bar_style fade
-        tab_fade 1
-        active_tab_font_style   bold
-        inactive_tab_font_style bold
-      '';
-    };
-    starship = {
-      enable = true;
-      package = pkgs.starship;
     };
     bash = {
       enable = true;
@@ -193,120 +158,53 @@ in
         ".." = "cd ..";
       };
     };
-    nushell = {
-      enable = true;
-      # The config.nu can be anywhere you want if you like to edit your Nushell with Nu
-      # configFile.source = ./.../config.nu;
-      # for editing directly to config.nu
-      extraConfig = ''
-          let carapace_completer = {|spans|
-          carapace $spans.0 nushell $spans | from json
-          }
-          $env.config = {
-            show_banner: false,
-            completions: {
-            case_sensitive: false # case-sensitive completions
-            quick: true    # set to false to prevent auto-selecting completions
-            partial: true    # set to false to prevent partial filling of the prompt
-            algorithm: "fuzzy"    # prefix or fuzzy
-            external: {
-            # set to false to prevent nushell looking into $env.PATH to find more suggestions
-              enable: true 
-            # set to lower can improve completion performance at the cost of omitting some options
-              max_results: 100 
-              completer: $carapace_completer # check 'carapace_completer' 
-            }
-          }
-        } 
-        $env.PATH = ($env.PATH | 
-        split row (char esep) |
-        prepend /home/myuser/.apps |
-        append /usr/bin/env
-        )
-        fastfetch
-        def --env yy [...args] {
-          let tmp = (mktemp -t "yazi-cwd.XXXXXX")
-          yazi ...$args --cwd-file $tmp
-          let cwd = (open $tmp)
-          if $cwd != "" and $cwd != $env.PWD {
-            cd $cwd
-          }
-          rm -fp $tmp
-        }
-      '';
-    };
-    carapace.enable = true;
-    carapace.enableNushellIntegration = true;
-    atuin.enable = true;
 
     home-manager.enable = true;
-    hyprlock = {
+
+    chromium = {
       enable = true;
-      settings = {
-        general = {
-          disable_loading_bar = true;
-          grace = 10;
-          hide_cursor = true;
-          no_fade_in = false;
-        };
-        image = [
-          {
-            path = "/home/${username}/.config/face.jpg";
-            size = 150;
-            border_size = 4;
-            border_color = "rgb(0C96F9)";
-            rounding = -1; # Negative means circle
-            position = "0, 200";
-            halign = "center";
-            valign = "center";
-          }
-        ];
-      };
+      package = pkgs.brave;
+      commandLineArgs = [
+        "--ozone-platform-hint=auto"
+        "--ozone-platform=wayland"
+        "--gtk-version=4"
+        "--enable-wayland-ime"
+        "--password-store=basic"
+      ];
+      extensions = [
+        {
+          # Dark Reader
+          id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
+        }
+        {
+          # KeePassXC-Browser
+          id = "oboonakemofpalcgghocfoadofidjkkk";
+        }
+        {
+          # kiss-translator
+          id = "bdiifdefkgmcblbcghdlonllpjhhjgof";
+        }
+        {
+          # Cookie-Editor
+          id = "hlkenndednhfkekhgcdicdfddnkalmdm";
+        }
+        {
+          # Wappalyzer - Technology profiler
+          id = "gppongmhjkpfnbhagpmjfkannfbllamg";
+        }
+        {
+          # LocalCDN
+          id = "njdfdhgcmkocbgbhcioffdbicglldapd";
+        }
+        {
+          # uBlock Origin
+          id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
+        }
+        {
+          # ClearURLs
+          id = "lckanjgmijmafbedllaakclkaicjfmnk";
+        }
+      ];
     };
-    # chromium = {
-    #   enable = true;
-    #   package = pkgs.ungoogled-chromium;
-    #   commandLineArgs = [
-    #     "--ozone-platform-hint=auto"
-    #     "--ozone-platform=wayland"
-    #     "--gtk-version=4"
-    #     "--enable-wayland-ime"
-    #     "--password-store=basic"
-    #   ];
-    #   extensions = [
-    #     {
-    #       # Dark Reader
-    #       id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
-    #     }
-    #     {
-    #       # KeePassXC-Browser
-    #       id = "oboonakemofpalcgghocfoadofidjkkk";
-    #     }
-    #     {
-    #       # kiss-translator
-    #       id = "bdiifdefkgmcblbcghdlonllpjhhjgof";
-    #     }
-    #     {
-    #       # Cookie-Editor
-    #       id = "hlkenndednhfkekhgcdicdfddnkalmdm";
-    #     }
-    #     {
-    #       # Wappalyzer - Technology profiler
-    #       id = "gppongmhjkpfnbhagpmjfkannfbllamg";
-    #     }
-    #     {
-    #       # LocalCDN
-    #       id = "njdfdhgcmkocbgbhcioffdbicglldapd";
-    #     }
-    #     {
-    #       # uBlock Origin
-    #       id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
-    #     }
-    #     {
-    #       # ClearURLs
-    #       id = "lckanjgmijmafbedllaakclkaicjfmnk";
-    #     }
-    #   ];
-    # };
   };
 }
