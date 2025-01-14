@@ -193,7 +193,7 @@ with lib;
           background: rgba(0,0,0,0);
         }
         #workspaces {
-          color: #${config.stylix.base16Scheme.base00};
+          color: #${config.stylix.base16Scheme.base05};
           background: #${config.stylix.base16Scheme.base01};
           margin: 4px 4px;
           padding: 5px 5px;
@@ -205,7 +205,7 @@ with lib;
           margin: 0px 3px;
           border-radius: 16px;
           color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
+          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base0E}, #${config.stylix.base16Scheme.base0C});
           opacity: 0.5;
           transition: ${betterTransition};
         }
@@ -215,7 +215,7 @@ with lib;
           margin: 0px 3px;
           border-radius: 16px;
           color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
+          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base0E}, #${config.stylix.base16Scheme.base0D});
           transition: ${betterTransition};
           opacity: 1.0;
           min-width: 40px;
@@ -241,13 +241,13 @@ with lib;
           margin: 4px 0px;
           margin-left: 7px;
           padding: 0px 18px;
-          background: #${config.stylix.base16Scheme.base04};
-          color: #${config.stylix.base16Scheme.base00};
+          background: linear-gradient(90deg, #${config.stylix.base16Scheme.base0E}, #${config.stylix.base16Scheme.base0C});
+          color: #${config.stylix.base16Scheme.base05};
           border-radius: 24px 10px 24px 10px;
         }
         #custom-startmenu {
-          color: #${config.stylix.base16Scheme.base0B};
-          background: #${config.stylix.base16Scheme.base02};
+          color: #${config.stylix.base16Scheme.base05};
+          background: linear-gradient(90deg, #${config.stylix.base16Scheme.base0E}, #${config.stylix.base16Scheme.base0C});
           font-size: 28px;
           margin: 0px;
           padding: 0px 30px 0px 15px;
@@ -256,8 +256,8 @@ with lib;
         #custom-hyprbindings, #network, #battery,
         #custom-notification, #tray, #custom-exit {
           font-weight: bold;
-          background: #${config.stylix.base16Scheme.base0F};
-          color: #${config.stylix.base16Scheme.base00};
+          background: linear-gradient(90deg, #${config.stylix.base16Scheme.base0E}, #${config.stylix.base16Scheme.base0C});
+          color: #${config.stylix.base16Scheme.base05};
           margin: 4px 0px;
           margin-right: 7px;
           border-radius: 10px 24px 10px 24px;

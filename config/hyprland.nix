@@ -19,6 +19,53 @@ let
 in
 with lib;
 {
+  services = {
+    hypridle = {
+      settings = {
+        general = {
+          after_sleep_cmd = "hyprctl dispatch dpms on";
+          ignore_dbus_inhibit = false;
+          lock_cmd = "hyprlock";
+          };
+        listener = [
+          {
+            timeout = 900;
+            on-timeout = "hyprlock";
+          }
+          {
+            timeout = 1200;
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume = "hyprctl dispatch dpms on";
+          }
+        ];
+      };
+    };
+  };
+
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      general = {
+        disable_loading_bar = true;
+        grace = 10;
+        hide_cursor = true;
+        no_fade_in = false;
+      };
+      image = [
+        {
+          path = "/home/${username}/.config/face.jpg";
+          size = 150;
+          border_size = 4;
+          border_color = "rgb(0C96F9)";
+          rounding = -1; # Negative means circle
+          position = "0, 200";
+          halign = "center";
+          valign = "center";
+        }
+      ];
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -51,7 +98,7 @@ with lib;
           exec-once = killall -q swaync;sleep .5 && swaync
           exec-once = nm-applet --indicator
           exec-once = lxqt-policykit-agent
-          exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/beautifulmountainscape.jpg
+          exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/blackhole.jpg
           exec-once = fcitx5
           # monitor=,preferred,auto,1
           # monitor= HDMI-A-1, 3840x2160@60,0x0,1
@@ -73,8 +120,9 @@ with lib;
             kb_options = caps:super
             follow_mouse = 1
             touchpad {
-              natural_scroll = false
+              natural_scroll = true
               disable_while_typing = true
+              scroll_factor = 0.8
             }
             sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
             accel_profile = flat
@@ -115,10 +163,6 @@ with lib;
           }
           decoration {
             rounding = 10
-            # drop_shadow = true
-            # shadow_range = 4
-            # shadow_render_power = 3
-            # col.shadow = rgba(1a1a1aee)
             blur {
                 enabled = true
                 size = 5

@@ -54,25 +54,7 @@ in
   # Styling Options
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/beautifulmountainscape.jpg;
-    # base16Scheme = {
-    #   base00 = "232136";
-    #   base01 = "2a273f";
-    #   base02 = "393552";
-    #   base03 = "6e6a86";
-    #   base04 = "908caa";
-    #   base05 = "e0def4";
-    #   base06 = "e0def4";
-    #   base07 = "56526e";
-    #   base08 = "eb6f92";
-    #   base09 = "f6c177";
-    #   base0A = "ea9a97";
-    #   base0B = "3e8fb0";
-    #   base0C = "9ccfd8";
-    #   base0D = "c4a7e7";
-    #   base0E = "f6c177";
-    #   base0F = "56526e";
-    # };
+    image = ../../config/wallpapers/blackhole.jpg;
     polarity = "dark";
     opacity.terminal = 0.8;
     cursor.package = pkgs.bibata-cursors;
@@ -80,7 +62,7 @@ in
     cursor.size = 24;
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font Mono";
       };
       sansSerif = {
@@ -113,10 +95,83 @@ in
   local.hardware-clock.enable = false;
 
   # Enable networking
-  networking.networkmanager.enable = true;
-  networking.hostName = host;
-  networking.timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
+  networking = {
+    dhcpcd.extraConfig = "nohook resolv.conf";
+    firewall.enable = false;
+    hostName = host;
+    nameservers = [
+      "127.0.0.1"
+      "::1"
+    ];
+    networkmanager = {
+      dns = "none";
+      enable = true;
+    };
+    timeServers = [
+      "nts.netnod.se"
+      "nts.time.nl"
+    ];
+  };
 
+  # Set Encrypted_DNS
+  services.stubby = {
+    enable = true;
+    settings = pkgs.stubby.passthru.settingsExample // {
+      resolution_type = "GETDNS_RESOLUTION_STUB";
+      dns_transport_list = [ "GETDNS_TRANSPORT_TLS" ];
+      tls_authentication = "GETDNS_AUTHENTICATION_REQUIRED";
+      tls_query_padding_blocksize = 256;
+      edns_client_subnet_private = 1;
+      idle_timeout = 10000;
+      listen_addresses = [
+        "127.0.0.1"
+        "0::1"
+      ];
+      round_robin_upstreams = 1;
+      upstream_recursive_servers = [
+        {
+          address_data = "185.222.222.222";
+          tls_auth_name = "dot.sb";
+          tls_pubkey_pinset = [
+            {
+              digest = "sha256";
+              value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
+            }
+          ];
+        }
+        {
+          address_data = "45.11.45.11";
+          tls_auth_name = "dot.sb";
+          tls_pubkey_pinset = [
+            {
+              digest = "sha256";
+              value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
+            }
+          ];
+        }
+        {
+          address_data = "2a09::";
+          tls_auth_name = "dot.sb";
+          tls_pubkey_pinset = [
+            {
+              digest = "sha256";
+              value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
+            }
+          ];
+        }
+        {
+          address_data = "2a11::";
+          tls_auth_name = "dot.sb";
+          tls_pubkey_pinset = [
+            {
+              digest = "sha256";
+              value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
+            }
+          ];
+        }
+      ];
+    };
+  };
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
@@ -150,76 +205,6 @@ in
   };
 
   programs = {
-    firefox.enable = false;
-    starship = {
-      enable = true;
-      settings = {
-        add_newline = false;
-        buf = {
-          symbol = " ";
-        };
-        c = {
-          symbol = " ";
-        };
-        directory = {
-          read_only = " 󰌾";
-        };
-        docker_context = {
-          symbol = " ";
-        };
-        fossil_branch = {
-          symbol = " ";
-        };
-        git_branch = {
-          symbol = " ";
-        };
-        golang = {
-          symbol = " ";
-        };
-        hg_branch = {
-          symbol = " ";
-        };
-        hostname = {
-          ssh_symbol = " ";
-        };
-        lua = {
-          symbol = " ";
-        };
-        memory_usage = {
-          symbol = "󰍛 ";
-        };
-        meson = {
-          symbol = "󰔷 ";
-        };
-        nim = {
-          symbol = "󰆥 ";
-        };
-        nix_shell = {
-          symbol = " ";
-        };
-        nodejs = {
-          symbol = " ";
-        };
-        ocaml = {
-          symbol = " ";
-        };
-        package = {
-          symbol = "󰏗 ";
-        };
-        python = {
-          symbol = " ";
-        };
-        rust = {
-          symbol = " ";
-        };
-        swift = {
-          symbol = " ";
-        };
-        zig = {
-          symbol = " ";
-        };
-      };
-    };
     dconf.enable = true;
     seahorse.enable = true;
     fuse.userAllowOther = true;
@@ -229,22 +214,6 @@ in
       enableSSHSupport = true;
     };
     virt-manager.enable = false;
-    steam = {
-      enable = false;
-      gamescopeSession.enable = false;
-      remotePlay.openFirewall = false;
-      dedicatedServer.openFirewall = false;
-    };
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-volman
-      ];
-    };
-    yazi = {
-      enable = true;
-    };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -254,32 +223,13 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    vim
     wget
     killall
     eza
     git
     cmatrix
     lolcat
-    htop
-    (brave.override {
-      commandLineArgs = [
-        "--ozone-platform-hint=auto"
-        "--ozone-platform=wayland"
-        "--gtk-version=4"
-        "--enable-wayland-ime"
-        "--password-store=basic"
-      ];
-    })
-    (ungoogled-chromium.override {
-      commandLineArgs = [
-        "--ozone-platform-hint=auto"
-        "--ozone-platform=wayland"
-        "--gtk-version=4"
-        "--enable-wayland-ime"
-        "--password-store=basic"
-      ];
-    })
+    btop
     libvirt
     lxqt.lxqt-policykit
     lm_sensors
@@ -303,7 +253,7 @@ in
     hyprpicker
     ninja
     brightnessctl
-    # virt-viewer
+    virt-viewer
     swappy
     appimage-run
     networkmanagerapplet
@@ -312,20 +262,16 @@ in
     playerctl
     nh
     nixfmt-rfc-style
-    # discord
     libvirt
     swww
     grim
     slurp
-    # file-roller
     swaynotificationcenter
     imv
     mpv
     gimp
     pavucontrol
     tree
-    # spotify
-    # neovide
     greetd.tuigreet
   ];
 
@@ -334,7 +280,6 @@ in
       noto-fonts-emoji
       noto-fonts-cjk-sans
       font-awesome
-      # symbola
       material-icons
     ];
   };
@@ -422,7 +367,6 @@ in
     rpcbind.enable = false;
     nfs.server.enable = false;
     cockpit.enable = false;
-    netbird.enable = true;
   };
   systemd.services.flatpak-repo = {
     path = [ pkgs.flatpak ];
@@ -446,7 +390,7 @@ in
   services.blueman.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   # Security / Polkit
   security.rtkit.enable = true;
@@ -472,17 +416,7 @@ in
       auth include login
     '';
   };
-  security.sudo.enable = true;
-  # security.doas={
-  #   enable = true;
-  #   extraRules = [
-  #     {
-  #       users = [ "atp" ];
-  #       keepEnv = true;
-  #       persist = true;
-  #     }
-  #   ];
-  # };
+
   # Optimization settings and garbage collection automation
   nix = {
     settings = {
@@ -502,32 +436,14 @@ in
   };
 
   # Virtualization / Containers
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.enable = false;
   virtualisation.podman = {
     enable = false;
-    dockerCompat = false;
+    dockerCompat = true;
     defaultNetwork.settings.dns_enabled = true;
   };
 
-  virtualisation.docker.enable=false;
-  # OpenGL
-  # hardware.graphics = {
-  #   enable = true;
-  # };
-
   console.keyMap = "${keyboardLayout}";
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }
