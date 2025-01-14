@@ -17,6 +17,7 @@ in
   imports = [
     ../../config/emoji.nix
     ../../config/fastfetch
+    ../../config/helix.nix
     ../../config/hyprland.nix
     ../../config/kitty.nix
     ../../config/nushell.nix
