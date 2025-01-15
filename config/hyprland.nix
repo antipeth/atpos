@@ -9,7 +9,7 @@
 }:
 
 let
-  hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
+  # hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
   inherit (import ../hosts/${host}/variables.nix)
     browser
     terminal
@@ -70,9 +70,9 @@ with lib;
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
-    # plugins = [
-    #   hyprplugins.hyprtrails
-    # ];
+    plugins = [
+      pkgs.hyprlandPlugins.hy3
+    ];
     extraConfig =
       let
         modifier = "SUPER";
@@ -109,7 +109,7 @@ with lib;
             gaps_in = 6
             gaps_out = 8
             border_size = 2
-            layout = dwindle
+            layout = hy3
             resize_on_border = true
             col.active_border = rgb(${config.stylix.base16Scheme.base08}) rgb(${config.stylix.base16Scheme.base0C}) 45deg
             col.inactive_border = rgb(${config.stylix.base16Scheme.base01})
@@ -172,8 +172,7 @@ with lib;
             }
           }
           plugin {
-            hyprtrails {
-            }
+
           }
           dwindle {
             pseudotile = true
@@ -202,22 +201,22 @@ with lib;
           bind = ${modifier},F,fullscreen,
           bind = ${modifier}SHIFT,F,togglefloating,
           bind = ${modifier}SHIFT,C,exit,
-          bind = ${modifier}SHIFT,left,movewindow,l
-          bind = ${modifier}SHIFT,right,movewindow,r
-          bind = ${modifier}SHIFT,up,movewindow,u
-          bind = ${modifier}SHIFT,down,movewindow,d
-          bind = ${modifier}SHIFT,h,movewindow,l
-          bind = ${modifier}SHIFT,l,movewindow,r
-          bind = ${modifier}SHIFT,k,movewindow,u
-          bind = ${modifier}SHIFT,j,movewindow,d
-          bind = ${modifier},left,movefocus,l
-          bind = ${modifier},right,movefocus,r
-          bind = ${modifier},up,movefocus,u
-          bind = ${modifier},down,movefocus,d
-          bind = ${modifier},h,movefocus,l
-          bind = ${modifier},l,movefocus,r
-          bind = ${modifier},k,movefocus,u
-          bind = ${modifier},j,movefocus,d
+          bind = ${modifier}SHIFT,left,hy3:movewindow,l
+          bind = ${modifier}SHIFT,right,hy3:movewindow,r
+          bind = ${modifier}SHIFT,up,hy3:movewindow,u
+          bind = ${modifier}SHIFT,down,hy3:movewindow,d
+          bind = ${modifier}SHIFT,h,hy3:movewindow,l
+          bind = ${modifier}SHIFT,l,hy3:movewindow,r
+          bind = ${modifier}SHIFT,k,hy3:movewindow,u
+          bind = ${modifier}SHIFT,j,hy3:movewindow,d
+          bind = ${modifier},left,hy3:movefocus,l
+          bind = ${modifier},right,hy3:movefocus,r
+          bind = ${modifier},up,hy3:movefocus,u
+          bind = ${modifier},down,hy3:movefocus,d
+          bind = ${modifier},h,hy3:movefocus,l
+          bind = ${modifier},l,hy3:movefocus,r
+          bind = ${modifier},k,hy3:movefocus,u
+          bind = ${modifier},j,hy3:movefocus,d
           bind = ${modifier},1,workspace,1
           bind = ${modifier},2,workspace,2
           bind = ${modifier},3,workspace,3
