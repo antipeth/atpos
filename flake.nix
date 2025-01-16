@@ -6,20 +6,14 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
-    fine-cmdline = {
-      url = "github:VonHeikemen/fine-cmdline.nvim";
-      flake = false;
+    nixvim = { 
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    # This is required for plugin support.
-    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }@inputs:
+    { nixpkgs, nixvim, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "gigaitx";
@@ -37,12 +31,14 @@
           modules = [
             ./hosts/${host}/config.nix
             inputs.stylix.nixosModules.stylix
+            inputs.nixvim.nixosModules.nixvim
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit inputs;
                 inherit host;
+                inherit nixvim;
               };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

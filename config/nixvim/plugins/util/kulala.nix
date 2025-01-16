@@ -1,0 +1,5 @@
+{
+  plugins.kulala = {
+    enable = true;
+  };
+}

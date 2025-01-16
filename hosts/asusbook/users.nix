@@ -24,7 +24,6 @@ in
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
         anytype
-        neovim
         devbox
         keepassxc
         just
@@ -37,7 +36,10 @@ in
         nemo
         remmina
         pragtical
-        libreoffice
+        vscodium-fhs
+        vscode-fhs
+        chromium
+        _64gram
         colmena
         rustc
         cargo

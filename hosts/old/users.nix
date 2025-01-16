@@ -24,7 +24,6 @@ in
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
         anytype
-        neovim
         devbox
         keepassxc
         just

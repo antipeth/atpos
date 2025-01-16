@@ -2,6 +2,7 @@
   pkgs,
   username,
   host,
+  nixvim,
   ...
 }:
 let
@@ -15,13 +16,14 @@ in
 
   # Import Program Configurations
   imports = [
+    nixvim.homeManagerModules.nixvim
     ../../config/emoji.nix
     ../../config/fastfetch
     ../../config/helix.nix
     ../../config/hyprland.nix
     ../../config/kitty.nix
     ../../config/nushell.nix
-    # ../../config/neovim.nix
+    ../../config/nixvim
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix
     ../../config/rofi/config-long.nix
@@ -83,6 +85,7 @@ in
     hyprland.enable = false;
     rofi.enable = false;
     waybar.enable = false;
+    nixvim.enable = false;
   };
   gtk = {
     iconTheme = {
