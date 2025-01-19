@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   home.file.".config/.emoji".text = ''
         😀 grinning face face smile happy joy :D grin

@@ -3,7 +3,6 @@
   pkgs,
   host,
   username,
-  options,
   ...
 }:
 let
@@ -339,15 +338,22 @@ in
       autodetect = true;
     };
     libinput.enable = true;
-    fstrim.enable = true;
+    fstrim = {
+      enable = true;
+      interval = "weekly";
+    };
     gvfs.enable = true;
     openssh.enable = true;
     flatpak.enable = false;
     printing = {
-      enable = true;
+      enable = false;
       drivers = [
         # pkgs.hplipWithPlugin
       ];
+    };
+    scx = {
+      enable = true;
+      scheduler = "scx_lavd";
     };
     gnome.gnome-keyring.enable = true;
     avahi = {
