@@ -6,17 +6,22 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
-    nixvim = { 
+    nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs =
-    { nixpkgs, nixvim, home-manager, ... }@inputs:
+    {
+      nixpkgs,
+      nixvim,
+      home-manager,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
-      host = "asusbook";
+      host = "gigaitx";
       username = "atp";
     in
     {

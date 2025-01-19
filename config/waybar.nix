@@ -30,6 +30,8 @@ with lib;
           "idle_inhibitor"
         ];
         modules-right = [
+          "custom/wl-gammarelay-temperature"
+          "custom/wl-gammarelay-brightness"
           "custom/hyprbindings"
           "custom/notification"
           "custom/exit"
@@ -123,10 +125,19 @@ with lib;
           # exec = "rofi -show drun";
           on-click = "sleep 0.1 && rofi-launcher";
         };
-        "custom/hyprbindings" = {
+        "custom/wl-gammarelay-temperature" = {
           tooltip = false;
-          format = "󱕴";
-          on-click = "sleep 0.1 && list-hypr-bindings";
+          format = " {}";
+          exec = "wl-gammarelay-rs watch {t}";
+          on-scroll-up = "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100";
+          on-scroll-down = "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100";
+        };
+        "custom/wl-gammarelay-brightness" = {
+          tooltip = false;
+          format = " {}%";
+          exec = "wl-gammarelay-rs watch {bp}";
+          on-scroll-up = "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02";
+          on-scroll-down = "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02";
         };
         "idle_inhibitor" = {
           format = "{icon}";
@@ -253,8 +264,9 @@ with lib;
           padding: 0px 30px 0px 15px;
           border-radius: 0px 0px 40px 0px;
         }
-        #custom-hyprbindings, #network, #battery,
-        #custom-notification, #tray, #custom-exit {
+        #network, #battery,
+        #custom-notification, #tray, #custom-exit,
+        #custom-wl-gammarelay-temperature, #custom-wl-gammarelay-brightness {
           font-weight: bold;
           background: linear-gradient(90deg, #${config.stylix.base16Scheme.base0E}, #${config.stylix.base16Scheme.base0C});
           color: #${config.stylix.base16Scheme.base05};
