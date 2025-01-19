@@ -40,9 +40,6 @@ in
         vscode-fhs
         chromium
         _64gram
-        colmena
-        rustc
-        cargo
         (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
           pkgs.buildFHSEnv (base // {
           name = "fhs";

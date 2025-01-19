@@ -16,7 +16,7 @@
     { nixpkgs, nixvim, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
-      host = "gigaitx";
+      host = "asusbook";
       username = "atp";
     in
     {
