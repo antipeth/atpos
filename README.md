@@ -3,8 +3,8 @@
 
 ![ci-badge](https://img.shields.io/static/v1?label=Built%20with&message=NixOS&color=blue&logo=nixos&link=https://nixos.org&labelColor=111212)
 
-![Antipethos1](https://github.com/antipeth/antipethos/blob/main/config/demo1.webp)
-![Antipethos2](https://github.com/antipeth/antipethos/blob/main/config/demo2.webp)
+![Antipethos1](https://github.com/antipeth/antipethos/blob/main/config/pic/demo1.webp)
+![Antipethos2](https://github.com/antipeth/antipethos/blob/main/config/pic/demo2.webp)
 
 ##  How to Require 🧊
 - You must be running on NixOS.

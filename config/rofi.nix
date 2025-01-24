@@ -211,4 +211,25 @@
         };
     };
   };
+  home.file.".config/rofi/config-emoji.rasi".text = ''
+    @import "~/.config/rofi/config-long.rasi"
+    entry {
+      width: 45%;
+      placeholder: "🔎 Search Emoji's 👀";
+    }
+  '';
+  home.file.".config/rofi/config-long.rasi".text = ''
+    @import "~/.config/rofi/config.rasi"
+    window {
+      width: 50%;
+    }
+    entry {
+      placeholder: "🔎 Search       ";
+    }
+    listview {
+      columns: 1;
+      lines: 8;
+      scrollbar: true;
+    }
+  '';
 }

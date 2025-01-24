@@ -21,7 +21,7 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      host = "asusbook";
+      host = "gigaitx";
       username = "atp";
     in
     {

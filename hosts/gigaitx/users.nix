@@ -41,7 +41,6 @@ in
         chromium
         _64gram
         wl-gammarelay-rs
-        zed-editor
         (
           let
             base = pkgs.appimageTools.defaultFhsEnvArgs;
