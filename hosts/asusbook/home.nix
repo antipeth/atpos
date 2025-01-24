@@ -201,10 +201,6 @@ in
           # ClearURLs
           id = "lckanjgmijmafbedllaakclkaicjfmnk";
         }
-        {
-          # WakaTime
-          id = "jnbbnacmeggbgdjgaoojpmhdlkkpblgi";
-        }
       ];
     };
   };
