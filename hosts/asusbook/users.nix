@@ -36,9 +36,6 @@ in
         nemo
         remmina
         pragtical
-        vscodium-fhs
-        vscode-fhs
-        chromium
         _64gram
         wl-gammarelay-rs
         zed-editor

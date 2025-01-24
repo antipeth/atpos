@@ -21,8 +21,26 @@ in
   ];
 
   boot = {
+    consoleLogLevel = 2; # Only errors and warnings are displayed
+    initrd = {
+      compressor = "zstd";
+      compressorArgs = [
+        "-T0"
+        "-19"
+        "--long"
+      ];
+      systemd.enable = true;
+      verbose = false;
+    };
     # Kernel
     kernelPackages = pkgs.linuxPackages_zen;
+    kernelParams = [
+      "audit=0"
+      "console=tty0"
+      "erst_disable"
+      "noatime"
+      "nowatchdog"
+    ];
     # This is for OBS Virtual Cam Support
     kernelModules = [ "v4l2loopback" ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
@@ -31,8 +49,14 @@ in
       "vm.max_map_count" = 2147483642;
     };
     # Bootloader.
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot = {
+        configurationLimit = 50;
+        editor = false;
+        enable = true;
+      };
+    };
     # Make /tmp a tmpfs
     tmp = {
       useTmpfs = false;
@@ -53,7 +77,7 @@ in
   # Styling Options
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/blackhole.jpg;
+    image = ../../config/pic/wallpapers/blackhole.jpg;
     polarity = "dark";
     opacity.terminal = 0.8;
     cursor.package = pkgs.bibata-cursors;
@@ -73,10 +97,10 @@ in
         name = "Montserrat";
       };
       sizes = {
-        applications = 12;
-        terminal = 15;
-        desktop = 11;
-        popups = 12;
+        applications = 20;
+        terminal = 20;
+        desktop = 20;
+        popups = 20;
       };
     };
   };
@@ -103,7 +127,7 @@ in
       "::1"
     ];
     networkmanager = {
-      dns = "none";
+      dns = "systemd-resolved";
       enable = true;
     };
     timeServers = [
@@ -181,7 +205,6 @@ in
       fcitx5-configtool # needed enable rime using configtool after installed
       fcitx5-chinese-addons
       fcitx5-material-color # theme
-      # fcitx5-mozc # japanese input method
       fcitx5-gtk # gtk im module
       fcitx5-rime # for flypy chinese input method
       libsForQt5.fcitx5-qt # qt im module
@@ -232,7 +255,6 @@ in
     git
     cmatrix
     lolcat
-    btop
     libvirt
     lxqt.lxqt-policykit
     lm_sensors
@@ -250,7 +272,6 @@ in
     cowsay
     ripgrep
     lshw
-    bat
     pkg-config
     meson
     hyprpicker
@@ -344,7 +365,6 @@ in
     };
     gvfs.enable = true;
     openssh.enable = true;
-    flatpak.enable = false;
     printing = {
       enable = false;
       drivers = [
@@ -374,20 +394,22 @@ in
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    resolved.enable = true;
+
     rpcbind.enable = false;
     nfs.server.enable = false;
     cockpit.enable = false;
   };
-  systemd.services.flatpak-repo = {
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
+
   hardware.sane = {
     enable = true;
     extraBackends = [ pkgs.sane-airscan ];
     disabledDefaultBackends = [ "escl" ];
+  };
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 
   # Extra Logitech Support
@@ -446,9 +468,9 @@ in
   };
 
   # Virtualization / Containers
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.enable = false;
   virtualisation.podman = {
-    enable = true;
+    enable = false;
     dockerCompat = true;
     defaultNetwork.settings.dns_enabled = true;
   };

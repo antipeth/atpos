@@ -22,6 +22,10 @@
       enable = true;
     };
 
+    render-markdown = {
+      enable = true;
+    };
+
     lsp.servers = {
       marksman.enable = true;
 
@@ -40,11 +44,12 @@
         };
       };
     };
-
-    lint = {
-      lintersByFt.md = [ "markdownlint-cli2" ];
-      linters.markdownlint-cli2.cmd = "${pkgs.markdownlint-cli2}/bin/markdownlint-cli2";
-    };
+    # markdownlint-cli2 have problems in build.
+    # need to try a newer version in future,
+    # lint = {
+    #   lintersByFt.md = [ "markdownlint-cli2" ];
+    #   linters.markdownlint-cli2.cmd = "${pkgs.markdownlint-cli2}/bin/markdownlint-cli2";
+    # };
   };
 
   keymaps = [
