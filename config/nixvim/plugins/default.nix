@@ -53,13 +53,15 @@
     ./ui/toggleterm.nix
     ./ui/ufo.nix
 
-    # ./util/colorizer.nix
+    ./util/colorizer.nix
     ./util/debugprint.nix
+    ./util/harpoon.nix
     ./util/kulala.nix
     ./util/mini.nix
     ./util/nvim-autopairs.nix
     ./util/nvim-surround.nix
-    # ./util/plenary.nix
+    ./util/nvterm.nix
+    ./util/plenary.nix
     ./util/persistence.nix
     ./util/project-nvim.nix
     ./util/snacks.nix

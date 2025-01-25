@@ -1,7 +1,6 @@
 {
-  programs.atuin = {
+  programs.zellij = {
     enable = true;
-    enableNushellIntegration = true;
     enableBashIntegration = true;
   };
 }

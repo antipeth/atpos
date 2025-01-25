@@ -28,17 +28,14 @@ in
         keepassxc
         just
         gcc
-        peazip
-        zellij
-        floorp
+        xarchiver
         vesktop
-        firefox-devedition-bin
-        nemo
         remmina
+        nemo
         pragtical
         _64gram
         wl-gammarelay-rs
-        zed-editor
+        nix-output-monitor
         (
           let
             base = pkgs.appimageTools.defaultFhsEnvArgs;

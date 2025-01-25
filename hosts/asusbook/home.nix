@@ -13,6 +13,8 @@
   # Import Program Configurations
   imports = [
     nixvim.homeManagerModules.nixvim
+    ../../config/nixvim
+
     ../../config/atuin.nix
     ../../config/bash.nix
     ../../config/bat.nix
@@ -20,12 +22,13 @@
     ../../config/btop.nix
     ../../config/emoji.nix
     ../../config/fastfetch.nix
+    ../../config/floorp.nix
+    ../../config/firefox.nix
     ../../config/git.nix
     ../../config/helix.nix
     ../../config/hyprland.nix
     ../../config/kitty.nix
     ../../config/nushell.nix
-    ../../config/nixvim
     ../../config/rofi.nix
     ../../config/starship.nix
     ../../config/swaync.nix
@@ -33,6 +36,8 @@
     ../../config/wlogout.nix
     ../../config/yazi.nix
     ../../config/zed-editor.nix
+    ../../config/zellij.nix
+
   ];
 
   # Place Files Inside Home Directory

@@ -70,3 +70,7 @@ upp input:
 upgrade:
   # let system totally upgrade
   sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace -L -v
+
+upgrade-debug:
+  # let system totally upgrade (deBug Mode)
+  sudo nixos-rebuild switch --flake .#{{hostname}} --log-format internal-json --show-trace -L -v |& nom --json
