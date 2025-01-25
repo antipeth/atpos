@@ -21,6 +21,7 @@ in
   ];
 
   boot = {
+    bcache.enable = false;
     consoleLogLevel = 2; # Only errors and warnings are displayed
     initrd = {
       compressor = "zstd";
@@ -56,6 +57,7 @@ in
         editor = false;
         enable = true;
       };
+      timeout = 3;
     };
     # Make /tmp a tmpfs
     tmp = {
@@ -347,7 +349,7 @@ in
       settings = {
         default_session = {
           user = "greeter";
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet -c Hyprland -t --user-menu";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet -c Hyprland --time --user-menu";
         };
       };
     };
