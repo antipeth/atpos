@@ -21,7 +21,9 @@ in
   ];
 
   boot = {
+    bcache.enable = false;
     consoleLogLevel = 2; # Only errors and warnings are displayed
+    extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt sp5100_tco";
     initrd = {
       compressor = "zstd";
       compressorArgs = [
@@ -38,6 +40,7 @@ in
       "audit=0"
       "console=tty0"
       "erst_disable"
+      "nmi_watchdog=0"
       "noatime"
       "nowatchdog"
     ];
