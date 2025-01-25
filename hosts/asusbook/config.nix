@@ -251,6 +251,7 @@ in
   environment.systemPackages = with pkgs; [
     wget
     killall
+    expect
     eza
     git
     cmatrix
