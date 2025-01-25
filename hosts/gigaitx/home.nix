@@ -32,6 +32,7 @@
     ../../config/rofi.nix
     ../../config/starship.nix
     ../../config/swaync.nix
+    ../../config/vscode.nix
     ../../config/waybar.nix
     ../../config/wlogout.nix
     ../../config/yazi.nix
