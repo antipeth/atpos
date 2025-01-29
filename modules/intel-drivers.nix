@@ -25,6 +25,7 @@ in
         vaapiIntel
         vaapiVdpau
         libvdpau-va-gl
+        vpl-gpu-rt
       ];
     };
   };

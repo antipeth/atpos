@@ -121,5 +121,9 @@
 
   programs = {
     home-manager.enable = true;
+    fd = {
+      enable = true;
+      hidden = true;
+    };
   };
 }

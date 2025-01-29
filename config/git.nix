@@ -11,5 +11,7 @@ in
       userEmail = "${gitEmail}";
     };
     gh.enable = true;
+
+    lazygit.enable = true;
   };
 }
