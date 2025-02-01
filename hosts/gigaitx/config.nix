@@ -234,6 +234,7 @@ in
     dconf.enable = true;
     fuse.userAllowOther = true;
     mtr.enable = true;
+    ssh.startAgent = true;
     virt-manager.enable = false;
   };
 
