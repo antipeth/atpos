@@ -27,7 +27,6 @@
     ../../config/git.nix
     ../../config/helix.nix
     ../../config/hyprland.nix
-    ../../config/joplin.nix
     ../../config/kitty.nix
     ../../config/nushell.nix
     ../../config/rofi.nix
