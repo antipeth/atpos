@@ -247,10 +247,6 @@ in
     mutableUsers = true;
   };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "archiver-3.5.1"
-  ];
-
   environment.systemPackages = with pkgs; [
     wget
     killall
@@ -301,6 +297,7 @@ in
     pavucontrol
     tree
     greetd.tuigreet
+    zoxide
   ];
 
   fonts = {
