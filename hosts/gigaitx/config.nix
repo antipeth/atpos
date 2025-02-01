@@ -232,13 +232,8 @@ in
 
   programs = {
     dconf.enable = true;
-    seahorse.enable = true;
     fuse.userAllowOther = true;
     mtr.enable = true;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
     virt-manager.enable = false;
   };
 
@@ -373,7 +368,6 @@ in
       enable = true;
       scheduler = "scx_lavd";
     };
-    gnome.gnome-keyring.enable = true;
     avahi = {
       enable = true;
       nssmdns4 = true;
