@@ -32,7 +32,8 @@
       vscode-extensions.ms-python.debugpy
       vscode-extensions.ms-python.python
       vscode-extensions.ms-python.vscode-pylance
-      vscode-extensions.ms-vscode-remote.vscode-remote-extensionpack
+      vscode-extensions.ms-vscode-remote.remote-ssh
+      vscode-extensions.ms-vscode-remote.remote-ssh-edit
       vscode-extensions.ms-vscode.cpptools-extension-pack
       vscode-extensions.ms-vscode.hexeditor
       vscode-extensions.naumovs.color-highlight

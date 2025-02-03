@@ -26,54 +26,49 @@
           numhl = "DapStoppedLine";
         };
       };
-
-      extensions = {
-        dap-ui = {
-          enable = true;
-          layouts = [
+    };
+    dap-ui = {
+      enable = true;
+      settings.layouts = [
+        {
+          elements = [
             {
-              elements = [
-                {
-                  id = "scopes";
-                  size = 0.25;
-                }
-                {
-                  id = "breakpoints";
-                  size = 0.25;
-                }
-                {
-                  id = "stacks";
-                  size = 0.25;
-                }
-                {
-                  id = "watches";
-                  size = 0.25;
-                }
-              ];
-              position = "left";
-              size = 40;
+              id = "scopes";
+              size = 0.25;
             }
             {
-              elements = [
-                {
-                  id = "repl";
-                  size = 0.5;
-                }
-                {
-                  id = "console";
-                  size = 0;
-                }
-              ];
-              position = "bottom";
-              size = 10;
+              id = "breakpoints";
+              size = 0.25;
+            }
+            {
+              id = "stacks";
+              size = 0.25;
+            }
+            {
+              id = "watches";
+              size = 0.25;
             }
           ];
-        };
-
-        dap-virtual-text.enable = true;
-      };
+          position = "left";
+          size = 40;
+        }
+        {
+          elements = [
+            {
+              id = "repl";
+              size = 0.5;
+            }
+            {
+              id = "console";
+              size = 0;
+            }
+          ];
+          position = "bottom";
+          size = 10;
+        }
+      ];
     };
-
+    dap-virtual-text.enable = true;
     which-key.settings.spec = [
       {
         __unkeyed-1 = "<leader>d";
