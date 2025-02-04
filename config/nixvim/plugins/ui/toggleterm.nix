@@ -19,7 +19,7 @@
       persist_mode = true;
       insert_mappings = true;
       close_on_exit = true;
-      shell = "zsh";
+      shell = "nu";
       direction = "horizontal"; # 'vertical' | 'horizontal' | 'tab' | 'float'
       float_opts = {
         border = "single"; # 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
