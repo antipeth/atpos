@@ -177,45 +177,24 @@ with lib;
             pseudotile = true
             preserve_split = true
           }
+          # Shortcuts
           bind = ${modifier},Return,exec,${terminal}
-          # bind = ${modifier}SHIFT,Return,exec,rofi-launcher
-          bind = ${modifier},SPACE,exec,rofi-launcher
-          bind = ${modifier}SHIFT,W,exec,web-search
-          bind = ${modifier}ALT,W,exec,wallsetter
-          bind = ${modifier}SHIFT,N,exec,swaync-client -rs
-          bind = ${modifier},W,exec,${browser}
-          # bind = ${modifier},E,exec,emopicker9000
-          bind = ${modifier}SHIFT,S,exec,screenshootin
-          # bind = ${modifier},D,exec,discord
-          # bind = ${modifier},O,exec,obs
-          bind = ${modifier},C,exec,hyprpicker -a
-          # bind = ${modifier},G,exec,gimp
-          # bind = ${modifier}SHIFT,G,exec,godot4
-          # bind = ${modifier},T,exec,thunar
+          bind = ${modifier},L,exec,pkill wlogout || wlogout
+          bind = ${modifier},SPACE,exec,pkill fuzzel || fuzzel
           bind = ${modifier},Y,exec,${terminal} -e yazi
-          # bind = ${modifier},M,exec,spotify
-          bind = ${modifier},Q,killactive,
-          bind = ${modifier},P,pseudo,
-          bind = ${modifier}SHIFT,I,togglesplit,
-          bind = ${modifier},F,fullscreen,
-          bind = ${modifier}SHIFT,F,togglefloating,
-          bind = ${modifier}SHIFT,C,exit,
-          bind = ${modifier}SHIFT,left,hy3:movewindow,l
-          bind = ${modifier}SHIFT,right,hy3:movewindow,r
-          bind = ${modifier}SHIFT,up,hy3:movewindow,u
-          bind = ${modifier}SHIFT,down,hy3:movewindow,d
-          bind = ${modifier}SHIFT,h,hy3:movewindow,l
-          bind = ${modifier}SHIFT,l,hy3:movewindow,r
-          bind = ${modifier}SHIFT,k,hy3:movewindow,u
-          bind = ${modifier}SHIFT,j,hy3:movewindow,d
-          bind = ${modifier},left,hy3:movefocus,l
-          bind = ${modifier},right,hy3:movefocus,r
-          bind = ${modifier},up,hy3:movefocus,u
-          bind = ${modifier},down,hy3:movefocus,d
-          bind = ${modifier},h,hy3:movefocus,l
-          bind = ${modifier},l,hy3:movefocus,r
-          bind = ${modifier},k,hy3:movefocus,u
-          bind = ${modifier},j,hy3:movefocus,d
+          bind = ${modifier},W,exec,${browser}
+
+          # Toggle some programs
+          bind = ${modifier}SHIFT,N,exec,swaync-client -rs
+          bind = ${modifier},C,exec,hyprpicker -a
+          bind = ${modifier}ALT,W,exec,wallsetter
+
+          # Screenshot
+          bind = ${modifier}SHIFT,S,exec,grim -g "$(slurp)" - | swappy -f -
+          bind = ${modifier}CTRL,S,exec,grim -g "$(hyprctl clients -j | jq '.[] | select(.hidden | not) | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' -r | slurp)" - | swappy -f -
+          bind = ${modifier}ALT,S,exec,grim - | wl-copy -t image/png;notify-send "Screenshot copied to clipboard"
+
+          # Workspace jumping
           bind = ${modifier},1,workspace,1
           bind = ${modifier},2,workspace,2
           bind = ${modifier},3,workspace,3
@@ -226,8 +205,36 @@ with lib;
           bind = ${modifier},8,workspace,8
           bind = ${modifier},9,workspace,9
           bind = ${modifier},0,workspace,10
-          bind = ${modifier}SHIFT,SPACE,movetoworkspace,special
-          # bind = ${modifier},SPACE,togglespecialworkspace
+
+          # Window actions
+          bind = ${modifier},Q,hy3:killactive,
+          bind = ${modifier},F,fullscreen,
+          bind = ${modifier}SHIFT,F,togglefloating,
+          bind = ${modifier}SHIFT,I,togglesplit,
+          bindm = ${modifier},mouse:272,movewindow
+          bindm = ${modifier},mouse:273,resizewindow
+
+          # Window movement
+          bind = ${modifier}SHIFT,left,hy3:movewindow,l
+          bind = ${modifier}SHIFT,right,hy3:movewindow,r
+          bind = ${modifier}SHIFT,up,hy3:movewindow,u
+          bind = ${modifier}SHIFT,down,hy3:movewindow,d
+          bind = ${modifier}SHIFT,h,hy3:movewindow,l
+          bind = ${modifier}SHIFT,l,hy3:movewindow,r
+          bind = ${modifier}SHIFT,k,hy3:movewindow,u
+          bind = ${modifier}SHIFT,j,hy3:movewindow,d
+
+          bind = ${modifier}CTRL, 1, movetoworkspacesilent, 1
+          bind = ${modifier}CTRL, 2, movetoworkspacesilent, 2
+          bind = ${modifier}CTRL, 3, movetoworkspacesilent, 3
+          bind = ${modifier}CTRL, 4, movetoworkspacesilent, 4
+          bind = ${modifier}CTRL, 5, movetoworkspacesilent, 5
+          bind = ${modifier}CTRL, 6, movetoworkspacesilent, 6
+          bind = ${modifier}CTRL, 7, movetoworkspacesilent, 7
+          bind = ${modifier}CTRL, 8, movetoworkspacesilent, 8
+          bind = ${modifier}CTRL, 9, movetoworkspacesilent, 9
+          bind = ${modifier}CTRL, 0, movetoworkspacesilent, 10
+
           bind = ${modifier}SHIFT,1,movetoworkspace,1
           bind = ${modifier}SHIFT,2,movetoworkspace,2
           bind = ${modifier}SHIFT,3,movetoworkspace,3
@@ -238,21 +245,40 @@ with lib;
           bind = ${modifier}SHIFT,8,movetoworkspace,8
           bind = ${modifier}SHIFT,9,movetoworkspace,9
           bind = ${modifier}SHIFT,0,movetoworkspace,10
+
           bind = ${modifier}CONTROL,right,workspace,e+1
           bind = ${modifier}CONTROL,left,workspace,e-1
           bind = ${modifier},mouse_down,workspace, e+1
           bind = ${modifier},mouse_up,workspace, e-1
-          bindm = ${modifier},mouse:272,movewindow
-          bindm = ${modifier},mouse:273,resizewindow
+
+          # Special Workspace
+          bind = ${modifier}SHIFT,Tab,movetoworkspace,special
+          bind = ${modifier},Tab,togglespecialworkspace
+
+          # Window focus movement
+          bind = ${modifier},left,hy3:movefocus,l
+          bind = ${modifier},right,hy3:movefocus,r
+          bind = ${modifier},up,hy3:movefocus,u
+          bind = ${modifier},down,hy3:movefocus,d
+          bind = ${modifier},h,hy3:movefocus,l
+          bind = ${modifier},l,hy3:movefocus,r
+          bind = ${modifier},k,hy3:movefocus,u
+          bind = ${modifier},j,hy3:movefocus,d
           bind = ALT,Tab,cyclenext
           bind = ALT,Tab,bringactivetotop
+
+          # Volume control
           bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
           bind = ,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
           binde = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+          # Playback control
           bind = ,XF86AudioPlay, exec, playerctl play-pause
           bind = ,XF86AudioPause, exec, playerctl play-pause
           bind = ,XF86AudioNext, exec, playerctl next
           bind = ,XF86AudioPrev, exec, playerctl previous
+
+          # Brightness control
           bind = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
           bind = ,XF86MonBrightnessUp,exec,brightnessctl set +5%
         ''

@@ -36,6 +36,7 @@ in
         _64gram
         wl-gammarelay-rs
         nix-output-monitor
+        legcord
         (
           let
             base = pkgs.appimageTools.defaultFhsEnvArgs;

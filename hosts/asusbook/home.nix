@@ -24,13 +24,13 @@
     ../../config/fastfetch.nix
     ../../config/floorp.nix
     ../../config/firefox.nix
+    ../../config/fuzzel.nix
     ../../config/git.nix
     ../../config/helix.nix
     ../../config/hyprland.nix
     ../../config/joplin.nix
     ../../config/kitty.nix
     ../../config/nushell.nix
-    ../../config/rofi.nix
     ../../config/starship.nix
     ../../config/swaync.nix
     ../../config/vscode.nix
@@ -108,16 +108,12 @@
 
   # Scripts
   home.packages = [
-    (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
     (import ../../scripts/nvidia-offload.nix { inherit pkgs; })
     (import ../../scripts/wallsetter.nix {
       inherit pkgs;
       inherit username;
     })
-    (import ../../scripts/web-search.nix { inherit pkgs; })
-    (import ../../scripts/rofi-launcher.nix { inherit pkgs; })
-    (import ../../scripts/screenshootin.nix { inherit pkgs; })
   ];
 
   programs = {
