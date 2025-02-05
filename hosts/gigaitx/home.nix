@@ -20,7 +20,6 @@
     ../../config/bat.nix
     ../../config/brave.nix
     ../../config/btop.nix
-    ../../config/emoji.nix
     ../../config/fastfetch.nix
     ../../config/floorp.nix
     ../../config/firefox.nix
