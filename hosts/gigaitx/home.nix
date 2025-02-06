@@ -15,6 +15,7 @@
     nixvim.homeManagerModules.nixvim
     ../../config/nixvim
 
+    ../../config/alacritty.nix
     ../../config/atuin.nix
     ../../config/bash.nix
     ../../config/bat.nix

@@ -11,6 +11,6 @@
 
   # Program Options
   browser = "brave"; # Set Default Browser (google-chrome-stable for google-chrome)
-  terminal = "kitty"; # Set Default System Terminal
+  terminal = "alacritty"; # Set Default System Terminal
   keyboardLayout = "us";
 }

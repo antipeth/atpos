@@ -20,7 +20,7 @@ in
         "scanner"
         "lp"
       ];
-      shell = pkgs.nushell;
+      shell = pkgs.bash;
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
         anytype
