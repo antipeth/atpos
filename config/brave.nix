@@ -12,6 +12,14 @@
     ];
     extensions = [
       {
+        # ClearURLs
+        id = "lckanjgmijmafbedllaakclkaicjfmnk";
+      }
+      {
+        # Cookie-Editor
+        id = "hlkenndednhfkekhgcdicdfddnkalmdm";
+      }
+      {
         # Dark Reader
         id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
       }
@@ -24,24 +32,32 @@
         id = "bdiifdefkgmcblbcghdlonllpjhhjgof";
       }
       {
-        # Cookie-Editor
-        id = "hlkenndednhfkekhgcdicdfddnkalmdm";
-      }
-      {
-        # Wappalyzer - Technology profiler
-        id = "gppongmhjkpfnbhagpmjfkannfbllamg";
-      }
-      {
         # LocalCDN
         id = "njdfdhgcmkocbgbhcioffdbicglldapd";
+      }
+      {
+        # MetaMask
+        id = "nkbihfbeogaeaoehlefnkodbefgpgknn";
       }
       {
         # uBlock Origin
         id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
       }
       {
-        # ClearURLs
-        id = "lckanjgmijmafbedllaakclkaicjfmnk";
+        # User-Agent Switcher and Manager
+        id = "bhchdcejhohfmigjafbampogmaanbfkg";
+      }
+      {
+        # Vimium C
+        id = "hfjbmagddngcpeloejdejnfgbamkjaeg";
+      }
+      {
+        # Violentmonkey
+        id = "jinjaccalgkegednnccohejagnlnfdag";
+      }
+      {
+        # Wappalyzer - Technology profiler
+        id = "gppongmhjkpfnbhagpmjfkannfbllamg";
       }
     ];
   };
