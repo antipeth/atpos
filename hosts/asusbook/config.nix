@@ -234,7 +234,7 @@ in
     fuse.userAllowOther = true;
     mtr.enable = true;
     ssh.startAgent = true;
-    virt-manager.enable = false;
+    virt-manager.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -251,7 +251,6 @@ in
     git
     cmatrix
     lolcat
-    libvirt
     lxqt.lxqt-policykit
     lm_sensors
     unzip
@@ -466,7 +465,16 @@ in
   };
 
   # Virtualization / Containers
-  virtualisation.libvirtd.enable = false;
+  # virtualisation.libvirtd.enable = false;
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf.enable = true;
+    };
+  };
   virtualisation.podman = {
     enable = false;
     dockerCompat = true;
