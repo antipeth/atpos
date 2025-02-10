@@ -24,12 +24,12 @@ in
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
         anytype
+        claws-mail
         devbox
         keepassxc
         just
         gcc
         xarchiver
-        vesktop
         nemo
         remmina
         pragtical
