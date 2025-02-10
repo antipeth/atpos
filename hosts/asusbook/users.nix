@@ -24,14 +24,14 @@ in
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
         anytype
+        claws-mail
         devbox
         keepassxc
         just
         gcc
         xarchiver
-        vesktop
-        remmina
         nemo
+        remmina
         pragtical
         _64gram
         wl-gammarelay-rs
