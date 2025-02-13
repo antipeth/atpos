@@ -32,6 +32,7 @@ in
         xarchiver
         nemo
         remmina
+        rustdesk-flutter
         pragtical
         _64gram
         wl-gammarelay-rs

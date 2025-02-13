@@ -386,6 +386,7 @@ in
       pulse.enable = true;
     };
     resolved.enable = true;
+    tlp.enable = true;
 
     rpcbind.enable = false;
     nfs.server.enable = false;
