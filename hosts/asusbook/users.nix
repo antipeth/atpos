@@ -38,6 +38,9 @@ in
         wl-gammarelay-rs
         nix-output-monitor
         legcord
+        nmap
+        nixd
+        nil
         (
           let
             base = pkgs.appimageTools.defaultFhsEnvArgs;

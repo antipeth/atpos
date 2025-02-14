@@ -60,6 +60,7 @@ in
         enable = true;
       };
     };
+    supportedFilesystems = [ "nfs" ];
     # Make /tmp a tmpfs
     tmp = {
       useTmpfs = false;
@@ -347,7 +348,7 @@ in
       };
     };
     smartd = {
-      enable = false;
+      enable = true;
       autodetect = true;
     };
     libinput.enable = true;
@@ -388,7 +389,7 @@ in
     resolved.enable = true;
     tlp.enable = true;
 
-    rpcbind.enable = false;
+    rpcbind.enable = true;
     nfs.server.enable = false;
     cockpit.enable = false;
   };

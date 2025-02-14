@@ -99,10 +99,10 @@ with lib;
           exec-once = lxqt-policykit-agent
           exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/blackhole.jpg
           exec-once = fcitx5
-          # monitor=,preferred,auto,1
-          monitor= HDMI-A-1, 3840x2160@60,0x0,1
+          monitor=,preferred,auto,1
+          # monitor= HDMI-A-1, 3840x2160@60,0x0,1
           # monitor= DP-1, 3840x2160@60,0x0,1
-          monitor = eDP-2, 2560x1440@60,0x2160,1
+          # monitor = eDP-2, 2560x1440@60,0x2160,1
           ${extraMonitorSettings}
           general {
             gaps_in = 6
