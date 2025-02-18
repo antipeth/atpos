@@ -20,6 +20,7 @@ in
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
     ../../modules/vm-guest-services.nix
+    ../../modules/zfs.nix
   ];
   boot = {
     bcache.enable = false;
