@@ -30,6 +30,7 @@ in
         just
         gcc
         xarchiver
+        motrix
         nemo
         remmina
         rustdesk-flutter

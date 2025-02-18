@@ -10,16 +10,17 @@ let
 in
 {
   imports = [
+    ./disko-config.nix
     ./hardware.nix
     ./users.nix
     ../../modules/amd-drivers.nix
+    ../../modules/intel-drivers.nix
+    ../../modules/local-hardware-clock.nix
+    # ../../modules/nfs.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
-    ../../modules/intel-drivers.nix
     ../../modules/vm-guest-services.nix
-    ../../modules/local-hardware-clock.nix
   ];
-
   boot = {
     bcache.enable = false;
     consoleLogLevel = 2; # Only errors and warnings are displayed
@@ -35,7 +36,7 @@ in
       verbose = false;
     };
     # Kernel
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_xanmod_stable;
     kernelParams = [
       "audit=0"
       "console=tty0"
@@ -60,7 +61,10 @@ in
         enable = true;
       };
     };
-    supportedFilesystems = [ "nfs" ];
+    supportedFilesystems = [
+      "nfs"
+      "zfs"
+    ];
     # Make /tmp a tmpfs
     tmp = {
       useTmpfs = false;
