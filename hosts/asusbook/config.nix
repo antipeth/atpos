@@ -379,12 +379,6 @@ in
       openFirewall = true;
     };
     ipp-usb.enable = true;
-    syncthing = {
-      enable = true;
-      user = "${username}";
-      dataDir = "/home/${username}/Documents";
-      configDir = "/home/${username}/.config/syncthing";
-    };
     pipewire = {
       enable = true;
       alsa.enable = true;

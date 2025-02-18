@@ -33,6 +33,7 @@
     ../../config/nushell.nix
     ../../config/starship.nix
     ../../config/swaync.nix
+    ../../config/syncthing.nix
     ../../config/vscode.nix
     ../../config/waybar.nix
     ../../config/wlogout.nix
