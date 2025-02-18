@@ -3,7 +3,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/nvme-Fanxiang_S500PRO_512GB_FXS500PRO232250129";
+        device = "/dev/disk/by-id/nvme-WD_PC_SN740_SDDPNQD-512G-1002_23164B401996";
         content = {
           type = "gpt";
           partitions = {
