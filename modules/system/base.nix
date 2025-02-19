@@ -55,12 +55,8 @@ in
       "nfs"
       "zfs"
     ];
-    # Make /tmp a tmpfs
-    tmp = {
-      useTmpfs = false;
-      tmpfsSize = "30%";
-    };
     plymouth.enable = true;
+    tmp.cleanOnBoot = true;
   };
 
   # Enable networking

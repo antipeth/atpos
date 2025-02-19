@@ -14,103 +14,118 @@
         "break"
         {
           type = "custom";
-          format = "┌──────────────────────Hardware──────────────────────┐";
+          format = "╭────────────┬────────────Hardware────────────────╮";
+        }
+        {
+          type = "host";
+          key = " PC         │";
+          format = "{2}";
+        }
+        {
+          type = "board";
+          key = "│ ╠ Board   │";
+          format = "{1}";
         }
         {
           type = "cpu";
-          key = "│  ";
+          key = "│ ╠ CPU     │";
+          format = "{1}";
         }
         {
           type = "gpu";
-          key = "│ 󰍛 ";
+          key = "│ ╠ GPU     │";
+          format = "{1} {2}";
         }
         {
           type = "memory";
-          key = "│ 󰑭 ";
-        }
-        {
-          type = "custom";
-          format = "└────────────────────────────────────────────────────┘";
-        }
-        "break"
-        {
-          type = "custom";
-          format = "┌──────────────────────Software──────────────────────┐";
-        }
-        {
-          type = "custom";
-          format = " OS -> AtpOS";
-        }
-        {
-          type = "kernel";
-          key = "│ ├ ";
-        }
-        {
-          type = "packages";
-          key = "│ ├󰏖 ";
-        }
-        {
-          type = "shell";
-          key = "└ └ ";
-        }
-        "break"
-        {
-          type = "wm";
-          key = " WM";
-        }
-        {
-          type = "wmtheme";
-          key = "│ ├󰉼 ";
-        }
-        {
-          type = "terminal";
-          key = "└ └ ";
-        }
-        {
-          type = "custom";
-          format = "└────────────────────────────────────────────────────┘";
-        }
-        "break"
-        {
-          type = "custom";
-          format = "┌─────────────────────Disks──────────────────────────┐";
+          key = "│ ╠ RAM     │";
         }
         {
           type = "disk";
-          key = "└ └󰋊 ";
+          key = "│ ╠ Disk    │";
+          format = "{1} / {2} ({3}) {9}";
         }
         {
-          type = "zpool";
-          key = "└ └󰋊 ";
+          type = "display";
+          key = "│ ╠󰍺 Display │";
+          format = "{1}x{2}@{3}Hz in {12}-inch";
+        }
+        {
+          type = "battery";
+          key = "│ ╠ Battery │";
+        }
+        {
+          type = "uptime";
+          key = "│ ╚ Uptime  │";
+          format = "{1} days {2} hours {3} minutes";
         }
         {
           type = "custom";
-          format = "└────────────────────────────────────────────────────┘";
+          format = "╰────────────┴────────────────────────────────────╯";
         }
         "break"
         {
           type = "custom";
-          format = "┌────────────────────Uptime / Age────────────────────┐";
+          format = "╭────────────┬────────────Software───────────────────────╮";
         }
         {
-          type = "command";
-          key = "│  ";
-          text = # bash
-            ''
-              birth_install=$(stat -c %W /)
-              current=$(date +%s)
-              delta=$((current - birth_install))
-              delta_days=$((delta / 86400))
-              echo $delta_days days
-            '';
+          type = "os";
+          key = " OS         │";
         }
         {
-          type = "uptime";
-          key = "│  ";
+          type = "kernel";
+          key = "│ ╠ Kernel  │";
+          format = "{1} {2}";
+        }
+        {
+          type = "packages";
+          key = "│ ╠󰏖 Packages│";
+        }
+        {
+          type = "shell";
+          key = "│ ╠ Shell   │";
+          format = "{6} {4}";
+        }
+        {
+          type = "terminal";
+          key = "│ ╠ Terminal│";
+          format = "{5} {6}";
+        }
+        {
+          type = "lm";
+          key = "│ ╠󰍂 LM      │";
+        }
+        {
+          type = "de";
+          key = "│ ╠ DE      │";
+          format = "{2}";
+        }
+        {
+          type = "wm";
+          key = "│ ╠󱂬 WM      │";
+          format = "{2} {5}";
+        }
+        {
+          type = "cursor";
+          key = "│ ╠󱄨 Cursor  │";
+        }
+        {
+          type = "terminalfont";
+          key = "│ ╠󰬴 Font    │";
+        }
+        {
+          type = "icons";
+          key = "│ ╠ Icons   │";
+          format = "{1} {2}";
+        }
+        {
+          type = "title";
+          key = "│ ╚ Hostname│";
+          format = "{8}";
         }
         {
           type = "custom";
-          format = "└────────────────────────────────────────────────────┘";
+          format = "╰────────────┴───────────────────────────────────────────╯";
         }
         "break"
       ];

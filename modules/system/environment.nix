@@ -36,43 +36,6 @@
     pkg-config
     zenith
 
-    killall
-    eza
-    git
-    cmatrix
-    lolcat
-    lxqt.lxqt-policykit
-    v4l-utils
-    ydotool
-    duf
-    ncdu
-    wl-clipboard
-    pciutils
-    ffmpeg
-    socat
-    cowsay
-    ripgrep
-    lshw
-    hyprpicker
-    brightnessctl
-    virt-viewer
-    swappy
-    appimage-run
-    networkmanagerapplet
-    yad
-    inxi
-    playerctl
-    nh
-    nixfmt-rfc-style
-    swww
-    grim
-    slurp
-    swaynotificationcenter
-    imv
-    mpv
-    gimp
-    pavucontrol
-    tree
     zoxide
   ];
   programs = {

@@ -23,24 +23,58 @@ in
       shell = pkgs.nushell;
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
-        claws-mail
-        devbox
-        keepassxc
-        just
-        gcc
+        # TEST
+        niri
+
+        # archiver
         xarchiver
-        motrix
-        nemo
-        remmina
-        pragtical
-        materialgram
-        wl-gammarelay-rs
-        nix-output-monitor
+
+        # communication
         legcord
-        fractal-next
+        materialgram
+
+        # dev
+        devbox
+
+        # download
+        motrix
+
+        # file manager
+        nemo
+
+        # lint
+        commitlint-rs
+
+        # password manager
+        keepassxc
+
+        # ssh client
+        remmina
+
+        # wallpaper
+        swww
+
+        # Screenshots
+        swappy
+        grim
+        slurp
+        # System tool
+        brightnessctl
+        duf
+        ffmpeg
+        hyprpicker
+        networkmanagerapplet
         nmap
-        nixd
-        nil
+        pavucontrol
+        playerctl
+        swaynotificationcenter
+        wl-clipboard
+        wl-gammarelay-rs
+
+        # Nix tools
+        deadnix
+        nix-output-monitor
+        nixfmt-rfc-style
         (
           let
             base = pkgs.appimageTools.defaultFhsEnvArgs;
