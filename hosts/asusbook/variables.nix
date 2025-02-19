@@ -30,7 +30,7 @@
   GPU-Intel = true;
 
   # Window Manager
-  WM = "niri";
+  WM = "niri"; # options: Hyprland or niri
   # Other
   BootLoader = "systemd-boot";
   QEMU = true;
