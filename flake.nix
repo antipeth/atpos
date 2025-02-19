@@ -41,7 +41,7 @@
             ./hosts/${host}/config.nix
             inputs.disko.nixosModules.disko
             inputs.stylix.nixosModules.stylix
-            inputs.nixvim.nixosModules.nixvim
+            nixvim.nixosModules.nixvim
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = {

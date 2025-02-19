@@ -9,11 +9,11 @@
 
 let
   # hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
-  inherit (import ../hosts/${host}/variables.nix)
+  inherit (import ../../hosts/${host}/variables.nix)
     browser
     terminal
     extraMonitorSettings
-    keyboardLayout
+    KeyboardLayout
     ;
 in
 with lib;
@@ -126,7 +126,7 @@ with lib;
             col.inactive_border = rgb(${config.stylix.base16Scheme.base01})
           }
           input {
-            kb_layout = ${keyboardLayout}
+            kb_layout = ${KeyboardLayout}
             kb_options = grp:alt_shift_toggle
             kb_options = caps:esc
             follow_mouse = 1

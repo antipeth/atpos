@@ -15,5 +15,9 @@
         pkgs.xdg-desktop-portal-hyprland
       ];
     };
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
   };
 }

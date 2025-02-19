@@ -1,37 +1,36 @@
 {
+  # Install option
+  Install = true;
+
   # Git Configuration ( For Pulling Software Repos )
   gitUsername = "antipeth";
   gitEmail = "0pt@disroot.org";
 
-  # Hyprland Settings
-  extraMonitorSettings = "";
+  # TimeZone / Locale
+  TimeZone = "Asia/Singapore";
+  Locale = "en_US.UTF-8";
 
   # Waybar Settings
   clock24h = false;
 
+  # Hyprland Settings
+  extraMonitorSettings = "";
+  KeyboardLayout = "us";
+  ScaleLevel = "2";
+  MonitorSettings = "monitor = , highres, auto, 2";
+
   # Program Options
   browser = "brave"; # Set Default Browser (google-chrome-stable for google-chrome)
   terminal = "alacritty"; # Set Default System Terminal
-  keyboardLayout = "us";
+
+  # Driver options
   Bluetooth = true;
-
-  BootLoader = "systemd-boot";
-
-  GPU-AMD = true;
+  GPU-AMD = false;
   GPU-Nvidia = false;
-  GPU-Intel = false;
+  GPU-Intel = true;
 
-  Install = true;
-  KernelPackages = "linuxPackages_cachyos";
-  KeyboardLayout = "us";
-  Locale = "en_US.UTF-8";
-  TimeZone = "Asia/Singapore";
-
-  MonitorSettings = "monitor = , highres, auto, 2";
-  ScaleLevel = "2";
-
+  # Other
   Transparent-Proxy = false;
   QEMU-VM-Use-Case = true;
-
-  WM = "Hyprland";
+  BootLoader = "systemd-boot";
 }
