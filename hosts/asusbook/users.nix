@@ -20,7 +20,7 @@ in
         "scanner"
         "lp"
       ];
-      shell = pkgs.bash;
+      shell = pkgs.nushell;
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
         claws-mail
@@ -55,7 +55,6 @@ in
                 ++ (with pkgs; [
                   pkg-config
                   ncurses
-
                 ]);
               profile = "export FHS=1";
               runScript = "bash";

@@ -30,7 +30,7 @@
   GPU-Intel = true;
 
   # Other
-  Transparent-Proxy = false;
-  QEMU-VM-Use-Case = true;
   BootLoader = "systemd-boot";
+  QEMU = true;
+  Transparent-Proxy = false;
 }
