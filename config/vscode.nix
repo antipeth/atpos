@@ -17,7 +17,6 @@
       vscode-extensions.dbaeumer.vscode-eslint
       vscode-extensions.denoland.vscode-deno
       vscode-extensions.esbenp.prettier-vscode
-      vscode-extensions.fill-labs.dependi
       # vscode-extensions.formulahendry.code-runner
       # vscode-extensions.github.copilot
       # vscode-extensions.github.copilot-chat

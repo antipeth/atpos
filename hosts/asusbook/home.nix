@@ -22,6 +22,7 @@
     ../../config/brave.nix
     ../../config/btop.nix
     ../../config/fastfetch.nix
+    ../../config/fcitx5.nix
     ../../config/floorp.nix
     ../../config/firefox.nix
     ../../config/fuzzel.nix

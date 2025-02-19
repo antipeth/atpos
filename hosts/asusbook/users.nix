@@ -23,7 +23,6 @@ in
       shell = pkgs.bash;
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
-        anytype
         claws-mail
         devbox
         keepassxc
