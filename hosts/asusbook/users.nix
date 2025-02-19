@@ -33,12 +33,12 @@ in
         motrix
         nemo
         remmina
-        rustdesk-flutter
         pragtical
-        _64gram
+        materialgram
         wl-gammarelay-rs
         nix-output-monitor
         legcord
+        fractal-next
         nmap
         nixd
         nil

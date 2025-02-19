@@ -78,18 +78,30 @@ with lib;
       in
       concatStrings [
         ''
+          env = _JAVA_AWT_WM_NONREPARENTING, 1
+          env = AWT_TOOLKIT, MToolkit
+          env = CLUTTER_BACKEND, wayland
+          env = ELECTRON_OZONE_PLATFORM_HINT, wayland
+          env = GDK_BACKEND, wayland, x11
+          env = GTK_USE_PORTAL, 1
+          env = MOZ_ENABLE_WAYLAND, 1
           env = NIXOS_OZONE_WL, 1
-          env = NIXPKGS_ALLOW_UNFREE, 1
+          env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
+          env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
+          env = QT_QPA_PLATFORM=wayland;xcb
+          env = QT_QPA_PLATFORMTHEME, qt5ct
+          env = SDL_HINT_VIDEODRIVER, wayland
+          env = SDL_VIDEODRIVER, wayland
           env = XDG_CURRENT_DESKTOP, Hyprland
           env = XDG_SESSION_TYPE, wayland
           env = XDG_SESSION_DESKTOP, Hyprland
-          env = GDK_BACKEND, wayland, x11
-          env = CLUTTER_BACKEND, wayland
-          env = QT_QPA_PLATFORM=wayland;xcb
-          env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
-          env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
-          env = SDL_VIDEODRIVER, x11
-          env = MOZ_ENABLE_WAYLAND, 1
+
+          env = QT_IM_MODULE, fcitx
+          env = SDL_IM_MODULE, fcitx
+          env = XMODIFIERS, @im=fcitx
+          env = EDITOR, nvim
+
+
           exec-once = dbus-update-activation-environment --systemd --all
           exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
           exec-once = killall -q swww;sleep .5 && swww init
@@ -98,7 +110,7 @@ with lib;
           exec-once = nm-applet --indicator
           exec-once = lxqt-policykit-agent
           exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/blackhole.jpg
-          exec-once = fcitx5
+          exec-once = fcitx5 -d -r
           monitor=,preferred,auto,1
           # monitor= HDMI-A-1, 3840x2160@60,0x0,1
           # monitor= DP-1, 3840x2160@60,0x0,1
