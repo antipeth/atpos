@@ -14,6 +14,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # niri.url = "github:sodiboo/niri-flake";
   };
 
   outputs =
@@ -39,6 +40,7 @@
           };
           modules = [
             ./hosts/${host}/config.nix
+            # inputs.niri.nixosModules.niri
             inputs.disko.nixosModules.disko
             inputs.stylix.nixosModules.stylix
             nixvim.nixosModules.nixvim

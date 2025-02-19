@@ -14,10 +14,11 @@ let
     terminal
     extraMonitorSettings
     KeyboardLayout
+    WM
     ;
 in
 with lib;
-{
+mkIf (WM == "Hyprland") {
   services = {
     hypridle = {
       settings = {

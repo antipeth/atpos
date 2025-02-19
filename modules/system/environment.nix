@@ -35,14 +35,11 @@
     ninja
     pkg-config
     zenith
-
-    zoxide
   ];
   programs = {
     dconf.enable = true;
     fuse.userAllowOther = true;
     mtr.enable = true;
     ssh.startAgent = true;
-    virt-manager.enable = true;
   };
 }

@@ -20,10 +20,14 @@ with lib;
       {
         layer = "top";
         position = "top";
-        modules-center = [ "hyprland/workspaces" ];
+        modules-center = [
+          "hyprland/workspaces"
+          "niri/workspaces"
+        ];
         modules-left = [
           "custom/startmenu"
           "hyprland/window"
+          "niri/window"
           "pulseaudio"
           "cpu"
           "memory"
@@ -49,6 +53,9 @@ with lib;
           };
           on-scroll-up = "hyprctl dispatch workspace e+1";
           on-scroll-down = "hyprctl dispatch workspace e-1";
+        };
+        "niri/workspaces" = {
+          format = "{icon}";
         };
         "clock" = {
           format = if clock24h == true then '' {:L%H:%M}'' else '' {:L%I:%M %p}'';

@@ -63,6 +63,7 @@ in
         duf
         ffmpeg
         hyprpicker
+        killall
         networkmanagerapplet
         nmap
         pavucontrol

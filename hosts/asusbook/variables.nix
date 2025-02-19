@@ -29,6 +29,8 @@
   GPU-Nvidia = false;
   GPU-Intel = true;
 
+  # Window Manager
+  WM = "niri";
   # Other
   BootLoader = "systemd-boot";
   QEMU = true;

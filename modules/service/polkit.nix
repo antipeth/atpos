@@ -25,6 +25,6 @@
     '';
   };
   environment.systemPackages = with pkgs; [
-    hyprpolkitagent
+    lxqt.lxqt-policykit
   ];
 }
