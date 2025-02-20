@@ -6,8 +6,8 @@
     commandLineArgs = [
       "--ozone-platform-hint=auto"
       "--ozone-platform=wayland"
-      "--gtk-version=4"
       "--enable-wayland-ime"
+      "--wayland-text-input-version=3"
       "--password-store=basic"
     ];
     extensions = [

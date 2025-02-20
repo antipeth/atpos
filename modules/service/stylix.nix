@@ -20,10 +20,10 @@
       };
       serif = config.stylix.fonts.sansSerif;
       sizes = {
-        applications = 20;
-        terminal = 20;
-        desktop = 20;
-        popups = 20;
+        applications = 16;
+        terminal = 16;
+        desktop = 16;
+        popups = 16;
       };
     };
   };

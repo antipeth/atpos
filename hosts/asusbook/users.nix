@@ -58,6 +58,7 @@ in
         swappy
         grim
         slurp
+
         # System tool
         brightnessctl
         duf

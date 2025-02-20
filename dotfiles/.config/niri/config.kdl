@@ -1,16 +1,59 @@
-// animations {
-//     off
-// }
+input {
+    keyboard {
+        xkb {
+            options "caps:escape"
+		        layout "us"
+        }
+        track-layout "global"
+        repeat-delay 600
+        repeat-rate 25
+    }
+    touchpad {
+        tap
+        dwt
+        // drag-lock
+        natural-scroll
+        accel-speed 0.4
+        accel-profile "adaptive"
+        scroll-factor 1.8
+        scroll-method "two-finger"
+        click-method "clickfinger"
+    }
+
+    mouse {
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+    }
+
+    tablet {
+        // off
+        map-to-output "eDP-1"
+        // left-handed
+        // calibration-matrix 1.0 0.0 0.0 0.0 1.0 0.0
+    }
+
+    touch {
+        map-to-output "eDP-1"
+    }
+    // disable-power-key-handling
+    warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="0%"
+    workspace-auto-back-and-forth //switching to the same workspace by index twice will switch back to the previous workspace
+}
 
 binds {
     // App Launcher
-    Alt+Space { spawn "fuzzel"; }
+    Super+Space cooldown-ms=500 { spawn "fuzzel"; }
 
     // Shortcuts
     Super+Shift+Slash { show-hotkey-overlay; }
-    Super+Y { spawn "nemo"; }
-    Super+L { spawn "wlogout"; }
-    Super+T { spawn "alacritty"; }
+    Super+Y { spawn "alacritty" "-e" "yazi"; }
+    Super+Return { spawn "alacritty"; }
+    // Super+L { spawn "wlogout"; }
+    Super+W { spawn "floorp"; }
+
+    // Screenshot
     Super+S { screenshot; }
     Super+Ctrl+S { screenshot-window; }
     Super+Ctrl+Alt+Print { screenshot-screen; }
@@ -56,20 +99,25 @@ binds {
 
     /// Using Vim-like keys
 
-    Super+Ctrl+Left  { move-column-left; }
-    Super+Ctrl+Down  { move-window-down; }
-    Super+Ctrl+Up    { move-window-up; }
-    Super+Ctrl+Right { move-column-right; }
+    Super+H  { move-column-left; }
+    Super+J  { move-window-down; }
+    Super+K  { move-window-up; }
+    Super+L  { move-column-right; }
 
-    //Super+Home { focus-column-first; }
-    //Super+End  { focus-column-last; }
-    Super+Ctrl+Home { move-column-to-first; }
-    Super+Ctrl+End  { move-column-to-last; }
+    // Super+Home { focus-column-first; }
+    // Super+End  { focus-column-last; }
+    // Super+Ctrl+Home { move-column-to-first; }
+    // Super+Ctrl+End  { move-column-to-last; }
+
+    Super+Insert { focus-column-first; }
+    Super+Delete  { focus-column-last; }
+    Super+Ctrl+Insert { move-column-to-first; }
+    Super+Ctrl+Delete  { move-column-to-last; }
 
     Super+Shift+Left  { focus-monitor-left; }
     Super+Shift+Down  { focus-monitor-down; }
     Super+Shift+Up    { focus-monitor-up; }
-   Super+Shift+Right { focus-monitor-right; }
+    Super+Shift+Right { focus-monitor-right; }
 
     Super+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Super+Shift+Ctrl+Down  { move-column-to-monitor-down; }
@@ -132,79 +180,113 @@ binds {
     // a matching layout switch hotkey configured in xkb options above.
     // Having both at once on the same hotkey will break the switching,
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-    Super+Space       { switch-layout "next"; }
-    Super+Shift+Space { switch-layout "prev"; }
+    // Super+Space       { switch-layout "next"; }
+    // Super+Shift+Space { switch-layout "prev"; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Super+Shift+E { quit; }
+    // Super+Shift+E { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Super+Shift+P { power-off-monitors; }
+    // Super+Shift+P { power-off-monitors; }
 
     // Volume control
-    XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
-    XF86AudioMute allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+}
 
+layout {
+    gaps 12
+
+    center-focused-column "never"
+    empty-workspace-above-first
+    default-column-width { proportion 0.5; }
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+
+        // fixed 1920
+    }
+    // Cycle between 1/3, 1/2, 2/3 of the output, and a fixed 720 logical pixels.
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        fixed 720
+    }
+
+    focus-ring {
+        width 4
+        // active-color "#313244FF"
+        // inactive-color "#1e1e2eFF"
+        active-gradient from="#f00f" to="#0f05" angle=45 in="oklch longer hue"
+        inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    }
+    insert-hint {
+        // off
+        color "#ffc87f80"
+        gradient from="#ffbb6680" to="#ffc88080" angle=45 relative-to="workspace-view"
+    }
+    struts {
+	    // left 16
+        // right 16
+        // top 64
+        // bottom 64
+    }
 }
 
 hotkey-overlay {
     skip-at-startup
 }
 
-input {
-    keyboard {
-        xkb {
-            options "caps:escape"
-		    layout "us"
-        }
-    }
-
-    touch {
-        // map-to-output "DP-3"
-        // map-to-output "Interaction Systems, Inc TYPE-C TCH00562020"
-    }
-
-    // disable-power-key-handling
-    // warp-mouse-to-focus
-    // focus-follows-mouse
-    focus-follows-mouse max-scroll-amount="0%"
-    // workspace-auto-back-and-forth
-
-    touchpad {
-        accel-speed 0.4
-        // accel-profile "flat"
-        // disabled-on-external-mouse
-        // dwt
-        // dwtp
-        natural-scroll
-        tap
-    }
-
-    mouse {
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-    }
-}
-
 prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/SCREENSHOT-%Y-%m-%d-%H:%M:%S.png"
 
+spawn-at-startup "xdg-desktop-portal"
+spawn-at-startup "xdg-desktop-portal-wlr"
+spawn-at-startup "xdg-desktop-portal-gnome"
 spawn-at-startup "fcitx5" "-d" "-r"
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "waybar"
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "--all"
 spawn-at-startup "systemctl" "--user" "import-environment" "QT_QPA_PLATFORMTHEME" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
-// spawn-at-startup "killall" "-q" "swww;sleep" ".5" "&&" "swww" "init"
-spawn-at-startup "swww" "init"
-spawn-at-startup "killall" "-q" "waybar;sleep" ".5" "&&" "waybar"
-spawn-at-startup "killall" "-q" "swaync;sleep" ".5" "&&" "swaync"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "killall" "-q" "waybar" "&&" "sleep" ".5" "&&" "waybar"
 spawn-at-startup "nm-applet" "--indicator"
+spawn-at-startup "killall" "-q" "swaync" "&&" "sleep" ".5" "&&" "swaync"
 spawn-at-startup "lxqt-policykit-agent"
 spawn-at-startup "sleep" "1.5" "&&" "swww" "img" "~/Pictures/Wallpapers/blackhole.jpg"
 spawn-at-startup "fcitx5" "-d" "-r"
+
+environment {
+    _JAVA_AWT_WM_NONREPARENTING "1"
+    AWT_TOOLKIT "MToolkit"
+    CLUTTER_BACKEND "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+    GDK_BACKEND "wayland"
+    GTK_USE_PORTAL "1"
+    MOZ_ENABLE_WAYLAND "1"
+    NIXOS_OZONE_WL "1"
+    QT_AUTO_SCREEN_SCALE_FACTOR "1"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "qt5ct"
+    SDL_HINT_VIDEODRIVER "wayland"
+    SDL_VIDEODRIVER "wayland"
+    XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_TYPE "wayland"
+    XDG_SESSION_DESKTOP "niri"
+
+    GTK_IM_MODULE null
+    QT_IM_MODULE "fcitx"
+    SDL_IM_MODULE "fcitx"
+    XMODIFIERS "@im=fcitx"
+    EDITOR "nvim"
+}
 
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
@@ -219,50 +301,32 @@ window-rule {
 window-rule {
     clip-to-geometry true
     geometry-corner-radius 10
+    opacity 0.95
 }
 
-layout {
-    gaps 2
-
-    center-focused-column "on-overflow"
-
-    preset-column-widths {
-        proportion 0.33333
-        proportion 0.5
-        proportion 0.66667
-
-        // fixed 1920
+animations {
+    workspace-switch {
+        spring damping-ratio=0.9 stiffness=1000 epsilon=0.0001
     }
-
-    // If you leave the brackets empty, the windows themselves will decide their initial width.
-    // default-column-width {}
-    default-column-width { proportion 0.98; }
-
-    focus-ring {
-	off
-
-	width 3
-
-        active-color "#31324400"
-        inactive-color "#31324400"
-
-        // active-gradient from="#80c8ff" to="#bbddff" angle=45
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    window-open {
+        spring damping-ratio=0.9 stiffness=1000 epsilon=0.0001
     }
-
-    border {
-        // off
-
-        width 2
-        active-color "#313244FF"
-        inactive-color "#1e1e2eFF"
-
+    window-close {
+        spring damping-ratio=0.9 stiffness=1000 epsilon=0.0001
     }
-
-    struts {
-	// left 64
-        // right 64
-        // top 64
-        // bottom 64
+    horizontal-view-movement {
+        spring damping-ratio=0.9 stiffness=800 epsilon=0.0001
+    }
+    window-movement {
+        spring damping-ratio=0.9 stiffness=800 epsilon=0.0001
+    }
+    window-resize {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+    config-notification-open-close {
+        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+    }
+    screenshot-ui-open {
+        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
     }
 }
