@@ -9,7 +9,7 @@ let
   inherit (import ../../hosts/${host}/variables.nix) QEMU;
 in
 {
-  config = mkIf QEMU {
+  config = mkIf (QEMU) {
     programs.virt-manager.enable = true;
     services = {
       qemuGuest.enable = true;

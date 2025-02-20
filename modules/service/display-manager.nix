@@ -1,8 +1,10 @@
-{ host, pkgs, ... }:
+{
+  host,
+  pkgs,
+  ...
+}:
 let
-  inherit (import ../../hosts/${host}/variables.nix)
-    WM
-    ;
+  inherit (import ../../hosts/${host}/variables.nix) WM;
 in
 {
   services = {

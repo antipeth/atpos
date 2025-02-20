@@ -1,5 +1,5 @@
 {
   programs.joplin-desktop = {
-    enable = true;
+    enable = false;
   };
 }

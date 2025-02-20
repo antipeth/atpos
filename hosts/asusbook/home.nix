@@ -1,15 +1,14 @@
 {
-  host,
   lib,
   nixvim,
   pkgs,
   username,
   ...
 }:
-with lib;
 let
-  inherit (import ../../hosts/${host}/./variables.nix) QEMU;
+  inherit (import ./variables.nix) QEMU;
 in
+with lib;
 {
   dconf.settings = mkIf QEMU {
     "org/virt-manager/virt-manager/connections" = {
