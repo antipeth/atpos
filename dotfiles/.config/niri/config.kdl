@@ -21,8 +21,8 @@ input {
     }
 
     mouse {
-        // natural-scroll
-        // accel-speed 0.2
+        natural-scroll
+        accel-speed 0.2
         // accel-profile "flat"
     }
 
@@ -51,7 +51,7 @@ binds {
     Super+Y { spawn "alacritty" "-e" "yazi"; }
     Super+Return { spawn "alacritty"; }
     // Super+L { spawn "wlogout"; }
-    Super+W { spawn "floorp"; }
+    Super+W { spawn "brave"; }
 
     // Screenshot
     Super+S { screenshot; }
@@ -246,13 +246,14 @@ prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/SCREENSHOT-%Y-%m-%d-%H:%M:%S.png"
 
-spawn-at-startup "swww-daemon"
-spawn-at-startup "killall" "-q" "waybar" "&&" "sleep" ".5" "&&" "waybar"
-spawn-at-startup "nm-applet" "--indicator"
-spawn-at-startup "killall" "-q" "swaync" "&&" "sleep" ".5" "&&" "swaync"
-spawn-at-startup "lxqt-policykit-agent"
-spawn-at-startup "sleep" "1.5" "&&" "swww" "img" "~/Pictures/Wallpapers/blackhole.jpg"
 spawn-at-startup "fcitx5" "-d" "-r"
+spawn-at-startup "nm-applet" "--indicator"
+spawn-at-startup "sh" "-c" "dbus-update-activation-environment --systemd --all && systemctl --user stop niri-session.target && systemctl --user start niri-session.target"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "swww" "restore"
+spawn-at-startup "swaync"
+spawn-at-startup "waybar"
+spawn-at-startup "lxqt-policykit-agent"
 
 environment {
     _JAVA_AWT_WM_NONREPARENTING "1"
@@ -276,6 +277,11 @@ environment {
     SDL_IM_MODULE "fcitx"
     XMODIFIERS "@im=fcitx"
     EDITOR "nvim"
+
+    CURRENT_COMPOSITOR "niri"
+    DISPLAY ":0"
+    XDG_CURRENT_DESKTOP "Niri"
+    XDG_SESSION_DESKTOP "Niri"
 }
 
 window-rule {
