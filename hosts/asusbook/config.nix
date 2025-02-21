@@ -28,6 +28,6 @@ in
   users = {
     mutableUsers = true;
   };
-
+  services.displayManager.enable = true;
   console.keyMap = KeyboardLayout;
 }

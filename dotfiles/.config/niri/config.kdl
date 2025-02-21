@@ -246,14 +246,6 @@ prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/SCREENSHOT-%Y-%m-%d-%H:%M:%S.png"
 
-spawn-at-startup "xdg-desktop-portal"
-spawn-at-startup "xdg-desktop-portal-wlr"
-spawn-at-startup "xdg-desktop-portal-gnome"
-spawn-at-startup "fcitx5" "-d" "-r"
-spawn-at-startup "nm-applet" "--indicator"
-spawn-at-startup "waybar"
-spawn-at-startup "dbus-update-activation-environment" "--systemd" "--all"
-spawn-at-startup "systemctl" "--user" "import-environment" "QT_QPA_PLATFORMTHEME" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "killall" "-q" "waybar" "&&" "sleep" ".5" "&&" "waybar"
 spawn-at-startup "nm-applet" "--indicator"
@@ -277,9 +269,7 @@ environment {
     QT_QPA_PLATFORMTHEME "qt5ct"
     SDL_HINT_VIDEODRIVER "wayland"
     SDL_VIDEODRIVER "wayland"
-    XDG_CURRENT_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
-    XDG_SESSION_DESKTOP "niri"
 
     GTK_IM_MODULE null
     QT_IM_MODULE "fcitx"
