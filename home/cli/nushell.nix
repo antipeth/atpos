@@ -39,6 +39,21 @@
         	}
         	rm -fp $tmp
         }
+        hooks: {
+            pre_prompt: [{ null }]
+            pre_execution: [{ null }]
+            env_change: {
+                PWD: [{|before, after|
+                    if (which direnv | is-empty) {
+                        return
+                    }
+
+                    direnv export json | from json | default {} | load-env
+                }]
+            }
+            display_output: "if (term size).columns >= 100 { table -e } else { table }"
+            command_not_found: { null }
+        }
       '';
     };
     carapace.enable = true;
