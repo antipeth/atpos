@@ -17,7 +17,7 @@
       automatic = true;
       dates = [ "weekly" ];
     };
-    package = pkgs.lix;
+    # package = pkgs.lix;
     registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       auto-optimise-store = lib.mkDefault true;
