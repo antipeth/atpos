@@ -1,0 +1,6 @@
+core
+.direnv/
+.old/
+.secret/
+.test/
+result/

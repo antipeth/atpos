@@ -12,13 +12,18 @@
       "nix"
       "nu"
       "toml"
+      "wakatime"
+    ];
+    extraPackages = [
+      pkgs.nixd
+      pkgs.nil
     ];
 
     ## everything inside of these brackets are Zed options.
     userSettings = {
-      features= {
-        copilot= false;
-        inline_completion_provider= "none";
+      features = {
+        copilot = false;
+        inline_completion_provider = "none";
       };
       assistant = {
         enabled = true;
@@ -66,6 +71,13 @@
           title = true;
         };
         working_directory = "current_project_directory";
+      };
+      lsp = {
+        nix = {
+          binary = {
+            path_lookup = true;
+          };
+        };
       };
 
       vim_mode = false;

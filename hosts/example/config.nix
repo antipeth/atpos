@@ -10,9 +10,7 @@ let
 in
 {
   imports = [
-    ./disko-config.nix
     ./hardware.nix
-    ./nas-hosts.nix
     ./users.nix
   ] ++ lib.filesystem.listFilesRecursive ../../modules;
 

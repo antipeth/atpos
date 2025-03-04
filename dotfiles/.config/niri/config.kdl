@@ -52,6 +52,7 @@ binds {
     Super+Return { spawn "alacritty"; }
     // Super+L { spawn "wlogout"; }
     Super+W { spawn "brave"; }
+    Super+E { spawn "alacritty" "-e" "fhs" "zeditor"; }
 
     // Screenshot
     Super+S { screenshot; }

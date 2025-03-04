@@ -15,6 +15,7 @@
       lazygit
       fzf
       fd
+      wakatime-cli
     ];
   };
 }
