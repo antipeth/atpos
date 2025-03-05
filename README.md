@@ -50,4 +50,19 @@ sudo nixos-rebuild switch --flake .#YourHostname
 
 Make you ❄️  🥶!
 
+## Acknowledgements
+
+Config:
+- <https://gitlab.com/Zaney/zaneyos>
+- <https://github.com/yonzilch/yonos>
+- <https://github.com/ryan4yin/nix-config>
+- <https://github.com/xddxdd/nixos-config>
+- <https://gitea.c3d2.de/c3d2/nix-config>
+- <https://github.com/spector700/Akari>
+- <https://github.com/redyf/Neve>
+
+Project:
+- <https://github.com/ryan4yin/nixos-and-flakes-book>
+- <https://github.com/nix-community/nixvim>
+
 ![notbyai](https://notbyai.fyi/img/written-by-human-not-by-ai-white.svg)
