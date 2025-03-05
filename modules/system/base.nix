@@ -1,11 +1,13 @@
 {
   config,
-  pkgs,
   host,
+  lib,
+  pkgs,
   ...
 }:
 let
   inherit (import ../../hosts/${host}/variables.nix)
+    BootLoader
     Locale
     TimeZone
     ;
@@ -45,11 +47,17 @@ in
     # Bootloader.
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot = {
+      systemd-boot = lib.mkIf (BootLoader == "systemd-boot") {
         configurationLimit = 50;
         editor = false;
         enable = true;
       };
+      grub = lib.mkIf (BootLoader == "grub") {
+        configurationLimit = 50;
+        device = "nodev";
+        enable = true;
+      };
+      timeout = 3;
     };
     supportedFilesystems = [
       "nfs"

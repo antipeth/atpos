@@ -10,13 +10,10 @@ let
 in
 {
   imports = [
-    ./disko-config.nix
     ./hardware.nix
-    ./nas-hosts.nix
     ./users.nix
   ] ++ lib.filesystem.listFilesRecursive ../../modules;
 
-  networking.hostId = "fc570939";
   # Extra Module Options
   drivers.amdgpu.enable = GPU-AMD;
   drivers.nvidia.enable = GPU-Nvidia;

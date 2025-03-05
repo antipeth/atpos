@@ -10,7 +10,6 @@
   };
   # Where hostID can be generated with:
   # head -c4 /dev/urandom | od -A none -t x4
-  networking.hostId = "fc570939";
   services.zfs = {
     autoScrub = {
       enable = true;
