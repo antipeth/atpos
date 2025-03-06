@@ -31,9 +31,11 @@ with lib;
           "pulseaudio"
           "cpu"
           "memory"
+          "disk"
           "idle_inhibitor"
         ];
         modules-right = [
+          "backlight"
           "custom/wl-gammarelay-temperature"
           "custom/wl-gammarelay-brightness"
           "custom/hyprbindings"
@@ -76,8 +78,11 @@ with lib;
         };
         "cpu" = {
           interval = 5;
-          format = " {usage:2}%";
+          format = " {max_frequency}GHz {usage}%";
           tooltip = true;
+          max-length = 13;
+          min-length = 13;
+          on-click = "alacritty -e zenith";
         };
         "disk" = {
           format = " {free}";
@@ -129,8 +134,20 @@ with lib;
         "custom/startmenu" = {
           tooltip = false;
           format = "";
-          # exec = "rofi -show drun";
-          on-click = "sleep 0.1 && rofi-launcher";
+          exec = "fuzzel";
+          on-click = "sleep 0.1 && fuzzel";
+        };
+        "backlight" = {
+          "device" = "intel_backlight";
+          "format" = "{icon} {percent}%";
+          "format-alt" = "{percent}% {icon}";
+          "format-alt-click" = "click-right";
+          "format-icons" = [
+            ""
+            ""
+          ];
+          "on-scroll-down" = "brightnessctl s 5%-";
+          "on-scroll-up" = "brightnessctl s +5%";
         };
         "custom/wl-gammarelay-temperature" = {
           tooltip = false;
@@ -254,7 +271,7 @@ with lib;
         tooltip label {
           color: #${config.stylix.base16Scheme.base08};
         }
-        #window, #pulseaudio, #cpu, #memory, #idle_inhibitor {
+        #window, #pulseaudio, #cpu, #memory, #disk, #idle_inhibitor {
           font-weight: bold;
           margin: 4px 0px;
           margin-left: 7px;
@@ -273,7 +290,7 @@ with lib;
         }
         #network, #battery,
         #custom-notification, #tray, #custom-exit,
-        #custom-wl-gammarelay-temperature, #custom-wl-gammarelay-brightness {
+        #backlight, #custom-wl-gammarelay-temperature, #custom-wl-gammarelay-brightness {
           font-weight: bold;
           background: linear-gradient(90deg, #${config.stylix.base16Scheme.base0E}, #${config.stylix.base16Scheme.base0C});
           color: #${config.stylix.base16Scheme.base05};
