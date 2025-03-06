@@ -14,6 +14,7 @@ in
     ./users.nix
   ] ++ lib.filesystem.listFilesRecursive ../../modules;
 
+  networking.hostId = "ced6733c";
   # Extra Module Options
   drivers.amdgpu.enable = GPU-AMD;
   drivers.nvidia.enable = GPU-Nvidia;

@@ -52,7 +52,7 @@ in
         dig
         duf
         ffmpeg
-        hyprpicker
+        # hyprpicker
         killall
         networkmanagerapplet
         pavucontrol
