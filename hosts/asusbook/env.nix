@@ -16,10 +16,6 @@
   ScaleLevel = "2";
   MonitorSettings = "monitor = , highres, auto, 2";
 
-  # Program Options
-  browser = "brave"; # Set Default Browser (google-chrome-stable for google-chrome)
-  terminal = "alacritty"; # Set Default System Terminal
-
   # Driver options
   Bluetooth = true;
   GPU-AMD = false;
