@@ -1,9 +1,11 @@
+{ pkgs, ... }:
 {
   boot = {
     kernelParams = [
       "zfs_force=1"
     ];
     zfs = {
+      package = pkgs.zfs_cachyos;
       forceImportRoot = false;
       devNodes = "/dev/disk/by-id";
     };
