@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (import ./variables.nix) QEMU;
+  inherit (import ./env.nix) QEMU;
 in
 with lib;
 {

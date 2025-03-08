@@ -4,7 +4,7 @@
   ...
 }:
 let
-  inherit (import ../../hosts/${host}/variables.nix) WM;
+  inherit (import ../../hosts/${host}/env.nix) WM;
 in
 {
   services = {

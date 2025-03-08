@@ -6,7 +6,7 @@
 }:
 with lib;
 let
-  inherit (import ../../hosts/${host}/variables.nix) QEMU;
+  inherit (import ../../hosts/${host}/env.nix) QEMU;
 in
 {
   config = mkIf (QEMU) {
