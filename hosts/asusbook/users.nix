@@ -5,7 +5,7 @@
 }:
 
 let
-  inherit (import ./variables.nix) gitUsername;
+  inherit (import ./env.nix) gitUsername;
 in
 {
   users.users = {

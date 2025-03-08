@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   xdg = {
     enable = true;
