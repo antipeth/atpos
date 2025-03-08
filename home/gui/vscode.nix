@@ -3,7 +3,7 @@
   programs.vscode = {
     enable = false;
     package = pkgs.vscodium-fhs;
-    extensions = with pkgs; [
+    profiles.default.extensions = with pkgs; [
       vscode-extensions.alefragnani.project-manager
       vscode-extensions.antfu.icons-carbon
       vscode-extensions.antfu.slidev
