@@ -1,11 +1,22 @@
-{ pkgs, ... }:
+{
+  host,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  inherit (import ../../hosts/${host}/env.nix)
+    KernelPackages
+    ZFS-Support
+    ;
+in
 {
   boot = {
     kernelParams = [
       "zfs_force=1"
     ];
     zfs = {
-      package = pkgs.zfs_cachyos;
+      package = lib.mkIf (KernelPackages == "linuxPackages_cachyos") pkgs.zfs_cachyos;
       forceImportRoot = false;
       devNodes = "/dev/disk/by-id";
     };

@@ -8,8 +8,10 @@
 let
   inherit (import ../../hosts/${host}/env.nix)
     BootLoader
+    KernelPackages
     Locale
     TimeZone
+    ZFS-Support
     ;
 in
 {
@@ -28,7 +30,7 @@ in
       verbose = false;
     };
     # Kernel
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.${KernelPackages};
     kernelParams = [
       "audit=0"
       "console=tty0"
@@ -52,10 +54,23 @@ in
         editor = false;
         enable = true;
       };
-      grub = lib.mkIf (BootLoader == "grub") {
+      grub = lib.mkIf (lib.strings.hasInfix "grub" BootLoader) {
         configurationLimit = 50;
         device = "nodev";
+        efiInstallAsRemovable = true;
+        efiSupport = true;
         enable = true;
+        mirroredBoots = lib.mkIf (BootLoader == "grub-mirror") [
+          {
+            devices = [ "nodev" ];
+            path = "/boot";
+          }
+          {
+            devices = [ "nodev" ];
+            path = "/boot-mirror";
+          }
+        ];
+        zfsSupport = ZFS-Support;
       };
       timeout = 3;
     };
