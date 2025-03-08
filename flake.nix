@@ -2,6 +2,7 @@
   description = "AtpOS";
 
   inputs = {
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     disko = {
       url = "github:nix-community/disko";
@@ -18,6 +19,7 @@
 
   outputs =
     {
+      chaotic,
       nixpkgs,
       nixvim,
       home-manager,
@@ -39,6 +41,7 @@
           };
           modules = [
             ./hosts/${host}/config.nix
+            chaotic.nixosModules.default
             inputs.disko.nixosModules.disko
             inputs.stylix.nixosModules.stylix
             nixvim.nixosModules.nixvim
@@ -52,7 +55,7 @@
               };
               # home-manager.useGlobalPkgs = true;
               # home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
+              # home-manager.backupFileExtension = "backup";
               home-manager.users.${username} = import ./hosts/${host}/home.nix;
             }
           ];

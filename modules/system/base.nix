@@ -28,7 +28,7 @@ in
       verbose = false;
     };
     # Kernel
-    kernelPackages = pkgs.linuxPackages_xanmod_stable;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     kernelParams = [
       "audit=0"
       "console=tty0"
