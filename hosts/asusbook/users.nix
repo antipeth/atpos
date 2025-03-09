@@ -26,6 +26,9 @@ in
         # wm
         niri
 
+        # mail
+        claws-mail
+
         # tailscale
         tailscale
 
