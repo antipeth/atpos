@@ -1,6 +1,6 @@
 { lib, ... }:
 let
-  inherit (import ./variables.nix)
+  inherit (import ./env.nix)
     Bluetooth
     GPU-AMD
     GPU-Intel

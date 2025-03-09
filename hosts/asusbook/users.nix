@@ -26,6 +26,9 @@ in
         # wm
         niri
 
+        # tailscale
+        tailscale
+
         # archiver
         xarchiver
 
