@@ -21,9 +21,9 @@ in
   drivers.amdgpu.enable = GPU-AMD;
   drivers.nvidia.enable = GPU-Nvidia;
   drivers.nvidia-prime = {
-    enable = false;
-    intelBusID = "";
-    nvidiaBusID = "";
+    enable = true;
+    intelBusID = "PCI:0:2:0";
+    nvidiaBusID = "PCI:1:0:0";
   };
   drivers.intel.enable = GPU-Intel;
   drivers.bluetooth.enable = Bluetooth;

@@ -72,6 +72,7 @@ in
         ffmpeg
         hyprpicker
         killall
+        lshw
         networkmanagerapplet
         nmap
         openssl

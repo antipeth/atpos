@@ -111,7 +111,7 @@ in
   };
 
   nixpkgs = {
-    config.allowUnfree = false;
+    config.allowUnfree = true;
     hostPlatform = "x86_64-linux";
   };
 
