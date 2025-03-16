@@ -60,7 +60,6 @@
     ./util/mini.nix
     ./util/nvim-autopairs.nix
     ./util/nvim-surround.nix
-    ./util/nvterm.nix
     ./util/plenary.nix
     ./util/persistence.nix
     ./util/project-nvim.nix
