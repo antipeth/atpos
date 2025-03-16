@@ -2,6 +2,7 @@
   networking.extraHosts = ''
     192.168.6.173 0pt.icu
     192.168.6.173 alist.0pt.icu
+    192.168.6.173 aria2.0pt.icu
     192.168.6.173 code.0pt.icu
     192.168.6.173 dashboard.0pt.icu
     192.168.6.173 git.0pt.icu

@@ -43,9 +43,6 @@ in
         # dev
         devbox
 
-        # download
-        motrix
-
         # file manager
         nemo
 
