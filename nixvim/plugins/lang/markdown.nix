@@ -1,4 +1,4 @@
-{ pkgs, helpers, ... }:
+{ lib, pkgs, ... }:
 {
   extraPackages = with pkgs; [
     marksman
@@ -11,7 +11,7 @@
     };
 
     image = {
-      enable = helpers.enableExceptInTests;
+      enable = lib.nixvim.enableExceptInTests;
       integrations.markdown = {
         clearInInsertMode = true;
         onlyRenderImageAtCursor = true;
