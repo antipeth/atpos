@@ -64,7 +64,7 @@ in
         slurp
 
         # monitor
-        nvtop
+        nvtopPackages.full
 
         # System tool
         brightnessctl
