@@ -63,6 +63,9 @@ in
         grim
         slurp
 
+        # monitor
+        nvtop
+
         # System tool
         brightnessctl
         dig
