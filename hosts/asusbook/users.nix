@@ -49,6 +49,9 @@ in
         # lint
         commitlint-rs
 
+        # chat
+        mumble
+
         # password manager
         keepassxc
 
