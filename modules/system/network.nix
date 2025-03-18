@@ -38,52 +38,22 @@
           {
             address_data = "185.222.222.222";
             tls_auth_name = "dot.sb";
-            tls_pubkey_pinset = [
-              {
-                digest = "sha256";
-                value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
-              }
-            ];
           }
           {
             address_data = "45.11.45.11";
             tls_auth_name = "dot.sb";
-            tls_pubkey_pinset = [
-              {
-                digest = "sha256";
-                value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
-              }
-            ];
           }
           {
             address_data = "2a09::";
             tls_auth_name = "dot.sb";
-            tls_pubkey_pinset = [
-              {
-                digest = "sha256";
-                value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
-              }
-            ];
           }
           {
             address_data = "2a11::";
             tls_auth_name = "dot.sb";
-            tls_pubkey_pinset = [
-              {
-                digest = "sha256";
-                value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
-              }
-            ];
           }
           {
             address_data = "2a11::";
             tls_auth_name = "dot.sb";
-            tls_pubkey_pinset = [
-              {
-                digest = "sha256";
-                value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
-              }
-            ];
           }
           {
             address_data = "9.9.9.9";
