@@ -7,12 +7,14 @@
   programs.zed-editor = {
     enable = true;
     extensions = [
-      "Docker Compose"
-      "HTML"
+      "astro"
+      "docker compose"
+      "html"
       "nix"
       "nu"
       "toml"
       "wakatime"
+      "vue"
     ];
     extraPackages = [
       pkgs.nixd
