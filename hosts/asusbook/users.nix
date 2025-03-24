@@ -24,6 +24,9 @@ in
       shell = pkgs.nushell;
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
+        # tests
+        godot_4
+
         # wm
         niri
 
