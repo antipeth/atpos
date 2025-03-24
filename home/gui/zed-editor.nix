@@ -32,9 +32,22 @@
         path = lib.getExe pkgs.nodejs;
         npm_path = lib.getExe' pkgs.nodejs "npm";
       };
-
-      hour_format = "hour24";
+      autosave = "on_focus_change";
       auto_update = false;
+      base_keymap = "VSCode";
+      load_direnv = "shell_hook";
+      tabs = {
+        file_icons = false;
+        git_status = false;
+      };
+      lsp = {
+        nix = {
+          binary = {
+            path_lookup = true;
+          };
+        };
+      };
+      hour_format = "hour24";
       terminal = {
         alternate_scroll = "off";
         blinking = "off";
@@ -66,18 +79,7 @@
         };
         working_directory = "current_project_directory";
       };
-      lsp = {
-        nix = {
-          binary = {
-            path_lookup = true;
-          };
-        };
-      };
-
       vim_mode = false;
-      ## tell zed to use direnv and direnv can use a flake.nix enviroment.
-      load_direnv = "shell_hook";
-      base_keymap = "VSCode";
       show_whitespaces = "all";
     };
   };
