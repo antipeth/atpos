@@ -8,7 +8,8 @@
     enable = true;
     extensions = [
       "astro"
-      "docker compose"
+      "docker-compose"
+      "git-firefly"
       "html"
       "nix"
       "nu"
