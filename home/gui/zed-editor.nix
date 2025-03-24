@@ -28,15 +28,6 @@
         copilot = false;
         inline_completion_provider = "none";
       };
-      assistant = {
-        enabled = true;
-        version = "2";
-        default_model = {
-          provider = "google";
-          model = "gemini-2.0-flash";
-        };
-      };
-
       node = {
         path = lib.getExe pkgs.nodejs;
         npm_path = lib.getExe' pkgs.nodejs "npm";
