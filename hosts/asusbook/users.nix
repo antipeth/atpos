@@ -71,6 +71,7 @@ in
 
         # monitor
         nvtopPackages.full
+        sniffnet
 
         # System tool
         brightnessctl
