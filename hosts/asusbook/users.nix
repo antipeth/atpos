@@ -52,6 +52,9 @@ in
         # lint
         commitlint-rs
 
+        # office tools
+        onlyoffice-bin
+
         # chat
         mumble
 
