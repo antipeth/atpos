@@ -40,6 +40,7 @@
     dconf.enable = true;
     fuse.userAllowOther = true;
     mtr.enable = true;
+    sniffnet.enable = true;
     ssh.startAgent = true;
   };
 }
