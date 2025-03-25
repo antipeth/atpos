@@ -22,6 +22,18 @@
       pkgs.nil
     ];
 
+    ## this is integrated Lazygit into Zed
+    userKeymaps = [
+      {
+        context = "Workspace";
+        bindings = {
+          alt-g = [
+            "task::Spawn"
+            { "task_name" = "start lazygit"; }
+          ];
+        };
+      }
+    ];
     ## everything inside of these brackets are Zed options.
     userSettings = {
       features = {

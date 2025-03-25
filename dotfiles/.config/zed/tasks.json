@@ -1,0 +1,8 @@
+[
+  {
+    "command": "lazygit",
+    "label": "start lazygit",
+    "reveal_target": "center",
+    "use_new_terminal": true
+  }
+]
