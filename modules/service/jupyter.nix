@@ -25,6 +25,7 @@
                 scikit-learn
                 requests
                 numpy
+                matplotlib
               ]
             )
           );
