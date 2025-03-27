@@ -16,6 +16,7 @@
       "toml"
       "wakatime"
       "vue"
+      "terraform"
     ];
     extraPackages = [
       pkgs.nixd
