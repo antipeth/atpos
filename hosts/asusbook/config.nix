@@ -14,6 +14,7 @@ in
     ./hardware.nix
     ./nas-hosts.nix
     ./users.nix
+    # ./test-network-nat.nix
     ./test-network-tap.nix
   ] ++ lib.filesystem.listFilesRecursive ../../modules;
 
