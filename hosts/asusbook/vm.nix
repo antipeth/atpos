@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   microvm = {
     hypervisor = "qemu";
@@ -78,5 +79,6 @@
   };
   users.users.root.password = "a027g0dn8a5s";
 
+  environment.systemPackages = with pkgs; [ fastfetch ];
   system.stateVersion = "25.05";
 }
