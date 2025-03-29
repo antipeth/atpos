@@ -26,7 +26,10 @@
         "192.168.6.100/24"
       ];
       Gateway = "192.168.6.1";
-      DNS = [ "127.0.0.1" ];
+      DNS = [
+        "127.0.0.1"
+        "::1"
+      ];
       IPv6AcceptRA = true;
     };
     linkConfig.RequiredForOnline = "routable";

@@ -19,7 +19,7 @@
   # Driver options
   Bluetooth = true;
   GPU-AMD = false;
-  GPU-Nvidia = true;
+  GPU-Nvidia = false;
   GPU-Intel = true;
 
   # Window Manager
