@@ -66,15 +66,15 @@
               home-manager.users.${username} = import ./hosts/${host}/home.nix;
             }
 
-            microvm.nixosModules.host
-            {
-              microvm.vms = {
-                test-microvm = {
-                  pkgs = import nixpkgs { system = "x86_64-linux"; };
-                  config = import ./hosts/${host}/vm.nix;
-                };
-              };
-            }
+            # microvm.nixosModules.host
+            # {
+            #   microvm.vms = {
+            #     test-microvm = {
+            #       pkgs = import nixpkgs { system = "x86_64-linux"; };
+            #       config = import ./hosts/${host}/vm.nix;
+            #     };
+            #   };
+            # }
           ];
         };
       };
