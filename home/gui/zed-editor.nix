@@ -1,11 +1,8 @@
 { pkgs, lib, ... }:
 {
-  home.packages = with pkgs; [
-    nil
-    nixd
-  ];
   programs.zed-editor = {
     enable = true;
+    package = pkgs.zed-editor-fhs;
     extensions = [
       "astro"
       "docker-compose"
