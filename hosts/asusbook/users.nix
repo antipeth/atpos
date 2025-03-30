@@ -26,6 +26,7 @@ in
       packages = with pkgs; [
         # tests
         godot_4
+        ventoy-full
 
         # wm
         niri
@@ -54,6 +55,9 @@ in
 
         # office tools
         onlyoffice-bin
+
+        # git cli tools
+        onefetch
 
         # chat
         mumble
