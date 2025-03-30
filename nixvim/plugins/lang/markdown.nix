@@ -12,7 +12,7 @@
 
     image = {
       enable = lib.nixvim.enableExceptInTests;
-      integrations.markdown = {
+      settings.integrations.markdown = {
         clearInInsertMode = true;
         onlyRenderImageAtCursor = true;
       };
