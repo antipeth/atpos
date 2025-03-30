@@ -27,6 +27,7 @@ in
         # tests
         godot_4
         ventoy-full
+        apacheHttpd
 
         # wm
         niri
