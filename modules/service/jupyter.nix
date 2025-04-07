@@ -26,6 +26,7 @@
                 requests
                 numpy
                 matplotlib
+                pycryptodome
               ]
             )
           );
