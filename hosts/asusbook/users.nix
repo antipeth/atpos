@@ -25,8 +25,16 @@ in
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
         # tests
-        godot_4
-        ventoy-full
+        retroarch-free
+        desmume
+
+        # video editor
+        losslesscut-bin
+
+        # media player
+        jellyfin-media-player
+
+        # crysto
         apacheHttpd
 
         # wm
