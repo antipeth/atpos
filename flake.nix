@@ -60,12 +60,8 @@
                 inherit host;
                 inherit nixvim;
               };
-              # home-manager.useGlobalPkgs = true;
-              # home-manager.useUserPackages = true;
-              # home-manager.backupFileExtension = "backup";
               home-manager.users.${username} = import ./hosts/${host}/home.nix;
             }
-
             # microvm.nixosModules.host
             # {
             #   microvm.vms = {
