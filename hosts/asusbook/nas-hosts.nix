@@ -14,5 +14,6 @@
     192.168.6.173 pic.0pt.icu
     192.168.6.173 sync.0pt.icu
     192.168.6.173 wakapi.0pt.icu
+    192.168.6.173 radicale.0pt.icu
   '';
 }
