@@ -10,8 +10,6 @@
 let
   # hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
   inherit (import ../../hosts/${host}/env.nix)
-    browser
-    terminal
     extraMonitorSettings
     KeyboardLayout
     WM
@@ -199,11 +197,11 @@ mkIf (WM == "Hyprland") {
             preserve_split = true
           }
           # Shortcuts
-          bind = ${modifier},Return,exec,${terminal}
+          bind = ${modifier},Return,exec,alacritty
           bind = ${modifier},L,exec,pkill wlogout || wlogout
           bind = ${modifier},SPACE,exec,pkill fuzzel || fuzzel
-          bind = ${modifier},Y,exec,${terminal} -e yazi
-          bind = ${modifier},W,exec,${browser}
+          bind = ${modifier},Y,exec,alacritty -e yazi
+          bind = ${modifier},W,exec,brave
 
           # Toggle some programs
           bind = ${modifier}SHIFT,N,exec,swaync-client -rs
