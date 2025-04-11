@@ -63,9 +63,6 @@ in
         # lint
         commitlint-rs
 
-        # office tools
-        onlyoffice-bin
-
         # git cli tools
         onefetch
 
