@@ -25,8 +25,9 @@ in
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
         # tests
-        retroarch-free
-        desmume
+
+        # game emulator
+        retroarch
 
         # video editor
         losslesscut-bin
