@@ -2,6 +2,7 @@
 let
   inherit (import ./env.nix)
     Bluetooth
+    Gamepad
     GPU-AMD
     GPU-Intel
     GPU-Nvidia
@@ -29,6 +30,7 @@ in
   };
   drivers.intel.enable = GPU-Intel;
   drivers.bluetooth.enable = Bluetooth;
+  drivers.gamepad.enable = Gamepad;
   users = {
     mutableUsers = true;
   };
