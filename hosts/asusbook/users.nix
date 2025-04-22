@@ -25,6 +25,7 @@ in
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
         # tests
+        windsurf
 
         # game emulator
         retroarch
