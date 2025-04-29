@@ -10,7 +10,7 @@ let
     ZFS-Support
     ;
 in
-{
+lib.mkIf ZFS-Support {
   boot = {
     kernelParams = [
       "zfs_force=1"
@@ -34,5 +34,4 @@ in
     };
     autoSnapshot.enable = true;
   };
-  systemd.services.zfs-zed.wantedBy = lib.mkForce [ ];
 }
