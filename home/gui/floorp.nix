@@ -1,6 +1,6 @@
 {
   programs.floorp = {
-    enable = true;
+    enable = false;
     languagePacks = [ "en-US" ];
     policies = {
       DisableAccounts = true;

@@ -27,7 +27,7 @@ in
         xarchiver
 
         # dev
-        devbox
+        # devbox
 
         # file manager
         nemo
@@ -56,7 +56,7 @@ in
         playerctl
         # swaynotificationcenter
         wl-clipboard
-        wl-gammarelay-rs
+        # wl-gammarelay-rs
 
         # Nix tools
         # deadnix
