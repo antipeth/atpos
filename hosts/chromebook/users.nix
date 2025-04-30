@@ -23,9 +23,6 @@ in
       shell = pkgs.nushell;
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
-        # wm
-        niri
-
         # archiver
         xarchiver
 
@@ -45,19 +42,19 @@ in
         remmina
 
         # wallpaper
-        swww
+        # swww
 
         # System tool
-        brightnessctl
+        # brightnessctl
         dig
         duf
         ffmpeg
         # hyprpicker
-        killall
+        # killall
         networkmanagerapplet
         pavucontrol
         playerctl
-        swaynotificationcenter
+        # swaynotificationcenter
         wl-clipboard
         wl-gammarelay-rs
 
