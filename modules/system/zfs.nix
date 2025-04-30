@@ -20,6 +20,7 @@ lib.mkIf ZFS-Support {
       forceImportRoot = false;
       devNodes = "/dev/disk/by-id";
     };
+    supportedFilesystems = [ "zfs" ];
   };
   # Where hostID can be generated with:
   # head -c4 /dev/urandom | od -A none -t x4

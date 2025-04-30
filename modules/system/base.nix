@@ -77,7 +77,7 @@ in
     };
     supportedFilesystems = [
       "nfs"
-      "zfs"
+      # "zfs"
     ];
     plymouth.enable = true;
     tmp.cleanOnBoot = true;
