@@ -1,8 +1,8 @@
 {
-  virtualisation.containers.enable = true;
+  virtualisation.containers.enable = false;
   virtualisation = {
     docker = {
-      enable = true;
+      enable = false;
       storageDriver = "zfs";
     };
   };
