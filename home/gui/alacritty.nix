@@ -1,4 +1,8 @@
-{
+{ host, lib, ... }:
+let
+  inherit (import ../../hosts/${host}/env.nix) Terminal;
+in
+lib.mkIf (Terminal == "alacritty") {
   programs.alacritty = {
     enable = true;
     settings = {

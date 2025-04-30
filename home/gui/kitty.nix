@@ -1,4 +1,8 @@
-{
+{ host, lib, ... }:
+let
+  inherit (import ../../hosts/${host}/env.nix) Terminal;
+in
+lib.mkIf (Terminal == "kitty") {
   programs.kitty = {
     enable = true;
     settings = {
@@ -14,5 +18,4 @@
       inactive_tab_font_style bold
     '';
   };
-
 }
