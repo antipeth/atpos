@@ -1,4 +1,13 @@
 {
+  host,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  inherit (import ../../hosts/${host}/env.nix) DM;
+in
+{
   xdg = {
     enable = true;
     mimeApps = {
@@ -52,6 +61,10 @@
         };
       };
       enable = true;
+      extraPortals = lib.mkIf (DM == "Gnome") [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-gnome
+      ];
     };
     userDirs = {
       enable = true;
