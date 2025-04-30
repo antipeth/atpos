@@ -1,6 +1,13 @@
-{ config, ... }:
-
 {
+  config,
+  host,
+  lib,
+  ...
+}:
+let
+  inherit (import ../../hosts/${host}/env.nix) WM;
+in
+lib.mkIf (WM == "Hyprland" || WM == "niri") {
   home.file.".config/swaync/config.json".text = ''
     {
       "$schema": "/etc/xdg/swaync/configSchema.json",

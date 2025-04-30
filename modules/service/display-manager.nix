@@ -1,12 +1,13 @@
 {
   host,
+  lib,
   pkgs,
   ...
 }:
 let
   inherit (import ../../hosts/${host}/env.nix) WM;
 in
-{
+lib.mkIf (WM == "niri" || WM == "Hyprland") {
   services = {
     greetd = {
       enable = true;
