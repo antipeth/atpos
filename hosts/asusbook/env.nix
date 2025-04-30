@@ -23,12 +23,18 @@
   GPU-Nvidia = true;
   GPU-Intel = true;
 
+  # DesktopManager
+  DM = "none"; # options: Gnome or none
+
   # Window Manager
-  WM = "niri"; # options: Hyprland or niri
+  WM = "niri"; # options: Hyprland, niri or none
   # System
   BootLoader = "systemd-boot"; # options: systemd-boot, grub, grub-mirror
   KernelPackages = "linuxPackages_cachyos"; # see https://search.nixos.org/options?show=boot.kernelPackages https://www.nyx.chaotic.cx/#using-sched-ext-schedulers
   QEMU = true;
   Transparent-Proxy = false;
   ZFS-Support = true;
+  Syncthing = true;
+  Terminal = "alacritty"; # options: alacritty or kitty
+  Office = "none"; # options: onlyoffice or none
 }
