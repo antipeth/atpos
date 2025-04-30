@@ -36,10 +36,6 @@ with lib;
         recursive = true;
         source = ../../dotfiles/.config;
       };
-      ".config/wlogout/icons" = {
-        source = ../../pic/wlogout;
-        recursive = true;
-      };
       ".config/face.jpg".source = ../../pic/face.jpg;
       ".face.icon".source = ../../pic/face.jpg;
     };
