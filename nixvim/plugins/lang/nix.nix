@@ -10,12 +10,12 @@ in
 
     conform-nvim.settings = {
       formatters_by_ft = {
-        nix = [ "nixfmt-rfc-style" ];
+        nix = [ "alejandra" ];
       };
 
       formatters = {
-        nixfmt-rfc-style = {
-          command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+        alejandra = {
+          command = "${pkgs.alejandra}/bin/alejandra";
         };
       };
     };
