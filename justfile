@@ -74,3 +74,8 @@ upgrade:
 upgrade-debug:
   # let system totally upgrade (deBug Mode)
   sudo nixos-rebuild switch --flake .#{{hostname}} --log-format internal-json --show-trace -L -v |& nom --json
+
+format:
+  # Use alejandra and deadnix to format code
+  deadnix -e
+  alejandra .
