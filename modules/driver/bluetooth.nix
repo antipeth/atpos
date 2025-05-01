@@ -1,9 +1,11 @@
-{ config, lib, ... }:
-with lib;
-let
-  cfg = config.drivers.bluetooth;
-in
 {
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.drivers.bluetooth;
+in {
   options.drivers.bluetooth = {
     enable = mkEnableOption "Enable Bluetooth Support";
   };

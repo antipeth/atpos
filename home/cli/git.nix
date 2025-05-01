@@ -1,8 +1,6 @@
-{ host, ... }:
-let
+{host, ...}: let
   inherit (import ../../hosts/${host}/env.nix) gitUsername gitEmail;
-in
-{
+in {
   # Install & Configure Git
   programs = {
     git = {

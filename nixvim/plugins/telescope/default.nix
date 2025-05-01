@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   plugins = {
     project-nvim.enableTelescope = true;
     telescope = {

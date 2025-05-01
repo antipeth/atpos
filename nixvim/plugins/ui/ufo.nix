@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   autoCmd = [
     {
       event = [
@@ -30,11 +29,11 @@
         segments = [
           {
             click = "v:lua.ScFa";
-            text = [ (lib.nixvim.mkRaw "require('statuscol.builtin').foldfunc") ];
+            text = [(lib.nixvim.mkRaw "require('statuscol.builtin').foldfunc")];
           }
           {
             click = "v:lua.ScSa";
-            text = [ " %s" ];
+            text = [" %s"];
           }
           {
             click = "v:lua.ScLa";
@@ -50,7 +49,8 @@
     nvim-ufo = {
       enable = true;
       settings = {
-        provider_selector = # lua
+        provider_selector =
+          # lua
           ''
             function()
               return { "lsp", "indent" }
@@ -92,5 +92,4 @@
       options.desc = "Peek Folded Lines";
     }
   ];
-
 }

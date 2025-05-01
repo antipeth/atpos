@@ -2,12 +2,9 @@
   pkgs,
   username,
   ...
-}:
-
-let
+}: let
   inherit (import ./env.nix) gitUsername;
-in
-{
+in {
   users.users = {
     "${username}" = {
       homeMode = "755";
@@ -105,30 +102,29 @@ in
         wl-gammarelay-rs
 
         # Nix tools
+        alejandra
         deadnix
         nix-output-monitor
-        nixfmt-rfc-style
         sops
         (
           let
             base = pkgs.appimageTools.defaultFhsEnvArgs;
           in
-          pkgs.buildFHSEnv (
-            base
-            // {
-              name = "fhs";
-              targetPkgs =
-                pkgs:
-                (base.targetPkgs pkgs)
-                ++ (with pkgs; [
-                  pkg-config
-                  ncurses
-                ]);
-              profile = "export FHS=1";
-              runScript = "bash";
-              extraOutputsToInstall = [ "dev" ];
-            }
-          )
+            pkgs.buildFHSEnv (
+              base
+              // {
+                name = "fhs";
+                targetPkgs = pkgs:
+                  (base.targetPkgs pkgs)
+                  ++ (with pkgs; [
+                    pkg-config
+                    ncurses
+                  ]);
+                profile = "export FHS=1";
+                runScript = "bash";
+                extraOutputsToInstall = ["dev"];
+              }
+            )
         )
       ];
     };

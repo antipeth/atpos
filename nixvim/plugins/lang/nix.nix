@@ -1,8 +1,6 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   flake = "/home/atp/System/atpos/";
-in
-{
+in {
   plugins = {
     nix.enable = true;
     hmts.enable = true;
@@ -10,7 +8,7 @@ in
 
     conform-nvim.settings = {
       formatters_by_ft = {
-        nix = [ "alejandra" ];
+        nix = ["alejandra"];
       };
 
       formatters = {
@@ -22,7 +20,7 @@ in
 
     lint = {
       lintersByFt = {
-        nix = [ "statix" ];
+        nix = ["statix"];
       };
 
       linters = {

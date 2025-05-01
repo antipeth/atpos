@@ -1,18 +1,19 @@
-{ lib, ... }:
-let
-  inherit (import ./variables.nix)
+{lib, ...}: let
+  inherit
+    (import ./variables.nix)
     Bluetooth
     GPU-AMD
     GPU-Intel
     GPU-Nvidia
     KeyboardLayout
     ;
-in
-{
-  imports = [
-    ./hardware.nix
-    ./users.nix
-  ] ++ lib.filesystem.listFilesRecursive ../../modules;
+in {
+  imports =
+    [
+      ./hardware.nix
+      ./users.nix
+    ]
+    ++ lib.filesystem.listFilesRecursive ../../modules;
 
   # Extra Module Options
   drivers.amdgpu.enable = GPU-AMD;

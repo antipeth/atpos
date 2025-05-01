@@ -4,7 +4,7 @@
     settings = {
       options = {
         always_divide_middle = true;
-        ignore_focus = [ "neo-tree" ];
+        ignore_focus = ["neo-tree"];
         globalstatus = true; # have a single statusline at bottom of neovim instead of one for every window
         disabled_filetypes.statusline = [
           "dashboard"
@@ -15,10 +15,10 @@
           right = "";
         };
       };
-      extensions = [ "fzf" ];
+      extensions = ["fzf"];
       sections = {
-        lualine_a = [ "mode" ];
-        lualine_b = [ "branch" ];
+        lualine_a = ["mode"];
+        lualine_b = ["branch"];
         lualine_y = [
           "progress"
           {
@@ -32,7 +32,7 @@
             };
           }
         ];
-        lualine_z = [ ''" " .. os.date("%R")'' ];
+        lualine_z = [''" " .. os.date("%R")''];
       };
     };
   };

@@ -1,27 +1,30 @@
-{ host, lib, ... }:
-let
+{
+  host,
+  lib,
+  ...
+}: let
   inherit (import ../../hosts/${host}/env.nix) Terminal;
 in
-lib.mkIf (Terminal == "alacritty") {
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      colors.draw_bold_text_with_bright_colors = true;
-      scrolling = {
-        history = 10000;
-        multiplier = 3;
-      };
-      selection.save_to_clipboard = true;
-      window = {
-        class = {
-          general = "alacritty";
-          instance = "alacritty";
+  lib.mkIf (Terminal == "alacritty") {
+    programs.alacritty = {
+      enable = true;
+      settings = {
+        colors.draw_bold_text_with_bright_colors = true;
+        scrolling = {
+          history = 10000;
+          multiplier = 3;
         };
-        padding = {
-          x = 10;
-          y = 10;
+        selection.save_to_clipboard = true;
+        window = {
+          class = {
+            general = "alacritty";
+            instance = "alacritty";
+          };
+          padding = {
+            x = 10;
+            y = 10;
+          };
         };
       };
     };
-  };
-}
+  }

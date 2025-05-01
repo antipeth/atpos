@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   plugins.fidget = {
     enable = true;
     settings = {
@@ -29,7 +28,8 @@
           stack_upwards = true; # Display notification items from bottom to top
           icon_separator = " "; # Separator between group name and icon
           group_separator = "---"; # Separator between notification groups
-          group_separator_hl = # Highlight group used for group separator
+          group_separator_hl =
+            # Highlight group used for group separator
             "Comment";
         };
       };
@@ -38,18 +38,20 @@
         suppress_on_insert = true; # Suppress new messages while in insert mode
         ignore_done_already = false; # Ignore new tasks that are already complete
         ignore_empty_message = false; # Ignore new tasks that don't contain a message
-        clear_on_detach = # Clear notification group when LSP server detaches
+        clear_on_detach =
+          # Clear notification group when LSP server detaches
           ''
             function(client_id)
               local client = vim.lsp.get_client_by_id(client_id)
               return client and client.name or nil
             end
           '';
-        notification_group = # How to get a progress message's notification group key
+        notification_group =
+          # How to get a progress message's notification group key
           ''
             function(msg) return msg.lsp_client.name end
           '';
-        ignore = [ ]; # List of LSP servers to ignore
+        ignore = []; # List of LSP servers to ignore
         lsp = {
           progress_ringbuf_size = 0; # Configure the nvim's LSP progress ring buffer size
         };

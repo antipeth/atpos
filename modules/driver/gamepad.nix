@@ -4,11 +4,9 @@
   pkgs,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.drivers.gamepad;
-in
-{
+in {
   options.drivers.gamepad = {
     enable = mkEnableOption "Enable Bluetooth Support";
   };
@@ -25,7 +23,6 @@ in
     };
     services.joycond.enable = true;
     environment.systemPackages = with pkgs; [
-
     ];
   };
 }

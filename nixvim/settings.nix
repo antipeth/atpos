@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   config = {
     extraConfigLuaPre = ''
       vim.fn.sign_define("diagnosticsignerror", { text = " ", texthl = "diagnosticerror", linehl = "", numhl = "" })
@@ -80,7 +79,6 @@
 
       # Maximum number of items to show in the popup menu (0 means "use available screen space")
       pumheight = 0;
-
     };
 
     extraConfigLua = ''

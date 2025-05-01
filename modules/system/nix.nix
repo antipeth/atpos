@@ -1,10 +1,8 @@
 {
   inputs,
   lib,
-  pkgs,
   ...
-}:
-{
+}: {
   environment.etc."nix/inputs/nixpkgs".source = "${inputs.nixpkgs}";
   nix = {
     channel.enable = false;
@@ -15,7 +13,7 @@
     };
     optimise = {
       automatic = true;
-      dates = [ "weekly" ];
+      dates = ["weekly"];
     };
     # package = pkgs.lix;
     registry.nixpkgs.flake = inputs.nixpkgs;

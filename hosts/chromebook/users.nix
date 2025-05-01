@@ -2,12 +2,9 @@
   pkgs,
   username,
   ...
-}:
-
-let
+}: let
   inherit (import ./env.nix) gitUsername;
-in
-{
+in {
   users.users = {
     "${username}" = {
       homeMode = "755";

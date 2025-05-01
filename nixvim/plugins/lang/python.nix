@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   plugins = {
     dap.extensions.dap-python.enable = true;
 
@@ -11,10 +10,10 @@
     };
 
     lint = {
-      lintersByFt.python = [ "mypy" ];
+      lintersByFt.python = ["mypy"];
       linters.mypy = {
         cmd = "${pkgs.mypy}/bin/mypy";
-        args = [ "--ignore-missing-imports" ];
+        args = ["--ignore-missing-imports"];
       };
     };
 

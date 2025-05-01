@@ -1,7 +1,5 @@
-{ host, ... }:
-let
+{host, ...}: let
   inherit (import ../../hosts/${host}/env.nix) Bluetooth;
-in
-{
+in {
   services.blueman-applet.enable = Bluetooth;
 }

@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   plugins = {
     conform-nvim.settings = {
       formatters_by_ft = {
-        json = [ "jq" ];
+        json = ["jq"];
       };
 
       formatters = {
@@ -15,7 +14,7 @@
 
     lint = {
       lintersByFt = {
-        json = [ "jsonlint" ];
+        json = ["jsonlint"];
       };
 
       linters = {

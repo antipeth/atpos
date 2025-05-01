@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{...}: {
   # Enable networking
   networking = {
     dhcpcd.extraConfig = "nohook resolv.conf";

@@ -4,17 +4,16 @@
   lib,
   pkgs,
   ...
-}:
-let
-  inherit (import ../../hosts/${host}/env.nix)
+}: let
+  inherit
+    (import ../../hosts/${host}/env.nix)
     BootLoader
     KernelPackages
     Locale
     TimeZone
     ZFS-Support
     ;
-in
-{
+in {
   boot = {
     bcache.enable = false;
     consoleLogLevel = 2; # Only errors and warnings are displayed
@@ -40,8 +39,8 @@ in
       "nowatchdog"
     ];
     # This is for OBS Virtual Cam Support
-    kernelModules = [ "v4l2loopback" ];
-    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    kernelModules = ["v4l2loopback"];
+    extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
     # Needed For Some Steam Games
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;
@@ -63,11 +62,11 @@ in
         enable = true;
         mirroredBoots = lib.mkIf (BootLoader == "grub-mirror") [
           {
-            devices = [ "nodev" ];
+            devices = ["nodev"];
             path = "/boot";
           }
           {
-            devices = [ "nodev" ];
+            devices = ["nodev"];
             path = "/boot-mirror";
           }
         ];

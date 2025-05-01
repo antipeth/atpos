@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   microvm = {
     hypervisor = "qemu";
     vcpu = 2;
@@ -41,7 +40,7 @@
         "192.168.6.101/24"
       ];
       Gateway = "192.168.6.1";
-      DNS = [ "192.168.6.1" ];
+      DNS = ["192.168.6.1"];
       IPv6AcceptRA = true;
       DHCP = "no";
       # DHCP = "yes";
@@ -68,7 +67,7 @@
   };
   services.openssh = {
     enable = true;
-    ports = [ 222 ];
+    ports = [222];
     settings = {
       PasswordAuthentication = true;
       AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
@@ -79,6 +78,6 @@
   };
   users.users.root.password = "a027g0dn8a5s";
 
-  environment.systemPackages = with pkgs; [ fastfetch ];
+  environment.systemPackages = with pkgs; [fastfetch];
   system.stateVersion = "25.05";
 }

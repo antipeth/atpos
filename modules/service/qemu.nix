@@ -4,12 +4,10 @@
   pkgs,
   ...
 }:
-with lib;
-let
+with lib; let
   inherit (import ../../hosts/${host}/env.nix) QEMU;
-in
-{
-  config = mkIf (QEMU) {
+in {
+  config = mkIf QEMU {
     programs.virt-manager.enable = true;
     services = {
       qemuGuest.enable = true;

@@ -2,8 +2,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   plugins = {
     codeium-nvim = {
       enable = true;

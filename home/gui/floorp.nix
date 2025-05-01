@@ -1,7 +1,7 @@
 {
   programs.floorp = {
     enable = false;
-    languagePacks = [ "en-US" ];
+    languagePacks = ["en-US"];
     policies = {
       DisableAccounts = true;
       DisableAppUpdate = true;

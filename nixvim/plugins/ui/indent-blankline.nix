@@ -9,7 +9,7 @@
         };
         scope.enabled = false;
         exclude = {
-          buftypes = [ "terminal" "nofile" ];
+          buftypes = ["terminal" "nofile"];
           filetypes = [
             "help"
             "alpha"

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   services.jupyter = {
     enable = false;
     command = "jupyter notebook";
@@ -15,11 +14,11 @@
     #   pkgs.python3.pkgs.playwright
     # ];
     kernels = {
-      python3 =
-        let
-          env = (
-            pkgs.python3.withPackages (
-              pythonPackages: with pythonPackages; [
+      python3 = let
+        env = (
+          pkgs.python3.withPackages (
+            pythonPackages:
+              with pythonPackages; [
                 ipykernel
                 pandas
                 scikit-learn
@@ -28,20 +27,19 @@
                 matplotlib
                 pycryptodome
               ]
-            )
-          );
-        in
-        {
-          displayName = "Python 3 for machine learning";
-          argv = [
-            "${env.interpreter}"
-            "-m"
-            "ipykernel_launcher"
-            "-f"
-            "{connection_file}"
-          ];
-          language = "python";
-        };
+          )
+        );
+      in {
+        displayName = "Python 3 for machine learning";
+        argv = [
+          "${env.interpreter}"
+          "-m"
+          "ipykernel_launcher"
+          "-f"
+          "{connection_file}"
+        ];
+        language = "python";
+      };
     };
   };
 }

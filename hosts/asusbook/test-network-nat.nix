@@ -28,7 +28,7 @@
   };
 
   # Allow inbound traffic for the DHCP server
-  networking.firewall.allowedUDPPorts = [ 67 ];
+  networking.firewall.allowedUDPPorts = [67];
 
   systemd.network.networks."11-microvm" = {
     matchConfig.Name = "vm-prometheus";
@@ -44,7 +44,6 @@
     # Change this to the interface with upstream Internet access
     externalInterface = "enp57s0";
     # The bridge where you want to provide Internet access
-    internalInterfaces = [ "microvm" ];
+    internalInterfaces = ["microvm"];
   };
-
 }

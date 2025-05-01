@@ -1,6 +1,6 @@
-{ lib, ... }:
-let
-  inherit (import ./env.nix)
+{lib, ...}: let
+  inherit
+    (import ./env.nix)
     Bluetooth
     Gamepad
     GPU-AMD
@@ -8,16 +8,17 @@ let
     GPU-Nvidia
     KeyboardLayout
     ;
-in
-{
-  imports = [
-    ./disko-config.nix
-    ./hardware.nix
-    ./nas-hosts.nix
-    ./users.nix
-    # ./test-network-nat.nix
-    # ./test-network-tap.nix
-  ] ++ lib.filesystem.listFilesRecursive ../../modules;
+in {
+  imports =
+    [
+      ./disko-config.nix
+      ./hardware.nix
+      ./nas-hosts.nix
+      ./users.nix
+      # ./test-network-nat.nix
+      # ./test-network-tap.nix
+    ]
+    ++ lib.filesystem.listFilesRecursive ../../modules;
 
   networking.hostId = "fc570939";
   # Extra Module Options

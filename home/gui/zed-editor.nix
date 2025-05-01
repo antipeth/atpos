@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.zed-editor = {
     enable = true;
     package = pkgs.zed-editor-fhs;
@@ -27,7 +30,7 @@
         bindings = {
           alt-g = [
             "task::Spawn"
-            { "task_name" = "start lazygit"; }
+            {"task_name" = "start lazygit";}
           ];
         };
       }

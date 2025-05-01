@@ -1,14 +1,12 @@
-{ pkgs, ... }:
-{
-
+{pkgs, ...}: {
   plugins = {
     conform-nvim.settings = {
       formatters_by_ft = {
-        javascript = [ "eslint_d" ];
-        javascriptreact = [ "eslint_d" ];
-        typescript = [ "eslint_d" ];
-        typescriptreact = [ "eslint_d" ];
-        svelte = [ "eslint_d" ];
+        javascript = ["eslint_d"];
+        javascriptreact = ["eslint_d"];
+        typescript = ["eslint_d"];
+        typescriptreact = ["eslint_d"];
+        svelte = ["eslint_d"];
       };
 
       formatters.eslint_d = {

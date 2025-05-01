@@ -1,6 +1,6 @@
-{ lib, ... }:
-let
-  inherit (import ./env.nix)
+{lib, ...}: let
+  inherit
+    (import ./env.nix)
     Bluetooth
     Gamepad
     GPU-AMD
@@ -8,12 +8,13 @@ let
     GPU-Nvidia
     KeyboardLayout
     ;
-in
-{
-  imports = [
-    ./hardware.nix
-    ./users.nix
-  ] ++ lib.filesystem.listFilesRecursive ../../modules;
+in {
+  imports =
+    [
+      ./hardware.nix
+      ./users.nix
+    ]
+    ++ lib.filesystem.listFilesRecursive ../../modules;
 
   networking.hostId = "ced6733c";
   # Extra Module Options

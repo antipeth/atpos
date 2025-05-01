@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   plugins = {
     conform-nvim.settings = {
       formatters_by_ft.html = [
@@ -32,7 +35,7 @@
               (lib.getExe pkgs.emmet-language-server)
               "--stdio"
             ];
-            filetypes = [ "html" ];
+            filetypes = ["html"];
           };
         }
       ];

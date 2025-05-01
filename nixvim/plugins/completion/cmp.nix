@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   plugins = {
     cmp = {
       enable = true;
@@ -8,12 +7,12 @@
       cmdline = {
         "/" = {
           mapping.__raw = "cmp.mapping.preset.cmdline()";
-          sources = [ { name = "buffer"; } ];
+          sources = [{name = "buffer";}];
         };
         ":" = {
           mapping.__raw = "cmp.mapping.preset.cmdline()";
           sources = [
-            { name = "path"; }
+            {name = "path";}
             {
               name = "cmdline";
               option.ignore_cmds = [
@@ -27,8 +26,8 @@
 
       filetype = {
         sql.sources = [
-          { name = "buffer"; }
-          { name = "vim-dadbod-completion"; }
+          {name = "buffer";}
+          {name = "vim-dadbod-completion";}
         ];
       };
 
@@ -93,7 +92,7 @@
           }
 
           # Disable this if running tests with nix flake check
-          (lib.mkIf lib.nixvim.enableExceptInTests { name = "nixpkgs_maintainers"; })
+          (lib.mkIf lib.nixvim.enableExceptInTests {name = "nixpkgs_maintainers";})
         ];
 
         window = {
@@ -125,27 +124,37 @@
             end, { "i", "s" })
           '';
 
-          "<C-n>" = # lua
+          "<C-n>" =
+            # lua
             "cmp.mapping(cmp.mapping.select_next_item())";
-          "<C-p>" = # lua
+          "<C-p>" =
+            # lua
             "cmp.mapping(cmp.mapping.select_prev_item())";
-          "<C-e>" = # lua
+          "<C-e>" =
+            # lua
             "cmp.mapping.abort()";
-          "<C-d>" = # lua
+          "<C-d>" =
+            # lua
             "cmp.mapping.scroll_docs(-4)";
-          "<C-f>" = # lua
+          "<C-f>" =
+            # lua
             "cmp.mapping.scroll_docs(4)";
-          "<Up>" = # lua
+          "<Up>" =
+            # lua
             "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-          "<Down>" = # lua
+          "<Down>" =
+            # lua
             "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-          "<CR>" = # lua
+          "<CR>" =
+            # lua
             "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })";
-          "<C-Space>" = # lua
+          "<C-Space>" =
+            # lua
             "cmp.mapping.complete()";
         };
 
-        snippet.expand = # lua
+        snippet.expand =
+          # lua
           ''
             function(args)
               require('luasnip').lsp_expand(args.body)
