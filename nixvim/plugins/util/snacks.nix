@@ -67,6 +67,7 @@
         };
 
         gitbrowse.enabled = true;
+        gitui.enabled = true;
         lazygit.enabled = true;
         profiler.enabled = true;
       };
@@ -88,6 +89,14 @@
       action = "<cmd>lua Snacks.lazygit()<CR>";
       options = {
         desc = "Open lazygit";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>gG";
+      action = "<cmd>lua Snacks.terminal({'gitui'})<CR>";
+      options = {
+        desc = "Open Gitui";
       };
     }
   ];
