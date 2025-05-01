@@ -1,5 +1,5 @@
 {
-  virtualisation.containers.enable = false;
+  # virtualisation.containers.enable = false;
   virtualisation = {
     docker = {
       enable = false;
