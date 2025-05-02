@@ -1,7 +1,7 @@
 {
   # Git Configuration ( For Pulling Software Repos )
-  gitUsername = "example";
-  gitEmail = "example@email.com";
+  gitUsername = "antipeth";
+  gitEmail = "0pt@disroot.org";
 
   # TimeZone / Locale
   TimeZone = "Asia/Singapore";
