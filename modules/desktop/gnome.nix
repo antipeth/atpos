@@ -24,4 +24,6 @@ in
       gnome-user-docs
     ];
     services.power-profiles-daemon.enable = lib.mkForce false;
+
+    hardware.sensor.iio.enable = true; # Automatic screen rotation
   }
