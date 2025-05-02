@@ -15,7 +15,7 @@ in
     };
 
     # Import Program Configurations
-    imports = lib.filesystem.listFilesRecursive ../../home;
+    # imports = lib.filesystem.listFilesRecursive ../../home;
 
     # Home Manager Settings
     home = {
@@ -40,8 +40,6 @@ in
 
       # Scripts
       packages = [
-        (import ../../scripts/task-waybar.nix {inherit pkgs;})
-        (import ../../scripts/nvidia-offload.nix {inherit pkgs;})
         (import ../../scripts/wallsetter.nix {
           inherit pkgs;
           inherit username;
