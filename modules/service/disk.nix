@@ -5,7 +5,7 @@
       interval = "weekly";
     };
     smartd = {
-      enable = true;
+      enable = false;
       autodetect = true;
     };
   };

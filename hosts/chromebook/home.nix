@@ -15,7 +15,7 @@ in
     };
 
     # Import Program Configurations
-    # imports = lib.filesystem.listFilesRecursive ../../home;
+    imports = lib.filesystem.listFilesRecursive ../../home;
 
     # Home Manager Settings
     home = {
