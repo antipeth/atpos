@@ -26,4 +26,10 @@ in
     services.power-profiles-daemon.enable = lib.mkForce false;
 
     hardware.sensor.iio.enable = true; # Automatic screen rotation
+
+    i18n.inputMethod = {
+      enable = true;
+      type = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [pinyin];
+    };
   }
