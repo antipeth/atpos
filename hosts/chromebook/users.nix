@@ -39,21 +39,21 @@ in {
         remmina
 
         # wallpaper
-        # swww
+        swww
 
         # System tool
-        # brightnessctl
+        brightnessctl
         dig
         duf
         ffmpeg
-        # hyprpicker
-        # killall
+        hyprpicker
+        killall
         networkmanagerapplet
         pavucontrol
         playerctl
-        # swaynotificationcenter
+        swaynotificationcenter
         wl-clipboard
-        # wl-gammarelay-rs
+        wl-gammarelay-rs
 
         # Nix tools
         # deadnix
