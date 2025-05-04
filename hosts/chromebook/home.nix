@@ -1,5 +1,6 @@
 {
   lib,
+  nixvim,
   pkgs,
   username,
   ...
@@ -15,7 +16,12 @@ in
     };
 
     # Import Program Configurations
-    imports = lib.filesystem.listFilesRecursive ../../home;
+    imports =
+      [
+        nixvim.homeManagerModules.nixvim
+        ../../nixvim
+      ]
+      ++ lib.filesystem.listFilesRecursive ../../home;
 
     # Home Manager Settings
     home = {
