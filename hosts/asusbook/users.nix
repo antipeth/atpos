@@ -23,6 +23,7 @@ in {
       packages = with pkgs; [
         # tests
         windsurf
+        localsend
 
         # game emulator
         retroarch

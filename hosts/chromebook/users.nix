@@ -20,20 +20,14 @@ in {
       shell = pkgs.nushell;
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
+        # test
+        localsend
+
         # archiver
         xarchiver
 
-        # dev
-        # devbox
-
         # file manager
         nemo
-
-        # lint
-        # commitlint-rs
-
-        # password manager
-        # keepassxc
 
         # ssh client
         remmina
@@ -55,11 +49,6 @@ in {
         wl-clipboard
         wl-gammarelay-rs
 
-        # Nix tools
-        # deadnix
-        # nix-output-monitor
-        # nixfmt-rfc-style
-        # sops
         # (
         #   let
         #     base = pkgs.appimageTools.defaultFhsEnvArgs;
