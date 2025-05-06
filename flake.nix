@@ -3,6 +3,7 @@
 
   inputs = {
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    daeuniverse.url = "github:daeuniverse/flake.nix";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     disko = {
       url = "github:nix-community/disko";
@@ -24,6 +25,7 @@
 
   outputs = {
     chaotic,
+    daeuniverse,
     nixpkgs,
     nixvim,
     home-manager,
@@ -44,6 +46,7 @@
         modules = [
           ./hosts/${host}/config.nix
           chaotic.nixosModules.default
+          daeuniverse.nixosModules.daed
           inputs.disko.nixosModules.disko
           inputs.stylix.nixosModules.stylix
           nixvim.nixosModules.nixvim
