@@ -24,6 +24,12 @@ in {
         # tests
         windsurf
         localsend
+        payload-dumper-go
+
+        cmake
+        vscode-fhs
+        flex
+        bison
 
         # game emulator
         retroarch
@@ -120,6 +126,12 @@ in {
                   ++ (with pkgs; [
                     pkg-config
                     ncurses
+                    # gcc
+                    # gdb
+                    # cmake
+                    # vscode
+                    # flex
+                    # bison
                   ]);
                 profile = "export FHS=1";
                 runScript = "bash";
