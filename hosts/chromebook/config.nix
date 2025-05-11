@@ -13,6 +13,7 @@ in {
     [
       ./disko-config.nix
       ./hardware.nix
+      ./keymap.nix
       ./users.nix
     ]
     ++ lib.filesystem.listFilesRecursive ../../modules;
