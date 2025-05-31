@@ -19,7 +19,7 @@ in {
     ];
     hardware = {
       xpadneo.enable = true;
-      xone.enable = true;
+      # xone.enable = true;
     };
     services.joycond.enable = true;
     environment.systemPackages = with pkgs; [

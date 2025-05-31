@@ -39,8 +39,8 @@ in {
       "nowatchdog"
     ];
     # This is for OBS Virtual Cam Support
-    kernelModules = ["v4l2loopback"];
-    extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
+    # kernelModules = ["v4l2loopback"];
+    # extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
     # Needed For Some Steam Games
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;
@@ -115,5 +115,5 @@ in {
     hostPlatform = "x86_64-linux";
   };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }
