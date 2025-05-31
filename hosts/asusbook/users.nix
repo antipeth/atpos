@@ -24,6 +24,9 @@ in {
         # tests
         windsurf
         localsend
+        # phone flash
+        android-tools
+        edl
         payload-dumper-go
 
         cmake
