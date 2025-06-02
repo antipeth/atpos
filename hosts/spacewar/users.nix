@@ -19,5 +19,6 @@ in {
       ];
       shell = pkgs.nushell;
       ignoreShellProgramCheck = true;
+    };
   };
 }
