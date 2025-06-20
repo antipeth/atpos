@@ -21,13 +21,32 @@ in {
       shell = pkgs.nushell;
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
+        # libs
+        gtk4.dev
+        openssl.dev
+
         # tests
+        code-cursor
         windsurf
         localsend
+        libreoffice-qt6
+        gimp3
+        conda
+        rustc
+        cargo
+        podman-compose
+        firefox-devedition-bin
+
         # phone flash
         android-tools
         edl
         payload-dumper-go
+
+        # libs
+        # alsa-utils
+        # pkg-config
+        # vulkan-loader
+        # vulkan-headers
 
         cmake
         vscode-fhs
@@ -35,7 +54,10 @@ in {
         bison
 
         # game emulator
-        retroarch
+        # retroarch-full
+        # retroarch-assets
+        # retroarch-joypad-autoconfig
+        # libretro.beetle-saturn
 
         # video editor
         losslesscut-bin
@@ -129,12 +151,9 @@ in {
                   ++ (with pkgs; [
                     pkg-config
                     ncurses
-                    # gcc
-                    # gdb
-                    # cmake
-                    # vscode
-                    # flex
-                    # bison
+                    rustc
+                    cargo
+                    graphene
                   ]);
                 profile = "export FHS=1";
                 runScript = "bash";
