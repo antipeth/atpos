@@ -25,7 +25,7 @@ in {
   drivers.amdgpu.enable = GPU-AMD;
   drivers.nvidia.enable = GPU-Nvidia;
   drivers.nvidia-prime = {
-    enable = true;
+    enable = false;
     intelBusID = "PCI:0:2:0";
     nvidiaBusID = "PCI:1:0:0";
   };
