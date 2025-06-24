@@ -27,7 +27,7 @@
   DM = "none"; # options: Gnome or none
 
   # Window Manager
-  WM = "niri"; # options: Hyprland, niri or none
+  WM = "Hyprland"; # options: Hyprland, niri or none
   # System
   BootLoader = "systemd-boot"; # options: systemd-boot, grub, grub-mirror
   KernelPackages = "linuxPackages_cachyos"; # see https://search.nixos.org/options?show=boot.kernelPackages https://www.nyx.chaotic.cx/#using-sched-ext-schedulers
