@@ -21,10 +21,6 @@ in {
       shell = pkgs.nushell;
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
-        # libs
-        gtk4.dev
-        openssl.dev
-
         # tests
         code-cursor
         windsurf
@@ -36,7 +32,11 @@ in {
         cargo
         podman-compose
         firefox-devedition-bin
+        filezilla
+        spotify
 
+        kodi
+        hyprpicker
         # phone flash
         android-tools
         edl
