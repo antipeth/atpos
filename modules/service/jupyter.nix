@@ -25,6 +25,7 @@
                 requests
                 numpy
                 matplotlib
+                seaborn
                 pycryptodome
               ]
           )
