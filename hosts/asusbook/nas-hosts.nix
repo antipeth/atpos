@@ -15,5 +15,7 @@
     192.168.6.173 sync.0pt.icu
     192.168.6.173 wakapi.0pt.icu
     192.168.6.173 radicale.0pt.icu
+    192.168.6.173 romm.0pt.icu
+    192.168.6.173 test.0pt.icu
   '';
 }
