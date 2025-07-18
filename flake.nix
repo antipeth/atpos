@@ -72,5 +72,26 @@
         ];
       };
     };
+    openwrt-env = let
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+      };
+    in
+      pkgs.mkShell {
+        nativeBuildInputs = with pkgs; [
+          git
+          pkg-config
+          ncurses
+          unzip
+          python3
+          cdrtools
+          perl
+          rsync
+
+          python3Packages.setuptools
+          swig
+        ];
+        hardeningDisable = ["all"];
+      };
   };
 }
