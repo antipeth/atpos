@@ -1,10 +1,4 @@
-{
-  lib,
-  nixvim,
-  pkgs,
-  username,
-  ...
-}: {
+{username, ...}: {
   # Home Manager Settings
   home = {
     username = "${username}";

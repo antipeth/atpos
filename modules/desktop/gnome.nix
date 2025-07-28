@@ -36,7 +36,7 @@ in
     nixpkgs.overlays = [
       # GNOME 47: triple-buffering-v4-47
       (final: prev: {
-        mutter = prev.mutter.overrideAttrs (oldAttrs: {
+        mutter = prev.mutter.overrideAttrs (_oldAttrs: {
           # GNOME dynamic triple buffering (huge performance improvement)
           # See https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1441
           # Also https://gitlab.gnome.org/vanvugt/mutter/-/tree/triple-buffering-v4-47
