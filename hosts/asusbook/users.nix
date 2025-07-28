@@ -30,13 +30,14 @@ in {
         conda
         rustc
         cargo
-        podman-compose
-        firefox-devedition-bin
-        filezilla
+        firefox-devedition
         spotify
-
-        kodi
+        iperf3
         hyprpicker
+        podman-compose
+        tsukimi
+        floorp
+
         # phone flash
         android-tools
         edl
@@ -48,10 +49,10 @@ in {
         # vulkan-loader
         # vulkan-headers
 
-        cmake
+        # cmake
         vscode-fhs
-        flex
-        bison
+        # flex
+        # bison
 
         # game emulator
         # retroarch-full
