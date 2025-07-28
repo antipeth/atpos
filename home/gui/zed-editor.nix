@@ -18,9 +18,11 @@
       "vue"
       "terraform"
     ];
-    extraPackages = [
-      pkgs.nixd
-      pkgs.nil
+    extraPackages = with pkgs; [
+      nixd
+      nil
+      rustfmt
+      rust-analyzer
     ];
 
     ## this is integrated Lazygit into Zed
