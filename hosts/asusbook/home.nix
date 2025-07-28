@@ -44,7 +44,7 @@ in
           source = ../../pic/wlogout;
           recursive = true;
         };
-        ".config/face.jpg".source = ../../pic/face.jpg;
+        ".config/face.jpg".source = ../../pic/face.png;
         ".config/swappy/config".text = ''
           [Default]
           save_dir=/home/${username}/Pictures/Screenshots
@@ -57,7 +57,7 @@ in
           early_exit=true
           fill_shape=false
         '';
-        ".face.icon".source = ../../pic/face.jpg;
+        ".face.icon".source = ../../pic/face.png;
       };
 
       # Scripts
