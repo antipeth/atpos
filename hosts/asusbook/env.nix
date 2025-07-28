@@ -20,7 +20,7 @@
   Bluetooth = true;
   Gamepad = true;
   GPU-AMD = false;
-  GPU-Nvidia = false;
+  GPU-Nvidia = true;
   GPU-Intel = true;
 
   # DesktopManager
