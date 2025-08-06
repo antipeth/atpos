@@ -1,5 +1,5 @@
 {lib, ...}:
-lib.mkIf false {
+lib.mkIf true {
   services.asusd = {
     enable = true;
     enableUserService = true;
