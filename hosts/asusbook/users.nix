@@ -11,6 +11,7 @@ in {
       isNormalUser = true;
       description = "${gitUsername}";
       extraGroups = [
+        "nixbuild"
         "docker"
         "networkmanager"
         "wheel"
@@ -37,6 +38,10 @@ in {
         podman-compose
         tsukimi
         floorp
+        aider-chat
+        sysbench
+        handbrake
+        mpv
 
         # phone flash
         android-tools
