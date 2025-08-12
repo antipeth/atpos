@@ -18,7 +18,7 @@ in
     # Import Program Configurations
     imports =
       [
-        nixvim.homeManagerModules.nixvim
+        nixvim.homeModules.nixvim
         ../../nixvim
       ]
       ++ lib.filesystem.listFilesRecursive ../../home;
