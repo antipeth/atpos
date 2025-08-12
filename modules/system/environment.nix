@@ -9,7 +9,7 @@
     zstd
 
     # core
-    greetd.tuigreet
+    tuigreet
     just
     v4l-utils # For OBS virtual cam support
 

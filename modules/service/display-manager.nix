@@ -13,7 +13,7 @@ in
         settings = {
           default_session = {
             user = "greeter";
-            command = "${pkgs.greetd.tuigreet}/bin/tuigreet -c ${WM} -t --user-menu";
+            command = "${pkgs.tuigreet}/bin/tuigreet -c ${WM} -t --user-menu";
           };
         };
       };
