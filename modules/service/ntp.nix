@@ -1,24 +1,37 @@
 _: {
   services = {
-    timesyncd.enable = false;
+    # timesyncd.enable = false;
     ntpd-rs = {
       enable = true;
       settings = {
         source = [
+          # {
+          #   address = "ntppool1.time.nl";
+          #   mode = "nts";
+          # }
+          # {
+          #   address = "ntppool2.time.nl";
+          #   mode = "nts";
+          # }
+          # {
+          #   address = "nts.netnod.se";
+          #   mode = "nts";
+          # }
           {
-            address = "ntppool1.time.nl";
-            mode = "nts";
+            address = "pool.ntp.org";
+            mode = "server";
           }
           {
-            address = "ntppool2.time.nl";
-            mode = "nts";
+            address = "time.cloudflare.com";
+            mode = "server";
           }
           {
-            address = "nts.netnod.se";
-            mode = "nts";
+            address = "ntp.aliyun.com";
+            mode = "server";
           }
         ];
       };
+      useNetworkingTimeServers = false;
     };
   };
 }

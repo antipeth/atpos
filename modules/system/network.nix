@@ -1,4 +1,4 @@
-_: {
+{lib, ...}: {
   # Enable networking
   networking = {
     dhcpcd.extraConfig = "nohook resolv.conf";
@@ -7,13 +7,14 @@ _: {
       "::1"
     ];
     networkmanager = {
-      dns = "systemd-resolved";
+      dns = "none";
       enable = true;
     };
-    timeServers = [
-      "nts.netnod.se"
-      "nts.time.nl"
-    ];
+    resolvconf.enable = lib.mkForce false;
+    # timeServers = [
+    #   "nts.netnod.se"
+    #   "nts.time.nl"
+    # ];
   };
 
   # Set Encrypted_DNS
