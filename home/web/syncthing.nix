@@ -10,15 +10,15 @@ in
       enable = true;
       settings = {
         devices = {
-          Nas = {
-            id = "6NZ5BBU-VEZ3UBW-I5XGSHU-NJSJSND-ASBOOK4-SQ5GUXK-T3HKDWS-2UTTEQ6";
+          homelab = {
+            id = "5H7XA3F-R5WFPON-DV57OGC-M6RA3FF-UHZBT3M-TYD4MNH-YR3KZGW-TDE5RQZ";
           };
         };
         folders = {
           "/home/atp/Sync" = {
             id = "default";
             devices = [
-              "Nas"
+              "homelab"
             ];
             versioning.type = "trashcan";
           };
