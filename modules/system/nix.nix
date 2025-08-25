@@ -1,31 +1,34 @@
 {
   inputs,
   lib,
+  pkgs,
   ...
-}: {
+}:
+with lib; {
   environment.etc."nix/inputs/nixpkgs".source = "${inputs.nixpkgs}";
   nix = {
     channel.enable = false;
     gc = {
-      automatic = lib.mkDefault true;
-      dates = lib.mkDefault "weekly";
-      options = lib.mkDefault "--delete-older-than 7d";
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
     };
     optimise = {
       automatic = true;
       dates = ["weekly"];
     };
-    # package = pkgs.lix;
     registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
-      auto-optimise-store = lib.mkDefault true;
+      auto-optimise-store = true;
+      builders-use-substitutes = true;
+      connect-timeout = 5;
       experimental-features = [
         "nix-command"
         "flakes"
       ];
-      gc-keep-derivations = lib.mkDefault false;
-      gc-keep-outputs = lib.mkDefault false;
-      nix-path = lib.mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
+      gc-keep-derivations = false;
+      gc-keep-outputs = false;
+      nix-path = mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
       substituters = [
         "https://cache.garnix.io"
         "https://cache.nixos.org"
@@ -38,7 +41,7 @@
         "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
-      warn-dirty = lib.mkDefault false;
+      warn-dirty = false;
     };
   };
 }
