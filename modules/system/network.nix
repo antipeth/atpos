@@ -50,6 +50,12 @@
               "149.112.112.112@853#dns.quad9.net"
               "2620:fe::fe@853#dns.quad9.net"
               "2620:fe::9@853#dns.quad9.net"
+
+              # cloudflare servers
+              "1.1.1.1@853#cloudflare-dns.com"
+              "1.0.0.1@853#cloudflare-dns.com"
+              "2606:4700:4700::1111@853#cloudflare-dns.com"
+              "2606:4700:4700::1001@853#cloudflare-dns.com"
             ];
             forward-tls-upstream = true;
             name = ".";
