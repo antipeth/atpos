@@ -10,10 +10,10 @@
   };
   gtk = {
     gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
+      gtk-application-prefer-dark-theme = true;
     };
     gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
+      gtk-application-prefer-dark-theme = true;
     };
     iconTheme = {
       name = "Papirus-Dark";
@@ -22,6 +22,7 @@
   };
   qt = {
     enable = true;
+    style.name = "kvantum";
   };
   home.packages = with pkgs; [
     libsForQt5.qt5ct
@@ -31,7 +32,6 @@
   # Styling Options
   stylix.targets = {
     hyprland.enable = false;
-    rofi.enable = false;
     waybar.enable = false;
     nixvim.enable = false;
   };
