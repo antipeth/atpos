@@ -12,70 +12,76 @@ set shell := ["nu", "-c"]
 # set hostname environment
 hostname := `hostname`
 
-# build system image
-build-image:
-  sudo nix build .#image --impure --show-trace -L -v --extra-experimental-features flakes --extra-experimental-features nix-command
+anywhere input:
+  # Perform nixos-anywhere install
+  nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./hosts/{{input}}/hardware.nix --flake .#{{input}} --target-host root@{{input}}
 
-# build
+# Perform nixos-anywhere install (local builder)
+anywhere-lb input:
+  nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./hosts/{{input}}/hardware.nix --flake .#{{input}} --target-host root@{{input}} --build-on local
+
+# Test nixos-anywhere install in vm
+anywhere-vm input:
+  nix run github:nix-community/nixos-anywhere -- --flake .#{{input}} --vm-test
+
+# Build
 build input:
   sudo nixos-rebuild build --flake .#{{input}} --show-trace -L -v
 
-# build a vm
+# Build system image
+build-image:
+  sudo nix build .#image --impure --show-trace -L -v --extra-experimental-features flakes --extra-experimental-features nix-command
+
+# Build a vm
 build-vm input:
   sudo nixos-rebuild build-vm --flake .#{{input}} --show-trace -L -v
 
-# remove all generations older than 7 days
+# Remove useless nix-channel files
 clean:
-  sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
+  sudo rm -rf /nix/var/nix/profiles/per-user/root/channels /root/.nix-defexpr/channels
+
+# Use alejandra and deadnix to format code
+format:
+  deadnix -e
+  alejandra .
+
 # Garbage collect all unused nix store entries
 gc:
-  # garbage collect all unused nix store entries
-  sudo nix store gc --debug
+  sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system
   sudo nix-collect-garbage --delete-old
 
-# generate hardware.nix
-hardware:
+# Generate hardware.nix
+ghc:
   sudo nixos-generate-config --show-hardware-config > ./hosts/{{hostname}}/hardware.nix
 
-# install this flake
+# Install this flake
 install:
   NIX_CONFIG="experimental-features = nix-command flakes"
-  sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace -L -v
+  nixos-rebuild switch --flake .#{{hostname}} --show-trace -L -v
 
-# list system packages
+# List system packages
 list:
-  sudo nix-store -qR /run/current-system | cat
+  nix-store -qR /run/current-system | cat
 
 # List all generations of the system profile
 profile:
-  nix profile history --profile /nix/var/nix/profiles/system
+  sudo nix profile history --profile /nix/var/nix/profiles/system
 
 # Open a nix shell with the flake
 repl:
   nix repl -f flake:nixpkgs
 
-# let system totally upgrade
+# Let system totally upgrade
 switch input:
   sudo nixos-rebuild switch --flake .#{{input}} --show-trace -L -v
 
-# update all the flake inputs
+# Update all the flake inputs
 update:
-  nix flake update
+  nix flake update --extra-experimental-features flakes --extra-experimental-features nix-command --show-trace
 
 # Update specific input
-# Usage: just upp nixpkgs
-upp input:
-  nix flake lock --update-input {{input}}
-
 upgrade:
-  # let system totally upgrade
   sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace -L -v
 
 upgrade-debug:
-  # let system totally upgrade (deBug Mode)
-  sudo nixos-rebuild switch --flake .#{{hostname}} --log-format internal-json --show-trace -L -v |& nom --json
-
-format:
-  # Use alejandra and deadnix to format code
-  deadnix -e
-  alejandra .
+  sudo unbuffer nixos-rebuild switch --flake .#{{hostname}} --sudo --log-format internal-json --show-trace -L -v |& nom --json
