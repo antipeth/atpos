@@ -23,68 +23,51 @@ in {
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
         # tests
-        code-cursor
-        windsurf
-        localsend
-        libreoffice-qt6
-        gimp3
-        conda
-        rustc
-        cargo
-        firefox-devedition
-        spotify
-        iperf3
-        hyprpicker
-        podman-compose
-        tsukimi
-        floorp
-        aider-chat
-        sysbench
-        handbrake
-        mpv
+        # libreoffice-qt6
+
+        # ai
+        # aider-chat
+
+        # video compression tools
+        # handbrake
 
         # phone flash
         android-tools
         edl
         payload-dumper-go
 
-        # libs
-        # alsa-utils
-        # pkg-config
-        # vulkan-loader
-        # vulkan-headers
+        # browser
+        firefox-devedition
+        floorp
 
-        # cmake
+        # editor
+        # code-cursor
+        # windsurf
         vscode-fhs
-        # flex
-        # bison
 
-        # game emulator
-        # retroarch-full
-        # retroarch-assets
-        # retroarch-joypad-autoconfig
-        # libretro.beetle-saturn
+        # file transform
+        localsend
 
-        # video editor
-        losslesscut-bin
+        # media editor
+        # losslesscut-bin
+        gimp3
 
         # media player
-        jellyfin-media-player
-
-        # crysto
-        apacheHttpd
+        # jellyfin-media-player
+        tsukimi
+        mpv
 
         # wm
-        niri
+        # niri
 
         # mail
-        claws-mail
+        # claws-mail
 
         # tailscale
-        tailscale
+        # tailscale
 
         # archiver
-        xarchiver
+        peazip
 
         # communication
         legcord
@@ -97,13 +80,13 @@ in {
         nemo
 
         # lint
-        commitlint-rs
+        # commitlint-rs
 
         # git cli tools
         onefetch
 
         # chat
-        mumble
+        # mumble
 
         # password manager
         keepassxc
@@ -123,11 +106,14 @@ in {
         nvtopPackages.full
 
         # System tool
+        apacheHttpd
         brightnessctl
         dig
         duf
         ffmpeg
         hyprpicker
+        iperf3
+        just
         killall
         lshw
         networkmanagerapplet
@@ -138,6 +124,8 @@ in {
         swaynotificationcenter
         wl-clipboard
         wl-gammarelay-rs
+        zenith
+        zoxide
 
         # Nix tools
         alejandra
