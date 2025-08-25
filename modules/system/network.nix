@@ -11,10 +11,6 @@
       enable = true;
     };
     resolvconf.enable = lib.mkForce false;
-    # timeServers = [
-    #   "nts.netnod.se"
-    #   "nts.time.nl"
-    # ];
   };
 
   # Set Encrypted_DNS
