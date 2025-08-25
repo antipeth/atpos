@@ -10,33 +10,34 @@
     ZFS-Support
     ;
 in
-  lib.mkIf ZFS-Support {
-    boot = {
-      kernelParams = [
-        "zfs_force=1"
-      ];
-      zfs = {
-        package = lib.mkIf (KernelPackages == "linuxPackages_cachyos") pkgs.zfs_cachyos;
-        forceImportRoot = false;
-        devNodes = "/dev/disk/by-id";
+  with lib;
+    mkIf ZFS-Support {
+      boot = {
+        kernelParams = [
+          "zfs_force=1"
+        ];
+        zfs = {
+          package = mkIf (KernelPackages == "linuxPackages_cachyos") pkgs.zfs_cachyos;
+          forceImportRoot = false;
+          devNodes = "/dev/disk/by-id";
+        };
+        supportedFilesystems = ["zfs"];
       };
-      supportedFilesystems = ["zfs"];
-    };
-    # Where hostID can be generated with:
-    # head -c4 /dev/urandom | od -A none -t x4
-    services.zfs = {
-      autoScrub = {
-        enable = true;
-        interval = "weekly";
+      # Where hostID can be generated with:
+      # head -c4 /dev/urandom | od -A none -t x4
+      services.zfs = {
+        autoScrub = {
+          enable = true;
+          interval = "weekly";
+        };
+        trim = {
+          enable = true; # hdd no need
+          interval = "weekly";
+        };
+        autoSnapshot.enable = true;
       };
-      trim = {
-        enable = true; # hdd no need
-        interval = "weekly";
+      systemd.services = {
+        zfs-share.enable = mkForce false;
+        zfs-zed.enable = mkForce false;
       };
-      autoSnapshot.enable = true;
-    };
-    systemd.services = {
-      zfs-share.enable = lib.mkForce false;
-      zfs-zed.enable = lib.mkForce false;
-    };
-  }
+    }
