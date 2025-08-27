@@ -7,7 +7,7 @@
       # for editing directly to config.nu
       extraConfig = ''
         let carapace_completer = {|spans|
-            carapace $spans.0 nushell $spans | from json
+            carapace $spans.0 nushell ...$spans | from json
         }
         $env.config = {
             show_banner: false,
@@ -58,7 +58,7 @@
                 case_sensitive: false # case-sensitive completions
                 quick: true    # set to false to prevent auto-selecting completions
                 partial: true    # set to false to prevent partial filling of the prompt
-                algorithm: "prefix"    # prefix or fuzzy
+                algorithm: "fuzzy"    # prefix or fuzzy
                 sort: "smart"
                 external: {
                       enable: true
