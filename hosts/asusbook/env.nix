@@ -18,7 +18,7 @@
 
   # Driver options
   Bluetooth = true;
-  Gamepad = true;
+  Gamepad = false;
   GPU-AMD = false;
   GPU-Nvidia = true;
   GPU-Intel = true;

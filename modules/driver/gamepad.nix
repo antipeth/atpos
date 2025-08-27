@@ -22,7 +22,5 @@ in {
       # xone.enable = true;
     };
     services.joycond.enable = true;
-    environment.systemPackages = with pkgs; [
-    ];
   };
 }
