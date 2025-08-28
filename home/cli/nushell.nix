@@ -8,15 +8,11 @@ _: {
         }
         $env.config = {
             show_banner: false,
-            ls: {
-                use_ls_colors: true
-                clickable_links: true
-            }
             rm: {
                 always_trash: false
             }
             table: {
-                mode: rounded
+                mode: markdown
                 index_mode: always
                 show_empty: true
                 padding: { left: 1, right: 1 }
@@ -33,7 +29,20 @@ _: {
                 termination_signal: true
             }
             datetime_format: {
+                table: null
+                normal: "%m/%d/%y %I:%M:%S%p"
             }
+            filesize: {
+                unit: "metric"
+                show_unit: true
+                precision: 5
+            }
+            float_precision: 5
+            ls: {
+                use_ls_colors: true
+                clickable_links: true
+            }
+            highlight_resolved_externals: true
             explore: {
                 status_bar_background: { fg: "#1D1F21", bg: "#C4C9C6" },
                 command_bar_text: { fg: "#C4C9C6" },
