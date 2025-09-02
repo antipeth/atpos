@@ -1,6 +1,6 @@
 _: {
   services.asusd = {
-    enable = true;
+    enable = false;
     enableUserService = true;
   };
 }
