@@ -9,6 +9,11 @@ with lib; let
 in {
   options.drivers.intel = {
     enable = mkEnableOption "Enable Intel Graphics Drivers";
+    xeEnable = mkEnableOption "Use Intel Xe Graphics Drivers Instead Of i915";
+    intelPciID = mkOption {
+      type = types.str;
+      default = "9a49";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -26,5 +31,7 @@ in {
         vpl-gpu-rt
       ];
     };
+
+    boot.kernelParams = mkIf cfg.xeEnable ["i915.force_probe=!${cfg.intelPciID}" "xe.force_probe=${cfg.intelPciID}"];
   };
 }

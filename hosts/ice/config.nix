@@ -29,7 +29,12 @@ in {
     intelBusID = "PCI:0:2:0";
     nvidiaBusID = "PCI:1:0:0";
   };
-  drivers.intel.enable = GPU-Intel;
+  drivers.intel = {
+    enable = GPU-Intel;
+    xeEnable = true;
+    # Use lspci -nnd ::03xx to check
+    intelPciID = "56a0";
+  };
   drivers.bluetooth.enable = Bluetooth;
   drivers.gamepad.enable = Gamepad;
   users = {
