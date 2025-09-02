@@ -26,6 +26,7 @@ in {
         # libreoffice-qt6
         # virtualboxKvm
         jellyflix
+        aria2
 
         # ai
         # aider-chat
