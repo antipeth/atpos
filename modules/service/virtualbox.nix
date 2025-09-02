@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}:
+{lib, ...}:
 lib.mkIf false {
   virtualisation.virtualbox.host = {
     enable = true;
