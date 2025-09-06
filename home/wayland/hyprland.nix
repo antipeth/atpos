@@ -21,6 +21,7 @@ in
           pkgs.xdg-desktop-portal-gtk
           pkgs.xdg-desktop-portal-hyprland
         ];
+        configPackages = [pkgs.hyprland];
       };
       services = {
         hypridle = {
@@ -98,6 +99,7 @@ in
               # env = XDG_CURRENT_DESKTOP, Hyprland
               env = XDG_SESSION_TYPE, wayland
               # env = XDG_SESSION_DESKTOP, Hyprland
+              env = XDG_DATA_DIRS, $XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
 
               env = GTK_IM_MODULE,
               env = QT_IM_MODULE, fcitx
@@ -115,7 +117,16 @@ in
               exec-once = lxqt-policykit-agent
               exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/blackhole.jpg
               exec-once = fcitx5 -d -r
-              monitor=,preferred,auto,1
+              monitor=,highres,auto,2
+
+              # unscale XWayland
+              xwayland {
+                force_zero_scaling = true
+              }
+
+              # toolkit-specific scale
+              env = GDK_SCALE,2
+              env = XCURSOR_SIZE,32
 
               # monitor= HDMI-A-1, 3840x2160@60,0x0,1
               # monitor= DP-1, 3840x2160@60,0x0,1
@@ -224,7 +235,7 @@ in
               bind = ${modifier},0,workspace,10
 
               # Window actions
-              bind = ${modifier},Q,hy3:killactive,
+              bind = ${modifier},Q,killactive,
               bind = ${modifier},F,fullscreen,
               bind = ${modifier}SHIFT,F,togglefloating,
               bind = ${modifier}SHIFT,I,togglesplit,
@@ -232,14 +243,14 @@ in
               bindm = ${modifier},mouse:273,resizewindow
 
               # Window movement
-              bind = ${modifier}SHIFT,left,hy3:movewindow,l
-              bind = ${modifier}SHIFT,right,hy3:movewindow,r
-              bind = ${modifier}SHIFT,up,hy3:movewindow,u
-              bind = ${modifier}SHIFT,down,hy3:movewindow,d
-              bind = ${modifier}SHIFT,h,hy3:movewindow,l
-              bind = ${modifier}SHIFT,l,hy3:movewindow,r
-              bind = ${modifier}SHIFT,k,hy3:movewindow,u
-              bind = ${modifier}SHIFT,j,hy3:movewindow,d
+              bind = ${modifier}SHIFT,left,movewindow,l
+              bind = ${modifier}SHIFT,right,movewindow,r
+              bind = ${modifier}SHIFT,up,movewindow,u
+              bind = ${modifier}SHIFT,down,movewindow,d
+              bind = ${modifier}SHIFT,h,movewindow,l
+              bind = ${modifier}SHIFT,l,movewindow,r
+              bind = ${modifier}SHIFT,k,movewindow,u
+              bind = ${modifier}SHIFT,j,movewindow,d
 
               bind = ${modifier}CTRL, 1, movetoworkspacesilent, 1
               bind = ${modifier}CTRL, 2, movetoworkspacesilent, 2
@@ -273,14 +284,14 @@ in
               bind = ${modifier},Tab,togglespecialworkspace
 
               # Window focus movement
-              bind = ${modifier},left,hy3:movefocus,l
-              bind = ${modifier},right,hy3:movefocus,r
-              bind = ${modifier},up,hy3:movefocus,u
-              bind = ${modifier},down,hy3:movefocus,d
-              bind = ${modifier},h,hy3:movefocus,l
-              bind = ${modifier},l,hy3:movefocus,r
-              bind = ${modifier},k,hy3:movefocus,u
-              bind = ${modifier},j,hy3:movefocus,d
+              bind = ${modifier},left,movefocus,l
+              bind = ${modifier},right,movefocus,r
+              bind = ${modifier},up,movefocus,u
+              bind = ${modifier},down,movefocus,d
+              bind = ${modifier},h,movefocus,l
+              bind = ${modifier},l,movefocus,r
+              bind = ${modifier},k,movefocus,u
+              bind = ${modifier},j,movefocus,d
               bind = ALT,Tab,cyclenext
               bind = ALT,Tab,bringactivetotop
 
