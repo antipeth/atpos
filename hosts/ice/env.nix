@@ -14,7 +14,6 @@
   extraMonitorSettings = "";
   KeyboardLayout = "us";
   ScaleLevel = "2";
-  MonitorSettings = "monitor = , highres, auto, 2";
 
   # Driver options
   Bluetooth = true;
