@@ -16,6 +16,7 @@ in {
       ./users.nix
       # ./disk-extra1.nix
       ./disk-extra2.nix
+      # ./disk-extra3.nix
     ]
     ++ lib.filesystem.listFilesRecursive ../../modules;
 
@@ -42,5 +43,5 @@ in {
   services.displayManager.enable = true;
   console.keyMap = KeyboardLayout;
 
-  # boot.kernelParams = ["zfs.zfs_arc_max=4294967296"];
+  boot.kernelParams = ["zfs.zfs_arc_max=40802189312"];
 }
