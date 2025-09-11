@@ -33,7 +33,7 @@
   QEMU = true;
   Transparent-Proxy = false;
   ZFS-Support = true;
-  Syncthing = true;
+  Syncthing = false;
   Terminal = "alacritty"; # options: alacritty or kitty
   Office = "none"; # options: onlyoffice or none
 }
