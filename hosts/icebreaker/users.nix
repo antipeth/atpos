@@ -2,11 +2,9 @@
   pkgs,
   username,
   ...
-}:
-let
+}: let
   inherit (import ./env.nix) gitUsername;
-in
-{
+in {
   users.users = {
     "${username}" = {
       homeMode = "755";
@@ -28,6 +26,8 @@ in
         # libreoffice-qt6
         jellyflix
         aria2
+        rclone
+        xxHash
 
         # ai
         aider-chat
@@ -140,25 +140,24 @@ in
           let
             base = pkgs.appimageTools.defaultFhsEnvArgs;
           in
-          pkgs.buildFHSEnv (
-            base
-            // {
-              name = "fhs";
-              targetPkgs =
-                pkgs:
-                (base.targetPkgs pkgs)
-                ++ (with pkgs; [
-                  pkg-config
-                  ncurses
-                  rustc
-                  cargo
-                  graphene
-                ]);
-              profile = "export FHS=1";
-              runScript = "bash";
-              extraOutputsToInstall = [ "dev" ];
-            }
-          )
+            pkgs.buildFHSEnv (
+              base
+              // {
+                name = "fhs";
+                targetPkgs = pkgs:
+                  (base.targetPkgs pkgs)
+                  ++ (with pkgs; [
+                    pkg-config
+                    ncurses
+                    rustc
+                    cargo
+                    graphene
+                  ]);
+                profile = "export FHS=1";
+                runScript = "bash";
+                extraOutputsToInstall = ["dev"];
+              }
+            )
         )
       ];
     };
