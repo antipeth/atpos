@@ -134,6 +134,7 @@ in {
         # Nix tools
         alejandra
         deadnix
+        expect
         nix-output-monitor
         sops
         (
