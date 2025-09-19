@@ -22,14 +22,19 @@ in {
     };
 
     # OpenGL
-    hardware.graphics = {
-      extraPackages = with pkgs; [
-        intel-media-driver
-        vaapiIntel
-        vaapiVdpau
-        libvdpau-va-gl
-        vpl-gpu-rt
-      ];
+    hardware = {
+      intel-gpu-tools.enable = true;
+      graphics = {
+        extraPackages = with pkgs; [
+          intel-compute-runtime
+          level-zero
+          intel-media-driver
+          vaapiIntel
+          vaapiVdpau
+          libvdpau-va-gl
+          vpl-gpu-rt
+        ];
+      };
     };
 
     boot.kernelParams = mkIf cfg.xeEnable ["i915.force_probe=!${cfg.intelPciID}" "xe.force_probe=${cfg.intelPciID}"];
