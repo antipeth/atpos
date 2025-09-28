@@ -17,6 +17,7 @@ in {
       # ./disk-extra1.nix
       ./disk-extra2.nix
       # ./disk-extra3.nix
+      # ./remove-arc-gpu.nix
     ]
     ++ lib.filesystem.listFilesRecursive ../../modules;
 
