@@ -11,6 +11,7 @@
 in {
   imports =
     [
+      ./asusd.nix
       ./disko-config.nix
       ./hardware.nix
       ./nas-hosts.nix
