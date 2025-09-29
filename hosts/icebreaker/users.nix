@@ -27,9 +27,6 @@ in {
         jellyflix
         aria2
         rclone
-        xxHash
-        python312
-        ollama
 
         # ai
         aider-chat
