@@ -32,7 +32,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    host = "icebreaker";
+    host = "icemonkey";
     username = "atp";
   in {
     nixosConfigurations = {
