@@ -27,9 +27,11 @@ in {
         jellyflix
         aria2
         rclone
+        virtualbox
+        barrier
 
         # ai
-        aider-chat
+        # aider-chat
 
         # video compression tools
         # handbrake
