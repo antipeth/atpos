@@ -21,6 +21,8 @@
       url = "github:astro/microvm.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri.url = "github:sodiboo/niri-flake/flake.nix";
   };
 
   outputs = {
