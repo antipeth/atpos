@@ -41,7 +41,7 @@ in {
 
         # browser
         firefox-devedition
-        floorp
+        floorp-bin
 
         # editor
         # code-cursor
