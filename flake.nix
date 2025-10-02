@@ -16,19 +16,15 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     microvm = {
       url = "github:astro/microvm.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    niri.url = "github:sodiboo/niri-flake";
   };
 
   outputs = {
     chaotic,
     daeuniverse,
-    niri,
     nixpkgs,
     nixvim,
     home-manager,
@@ -58,7 +54,6 @@
               inherit username;
               inherit inputs;
               inherit host;
-              inherit niri;
               inherit nixvim;
             };
             home-manager.users.${username} = import ./hosts/${host}/home.nix;
