@@ -22,12 +22,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri.url = "github:sodiboo/niri-flake/flake.nix";
+    niri.url = "github:sodiboo/niri-flake";
   };
 
   outputs = {
     chaotic,
     daeuniverse,
+    niri,
     nixpkgs,
     nixvim,
     home-manager,
@@ -51,13 +52,13 @@
           daeuniverse.nixosModules.daed
           inputs.disko.nixosModules.disko
           inputs.stylix.nixosModules.stylix
-          nixvim.nixosModules.nixvim
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
               inherit username;
               inherit inputs;
               inherit host;
+              inherit niri;
               inherit nixvim;
             };
             home-manager.users.${username} = import ./hosts/${host}/home.nix;
