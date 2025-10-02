@@ -281,7 +281,6 @@ environment {
     EDITOR "nvim"
 
     CURRENT_COMPOSITOR "niri"
-    DISPLAY ":0"
     XDG_CURRENT_DESKTOP "Niri"
     XDG_SESSION_DESKTOP "Niri"
 }
