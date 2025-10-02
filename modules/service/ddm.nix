@@ -10,6 +10,7 @@ in
     services = {
       greetd = {
         enable = true;
+        useTextGreeter = true;
         settings = {
           default_session = {
             user = "greeter";
