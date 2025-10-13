@@ -65,7 +65,5 @@ in {
       };
     };
     users.groups = mkIf (cfg.group == "openlist") {openlist = {};};
-
-    environment.systemPackages = [pkgs.openlist];
   };
 }
