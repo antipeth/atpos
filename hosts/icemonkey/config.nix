@@ -11,6 +11,7 @@
 in {
   imports =
     [
+      # ./disk-extra3.nix
       ./disko-config.nix
       ./hardware.nix
       ./users.nix
