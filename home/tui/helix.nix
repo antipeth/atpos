@@ -4,7 +4,7 @@
   ...
 }: {
   programs.helix = {
-    enable = false;
+    enable = true;
     settings = {
       editor.cursor-shape = {
         normal = "block";
