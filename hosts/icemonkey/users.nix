@@ -27,8 +27,7 @@ in {
         jellyflix
         aria2
         rclone
-        virtualbox
-        barrier
+        stress-ng
 
         # ai
         # aider-chat
