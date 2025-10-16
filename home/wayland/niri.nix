@@ -8,39 +8,28 @@
 in
   with lib;
     mkIf (WM == "niri") {
-      systemd.user.targets.niri-session = {
-        Unit = {
-          Description = "niri compositor session";
-          Documentation = "man:systemd.special(7)";
-        };
-        Target = {
-          After = "graphical-session-pre.target";
-          BindsTo = "graphical-session.target";
-          Wants = "graphical-session-pre.target";
-          DefaultDependencies = false;
-        };
-      };
-      systemd.user.services.xdg-desktop-portal-gnome = {
-        Unit = {
-          Description = "Portal service (GNOME implementation)";
-        };
-        Service = {
-          Type = "dbus";
-          BusName = "org.freedesktop.impl.portal.desktop.gnome";
-          ExecStart = "${pkgs.xdg-desktop-portal-gnome}/libexec/xdg-desktop-portal-gnome";
-        };
-      };
       home.packages = with pkgs; [
         niri
         xwayland-satellite
       ];
+      systemd.user.targets.niri-session = {
+        Unit = {
+          After = "graphical-session-pre.target graphical-session.target";
+          BindsTo = "graphical-session.target";
+          Conflicts = "shutdown.target";
+          DefaultDependencies = false;
+          Description = "niri compositor session";
+          Documentation = "man:systemd.special(7)";
+          Wants = "graphical-session-pre.target";
+        };
+      };
       xdg.portal = {
         config = {
           common = {
-            default = [
-              "gnome"
-              "gtk"
-            ];
+            default = ["gtk"];
+            "org.freedesktop.impl.portal.RemoteDesktop" = "gnome";
+            "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+            "org.freedesktop.impl.portal.Screenshot" = "gnome";
           };
         };
         extraPortals = [
