@@ -14,6 +14,7 @@ in {
       # ./disk-extra3.nix
       ./disko-config.nix
       ./hardware.nix
+      ./nas-hosts.nix
       ./users.nix
     ]
     ++ lib.filesystem.listFilesRecursive ../../modules;
