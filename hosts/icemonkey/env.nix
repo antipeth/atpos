@@ -36,5 +36,5 @@
   Syncthing = false;
   Terminal = "alacritty"; # options: alacritty or kitty
   Office = "none"; # options: onlyoffice or none
-  Platform = "desktop"; # option: desktop or laptop
+  Platform = "laptop"; # option: desktop or laptop
 }
