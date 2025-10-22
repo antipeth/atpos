@@ -1,7 +1,6 @@
 {
   inputs,
   lib,
-  pkgs,
   ...
 }:
 with lib; {
@@ -28,6 +27,8 @@ with lib; {
       ];
       gc-keep-derivations = false;
       gc-keep-outputs = false;
+      keep-going = true;
+      log-lines = 25;
       nix-path = mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
       substituters = [
         # "https://cache.garnix.io"
