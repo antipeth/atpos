@@ -1,7 +1,7 @@
 _: {
   virtualisation = {
     containers = {
-      enable = false;
+      enable = true;
       containersConf.settings = {
         containers.dns_servers = [
           "185.222.222.222"
@@ -20,7 +20,7 @@ _: {
       };
     };
     podman = {
-      enable = false;
+      enable = true;
       dockerCompat = true;
       autoPrune = {
         enable = true;
