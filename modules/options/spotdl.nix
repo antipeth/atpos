@@ -65,7 +65,7 @@ in {
   config = mkIf cfg.enable {
     systemd.services.spotdl = {
       wantedBy = ["multi-user.target"];
-      after = ["network.target"];
+      after = ["network.target" "nss-lookup.target"];
       description = "spotdl";
       serviceConfig = {
         Type = "simple";
@@ -78,6 +78,8 @@ in {
           ${cfg.extraFlags}
         '';
         ExecStop = ''on-failure'';
+        StartLimitBurst = 3;
+        RestartSec = "5s";
         StateDirectory = "spotdl";
         SyslogIdentifier = "spotdl";
         RuntimeDirectory = "spotdl";

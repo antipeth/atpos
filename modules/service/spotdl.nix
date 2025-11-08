@@ -1,5 +1,5 @@
 _: {
   services.spotdl = {
-    enable = true;
+    enable = false;
   };
 }
