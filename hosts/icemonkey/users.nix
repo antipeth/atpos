@@ -28,6 +28,7 @@ in {
         aria2
         rclone
         stress-ng
+        gotify-desktop
 
         # ai
         # aider-chat
