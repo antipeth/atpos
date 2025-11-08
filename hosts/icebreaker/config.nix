@@ -11,13 +11,11 @@
 in {
   imports =
     [
+      ./disk-extra3.nix
       ./disko-config.nix
       ./hardware.nix
+      ./nas-hosts.nix
       ./users.nix
-      # ./disk-extra1.nix
-      ./disk-extra2.nix
-      # ./disk-extra3.nix
-      # ./remove-arc-gpu.nix
     ]
     ++ lib.filesystem.listFilesRecursive ../../modules;
 

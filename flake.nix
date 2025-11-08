@@ -31,7 +31,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    host = "icemonkey";
+    host = "icebreaker";
     username = "atp";
   in {
     nixosConfigurations = {
