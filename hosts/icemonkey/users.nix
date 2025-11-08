@@ -24,11 +24,14 @@ in {
       packages = with pkgs; [
         # tests
         # libreoffice-qt6
-        jellyflix
         aria2
         rclone
         stress-ng
+        compose2nix
         gotify-desktop
+        libreoffice-qt6
+        spotify
+        strawberry
 
         # ai
         # aider-chat
@@ -58,18 +61,11 @@ in {
         gimp3
 
         # media player
-        # jellyfin-media-player
-        tsukimi
+        # jellyflix
         mpv
-
-        # wm
-        # niri
 
         # mail
         # claws-mail
-
-        # tailscale
-        # tailscale
 
         # archiver
         peazip
@@ -108,7 +104,7 @@ in {
         slurp
 
         # monitor
-        nvtopPackages.full
+        # nvtopPackages.full
 
         # System tool
         apacheHttpd
