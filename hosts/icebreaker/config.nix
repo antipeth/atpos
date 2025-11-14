@@ -11,7 +11,7 @@
 in {
   imports =
     [
-      ./disk-extra3.nix
+      # ./disk-extra3.nix
       ./disko-config.nix
       ./hardware.nix
       ./nas-hosts.nix
