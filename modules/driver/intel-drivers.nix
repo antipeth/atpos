@@ -29,9 +29,9 @@ in {
           intel-compute-runtime
           level-zero
           intel-media-driver
-          vaapiIntel
-          vaapiVdpau
+          intel-vaapi-driver
           libvdpau-va-gl
+          libva-vdpau-driver
           vpl-gpu-rt
         ];
       };

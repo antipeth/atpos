@@ -12,8 +12,8 @@ in
       type = "fcitx5";
       fcitx5 = {
         addons = with pkgs; [
-          fcitx5-configtool # needed enable rime using configtool after installed
-          fcitx5-chinese-addons
+          qt6Packages.fcitx5-configtool # needed enable rime using configtool after installed
+          qt6Packages.fcitx5-chinese-addons
           fcitx5-material-color # theme
           fcitx5-gtk # gtk im module
           fcitx5-rime # for flypy chinese input method
