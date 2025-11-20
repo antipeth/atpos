@@ -62,6 +62,17 @@
           };
         };
       };
+      languages = {
+        Nix = {
+          language_servers = ["nil"];
+          format_on_save = {
+            external = {
+              command = "alejandra";
+              arguments = [];
+            };
+          };
+        };
+      };
       hour_format = "hour24";
       terminal = {
         alternate_scroll = "off";
