@@ -14,7 +14,10 @@ in
         settings = {
           default_session = {
             user = "greeter";
-            command = "${pkgs.tuigreet}/bin/tuigreet -c ${WM} -t --user-menu";
+            command =
+              if WM == "niri"
+              then "${pkgs.tuigreet}/bin/tuigreet -c niri-session -t --user-menu"
+              else "${pkgs.tuigreet}/bin/tuigreet -c ${WM} -t --user-menu";
           };
         };
       };
