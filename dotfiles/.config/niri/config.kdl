@@ -301,6 +301,18 @@ window-rule {
     geometry-corner-radius 10
     opacity 0.95
 }
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screencast"
+}
+
+layer-rule {
+    match namespace="^notifications$"
+
+    block-out-from "screencast"
+}
 
 animations {
     workspace-switch {
