@@ -15,17 +15,17 @@ _: {
         "lazytime"
       ];
     };
-    "/run/media/atp/Ventoy" = {
-      device = "/dev/disk/by-id/ata-Predator_SSD_GM7000_2TB_PSBG53171002234-part1";
-      fsType = "ntfs";
-      options = [
-        # Continute when it failed
-        "nofail"
-      ];
-    };
+    # "/run/media/atp/Ventoy" = {
+    #   device = "/dev/disk/by-id/ata-Predator_SSD_GM7000_2TB_PSBG53171002234-part1";
+    #   fsType = "ntfs";
+    #   options = [
+    #     # Continute when it failed
+    #     "nofail"
+    #   ];
+    # };
   };
   systemd.tmpfiles.rules = [
     "d /run/media/atp/hdd3 0755 atp users - -"
-    "d /run/media/atp/Ventoy 0755 atp users - -"
+    # "d /run/media/atp/Ventoy 0755 atp users - -"
   ];
 }
