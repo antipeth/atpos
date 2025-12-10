@@ -255,6 +255,7 @@ spawn-at-startup "swww" "img" "~/Pictures/Wallpapers/sun-earth-stars.jpg"
 spawn-at-startup "swww" "restore"
 spawn-at-startup "swaync"
 spawn-at-startup "waybar"
+spawn-at-startup "wl-gammarelay-rs"
 spawn-at-startup "gotify-desktop"
 spawn-at-startup "lxqt-policykit-agent"
 
