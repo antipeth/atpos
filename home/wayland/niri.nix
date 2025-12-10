@@ -8,10 +8,17 @@
 in
   with lib;
     mkIf (WM == "niri") {
-      home.packages = with pkgs; [
-        niri
-        xwayland-satellite
-      ];
+      home = {
+        packages = with pkgs; [
+          niri
+          xwayland-satellite
+        ];
+        file.".config/niri" = {
+          force = true;
+          recursive = true;
+          source = ../../dotfiles/.config/niri;
+        };
+      };
       systemd.user.targets.niri-session = {
         Unit = {
           After = "graphical-session-pre.target graphical-session.target";

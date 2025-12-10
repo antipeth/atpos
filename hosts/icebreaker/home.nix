@@ -35,11 +35,6 @@ in
           source = ../../pic/wallpapers;
           recursive = true;
         };
-        ".config" = {
-          force = true;
-          recursive = true;
-          source = ../../dotfiles/.config;
-        };
         ".config/wlogout/icons" = {
           source = ../../pic/wlogout;
           recursive = true;

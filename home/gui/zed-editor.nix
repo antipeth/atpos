@@ -4,6 +4,11 @@
   lib,
   ...
 }: {
+  home.file.".config/ironbar" = {
+    force = true;
+    recursive = true;
+    source = ../../dotfiles/.config/zed;
+  };
   programs.zed-editor = {
     enable = true;
     package = pkgs.zed-editor-fhs;
