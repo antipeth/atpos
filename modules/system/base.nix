@@ -17,8 +17,19 @@
 in
   with lib; {
     boot = {
+      blacklistedKernelModules = [
+        "iTCO_wdt"
+        "iTCO_vendor_support"
+        "intel_pmc_bxt"
+        "mei"
+        "mei_hdcp"
+        "mei_me"
+        "mei_pxp"
+        "pstore"
+        "sp5100_tco"
+        "wdat_wdt"
+      ];
       consoleLogLevel = 2; # Only errors and warnings are displayed
-      extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt sp5100_tco";
       initrd = {
         compressor = "zstd";
         compressorArgs = [
