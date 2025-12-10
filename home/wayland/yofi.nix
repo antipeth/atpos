@@ -9,4 +9,9 @@ in
     programs.yofi = {
       enable = true;
     };
+    home.file.".config/yofi" = {
+      force = true;
+      recursive = true;
+      source = ../../dotfiles/.config/yofi;
+    };
   }
