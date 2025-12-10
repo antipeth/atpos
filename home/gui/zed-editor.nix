@@ -41,7 +41,7 @@
     userSettings = {
       features = {
         copilot = false;
-        inline_completion_provider = "none";
+        edit_prediction_provider = "none";
       };
       node = {
         path = lib.getExe pkgs.nodejs;
