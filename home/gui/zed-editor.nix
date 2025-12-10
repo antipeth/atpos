@@ -1,4 +1,5 @@
 {
+  host,
   pkgs,
   lib,
   ...
@@ -56,19 +57,50 @@
         git_status = false;
       };
       lsp = {
-        nix = {
+        nixd = {
           binary = {
             path_lookup = true;
+          };
+          initialization_options = {
+            diagnostics.suppress = ["sema-extra-with"];
+            nixpkgs.expr = ''import (builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs { }'';
+            options = {
+              nixos.expr = ''(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.${host}.options'';
+              home_manager.expr = ''(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.${host}.options.home-manager.users.type.getSubOptions []'';
+            };
+            flake_parts.expr = ''let flake = builtins.getFlake ((builtins.toString ./.)); in flake.debug.options // flake.currentSystem.options'';
+          };
+        };
+        nil = {
+          binary = {
+            path_lookup = true;
+          };
+          initialization_options = {
+            diagnostics.ignored = ["unused_binding"];
+            nix = {
+              maxMemoryMB = 4096;
+              flake = {
+                autoArchive = true;
+                autoEvalInputs = true;
+                nixpkgsInputName = "nixpkgs";
+              };
+            };
           };
         };
       };
       languages = {
         Nix = {
-          language_servers = ["nil"];
-          format_on_save = {
+          language_servers = [
+            "!nil"
+            "nixd"
+          ];
+          formatter = {
             external = {
               command = "alejandra";
-              arguments = [];
+              arguments = [
+                "--quiet"
+                "--"
+              ];
             };
           };
         };
