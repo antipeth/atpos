@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (import ../../hosts/${host}/env.nix) WM;
+  inherit (import ../../hosts/${host}/env.nix) WM BAR;
 in
   with lib;
     mkIf (WM == "niri") {
@@ -13,10 +13,9 @@ in
           niri
           xwayland-satellite
         ];
-        file.".config/niri" = {
+        file.".config/niri/config.kdl" = {
           force = true;
-          recursive = true;
-          source = ../../dotfiles/.config/niri;
+          source = ../../dotfiles/.config/niri/config-${BAR}.kdl;
         };
       };
       systemd.user.targets.niri-session = {

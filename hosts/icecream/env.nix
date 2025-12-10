@@ -28,6 +28,8 @@
 
   # Window Manager
   WM = "Hyprland"; # options: Hyprland, niri or none
+  BAR = "waybar"; # options: waybar or ironbar
+
   # System
   BootLoader = "systemd-boot"; # options: systemd-boot, grub, grub-mirror
   KernelPackages = "linuxPackages_cachyos"; # see https://search.nixos.org/options?show=boot.kernelPackages https://www.nyx.chaotic.cx/#using-sched-ext-schedulers

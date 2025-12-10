@@ -28,6 +28,8 @@
 
   # Window Manager
   WM = "niri"; # options: Hyprland or niri
+  BAR = "waybar"; # options: waybar or ironbar
+
   # Other
   BootLoader = "systemd-boot";
   QEMU = true;

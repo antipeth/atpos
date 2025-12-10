@@ -6,10 +6,10 @@
   ...
 }: let
   betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
-  inherit (import ../../hosts/${host}/env.nix) clock24h WM;
+  inherit (import ../../hosts/${host}/env.nix) clock24h WM BAR;
 in
   with lib;
-    mkIf (WM == "Hyprland" || WM == "niri") {
+    mkIf ((WM == "Hyprland" || WM == "niri") && BAR == "waybar") {
       # Configure & Theme Waybar
       programs.waybar = {
         enable = true;

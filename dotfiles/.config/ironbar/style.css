@@ -1,0 +1,552 @@
+@define-color custom-primary #cdd6f4;
+@define-color custom-secondary #bac2de;
+@define-color custom-background #1e1e2e;
+@define-color custom-surface #313244;
+@define-color custom-border #6c7086;
+@define-color custom-accent #89b4fa;
+@define-color custom-highlight #181825;
+
+@define-color battery-warning-color #f38ba8;
+@define-color battery-charging-color #a6e3a1;
+@define-color backlight-color #6c7086;
+@define-color network-color #89b4fa;
+@define-color network-hover-color #b4befe;
+@define-color bluetooth-color #94e2d5;
+@define-color bluetooth-hover-color #89b4fa;
+@define-color background #1e1e2e;
+@define-color foreground #cdd6f4;
+@define-color cursor #b4befe;
+
+@define-color color0 #45475a;
+@define-color color1 #f38ba8;
+@define-color color2 #a6e3a1;
+@define-color color3 #f9e2af;
+@define-color color4 #89b4fa;
+@define-color color5 #cba6f7;
+@define-color color6 #94e2d5;
+@define-color color7 #bac2de;
+@define-color color8 #585b70;
+@define-color color9 #f38ba8;
+@define-color color10 #a6e3a1;
+@define-color color11 #f9e2af;
+@define-color color12 #89b4fa;
+@define-color color13 #cba6f7;
+@define-color color14 #94e2d5;
+@define-color color15 #cdd6f4;
+@define-color transparent rgba(0, 0, 0, 0);
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans Nerd Font", sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    color: @custom-primary;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+    text-shadow: none;
+    background-image: none;
+    outline: none;
+    margin: 0;
+    padding: 1.2px;
+    transition-property: background-color, color, box-shadow, opacity;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+}
+
+window#ironbar {
+    background-color: @transparent;
+}
+
+#bar {
+    background-color: alpha(@custom-background, 0.3);
+    margin: 6px 15px 0px 15px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    border: 2px solid alpha(@custom-accent, 0.8);
+}
+
+.bar-container {
+    background-color: @transparent;
+}
+
+window,
+.background {
+    background-color: @transparent;
+}
+
+#bar > .left,
+#bar > .center,
+#bar > .right {
+    padding: 0 4px;
+    background-color: #f5e9db;
+}
+
+. {
+    padding: 3px 8px;
+    margin: 0 4px;
+    border-radius: 8px;
+    background-color: alpha(@custom-surface, 0.3);
+    font-weight: normal;
+    min-width: 40px;
+}
+
+.:hover {
+    background-color: alpha(@custom-surface, 0.9);
+    color: @custom-accent;
+    box-shadow: 0 0 5px alpha(@custom-accent, 0.3);
+}
+
+.workspaces {
+    background-color: @transparent;
+    padding: 0;
+}
+.workspaces button {
+    color: @custom-secondary;
+    background-color: alpha(@custom-surface, 0.5);
+    padding: 4px 9px;
+    margin: 1px 2px;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    font-weight: bold;
+    border: 1px solid alpha(@custom-border, 0.2);
+}
+.workspaces button:hover {
+    background-color: alpha(@custom-surface, 0.9);
+    color: @custom-highlight;
+    box-shadow: 0 0 5px alpha(@custom-highlight, 0.4);
+}
+.workspaces button.focused {
+    background-color: alpha(@custom-accent, 0.85);
+    color: @custom-background;
+    box-shadow: 0 0 6px alpha(@custom-accent, 0.7);
+    box-shadow: none;
+}
+.workspaces button.urgent {
+    background-color: @custom-highlight;
+    color: @custom-background;
+    animation: urgent-pulse 1.2s infinite ease-in-out;
+}
+
+@keyframes urgent-pulse {
+    0% {
+        box-shadow: 0 0 4px alpha(@custom-highlight, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 10px alpha(@custom-highlight, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 4px alpha(@custom-highlight, 0.5);
+    }
+}
+
+.sysinfo {
+    color: @custom-primary;
+    font-weight: normal;
+}
+.sysinfo:hover {
+    color: @custom-highlight;
+}
+.sysinfo label {
+    margin: 0 4px;
+    font-size: 10pt;
+}
+
+.battery {
+    color: @custom-primary;
+    padding: 3px 8px;
+    font-weight: normal;
+}
+.battery.warning {
+    color: @battery-warning-color;
+    background-color: alpha(@custom-surface, 0.8);
+}
+.battery.critical {
+    color: @custom-highlight;
+    background-color: alpha(@custom-surface, 0.9);
+    animation: urgent-pulse 1.2s infinite;
+}
+.battery.charging {
+    color: @battery-charging-color;
+}
+.battery:hover {
+    color: @custom-highlight;
+}
+
+.backlight {
+    color: @custom-primary;
+    padding: 3px 8px;
+    font-weight: normal;
+}
+.backlight:hover {
+    color: @custom-highlight;
+    background-color: alpha(@custom-surface, 0.7);
+}
+
+.volume {
+    color: @custom-highlight;
+    padding: 3pt 8px;
+    font-weight: normal;
+}
+.volume:hover {
+    color: @custom-accent;
+    background-color: alpha(@custom-surface, 0.7);
+}
+
+.bt-battery {
+    color: @custom-primary;
+    padding: 3px 8px;
+    font-weight: normal;
+}
+.bt-battery:hover {
+    color: @bluetooth-hover-color;
+    background-color: alpha(@custom-surface, 0.7);
+}
+
+.network {
+    color: @network-color;
+    padding: 3px 8px;
+    font-weight: normal;
+}
+.network:hover {
+    color: @network-hover-color;
+    background-color: alpha(@custom-surface, 0.7);
+}
+
+.bluetooth {
+    padding: 3px 8px;
+    font-weight: normal;
+}
+.bluetooth:hover {
+    color: @bluetooth-hover-color;
+    background-color: alpha(@custom-surface, 0.7);
+}
+
+.clock {
+    font-weight: bold;
+    color: @custom-primary;
+    font-size: 11pt;
+    padding: 3px 9px;
+    background-color: alpha(@custom-surface, 0.3);
+}
+.clock:hover {
+    color: @custom-accent;
+    background-color: alpha(@custom-surface, 0.8);
+}
+
+/* Clock Popup Styling */
+.popup-clock {
+    background-color: alpha(@custom-background, 0.3);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid alpha(@custom-surface, 0.3);
+    box-shadow: none;
+    min-width: 300px;
+}
+
+.popup-clock .calendar-clock {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans Nerd Font", sans-serif;
+    font-size: 14pt;
+    font-weight: bold;
+    color: @custom-primary;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: alpha(@custom-surface, 0.85);
+    border-radius: 10px;
+    border: 1px solid alpha(@custom-border, 0.4);
+}
+.popup-clock .calendar-clock label {
+    /* No text-align here, relying on GTK's default for label within its parent */
+}
+
+/* Calendar widget within the popup */
+.popup-clock .calendar {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans Nerd Font", sans-serif;
+    font-size: 10.5pt;
+    color: @custom-primary;
+    background-color: @transparent;
+}
+
+/* Calendar header (month/year and navigation buttons) */
+.popup-clock .calendar header {
+    background-color: @transparent;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid alpha(@custom-surface, 0.5);
+}
+.popup-clock .calendar header label {
+    font-weight: bold;
+    color: @custom-accent;
+    font-size: 12pt;
+    /* No text-align here */
+}
+/* Navigation buttons (left/right arrows) */
+.popup-clock .calendar header button {
+    background-color: @transparent;
+    color: @custom-secondary;
+    font-size: 16pt;
+    padding: 0 8px;
+    border-radius: 8px;
+    min-width: 30px;
+    min-height: 30px;
+}
+.popup-clock .calendar header button:hover {
+    background-color: alpha(@custom-surface, 0.7);
+    color: @custom-accent;
+}
+
+/* Calendar weekdays (Mo Tu We Th...) */
+.popup-clock .calendar .day-name {
+    color: @custom-secondary;
+    font-size: 10pt;
+    font-weight: normal;
+    padding: 6px 0;
+    margin-bottom: 8px;
+    border-bottom: 1px solid alpha(@custom-surface, 0.3);
+}
+
+/* Calendar days (numbers) */
+.popup-clock .calendar .day {
+    color: @custom-primary;
+    padding: 7px;
+    border-radius: 8px;
+    margin: 2px;
+    background-color: alpha(@custom-surface, 0.2);
+    /* No text-align here */
+}
+.popup-clock .calendar .day:hover {
+    background-color: alpha(@custom-accent, 0.2);
+    color: @custom-primary;
+}
+
+/* Today's date */
+.popup-clock .calendar .day.current {
+    background-color: @custom-accent;
+    color: @custom-background;
+    font-weight: bold;
+    box-shadow: 0 0 10px alpha(@custom-accent, 0.6);
+    border: 1px solid @custom-accent;
+}
+
+/* Selected date (if any) */
+.popup-clock .calendar .day.selected {
+    background-color: @custom-highlight;
+    color: @custom-background;
+    font-weight: bold;
+    box-shadow: 0 0 10px alpha(@custom-highlight, 0.6);
+    border: 1px solid @custom-highlight;
+}
+
+/* Non-month days (days from prev/next month in current view) */
+.popup-clock .calendar .day.other-month {
+    color: alpha(@custom-primary, 0.3);
+    background-color: @transparent;
+}
+
+/* --- Volume Popup Styling --- */
+.popup-volume {
+    background-color: alpha(@custom-background, 0.3);
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid alpha(@custom-surface, 0.5);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    min-width: 100px;
+    padding-left: 10px;
+    padding-right: 0px; /* As per your last successful adjustment */
+}
+
+.popup-volume .device-box {
+    background-color: @transparent;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+    border-bottom: 1px solid alpha(@custom-surface, 0.3);
+}
+
+/* Device selector (dropdown) */
+.popup-volume .device-box .device-selector {
+    background-color: alpha(@custom-surface, 0.6);
+    color: @custom-primary;
+    border-radius: 4px;
+    padding: 2px 3px;
+    margin-bottom: 3px;
+    border: 1px solid alpha(@custom-border, 0.1);
+    font-size: 8.5pt;
+    min-width: 80px;
+}
+.popup-volume .device-box .device-selector:hover {
+    background-color: alpha(@custom-surface, 0.8);
+}
+.popup-volume .device-box .device-selector label {
+    font-size: 8.5pt;
+}
+
+/* Device volume slider (VERTICAL) */
+.popup-volume .device-box .slider {
+    min-height: 70px;
+    min-width: 10px;
+    background-color: @transparent;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Slider Trough (the background track) */
+.popup-volume .device-box .slider trough {
+    background-color: alpha(@custom-primary, 0.1);
+    min-width: 4px;
+    border-radius: 2px;
+}
+
+/* Slider Highlight/Fill (the colored part of the bar) */
+.popup-volume .device-box .slider highlight {
+    background-color: @custom-accent;
+    min-width: 4px;
+    border-radius: 2px;
+}
+
+/* Slider Handle (the movable part) */
+.popup-volume .device-box .slider slider {
+    background-color: @custom-highlight;
+    border-radius: 4px;
+    min-width: 10px;
+    min-height: 10px;
+    border: 1px solid @custom-primary;
+}
+.popup-volume .device-box .slider slider:hover {
+    background-color: @custom-accent;
+}
+
+/* Device mute toggle button */
+.popup-volume .device-box .btn-mute {
+    background-color: alpha(@custom-surface, 0.6);
+    color: @custom-primary;
+    border-radius: 4px;
+    padding: 2px 5px;
+    margin-top: 3px;
+    border: 1px solid alpha(@custom-border, 0.1);
+    font-size: 8pt;
+}
+.popup-volume .device-box .btn-mute:hover {
+    background-color: alpha(@custom-surface, 0.8);
+    color: @custom-accent;
+}
+.popup-volume .device-box .btn-mute.muted {
+    background-color: @custom-highlight;
+    color: @custom-background;
+}
+
+/* Application volume controls container */
+.popup-volume .apps-box {
+    margin-top: 10px;
+    padding-top: 3px;
+
+    border-top: 1px solid alpha(@custom-surface, 0.3);
+}
+
+/* Individual application volume box */
+.popup-volume .apps-box .app-box {
+    margin-bottom: 12px;
+    padding: 12px;
+    background-color: alpha(@custom-surface, 0.2);
+    border-radius: 4px;
+    font-size: 8pt;
+    min-width: 200px;
+}
+.popup-volume .apps-box .app-box:last-child {
+    margin-bottom: 0;
+}
+
+/* Application title (name of the stream) */
+.popup-volume .apps-box .app-box .title {
+    font-weight: bold;
+    color: @custom-primary;
+    margin-bottom: 1px;
+}
+
+/* Application volume slider */
+.popup-volume .apps-box .app-box .slider {
+    min-height: unset;
+    background-color: @transparent;
+}
+.popup-volume .apps-box .app-box .slider trough {
+    background-color: alpha(@custom-primary, 0.05);
+    min-height: 2px;
+    border-radius: 1px;
+}
+.popup-volume .apps-box .app-box .slider highlight {
+    background-color: @custom-accent;
+    min-height: 2px;
+    border-radius: 1px;
+}
+.popup-volume .apps-box .app-box .slider slider {
+    background-color: @custom-highlight;
+    border-radius: 3px;
+    min-width: 7px;
+    min-height: 7px;
+    border: 1px solid alpha(@custom-primary, 0.5);
+}
+.popup-volume .apps-box .app-box .slider slider:hover {
+    background-color: @custom-accent;
+}
+
+/* Application mute toggle button */
+.popup-volume .apps-box .app-box .btn-mute {
+    background-color: alpha(@custom-surface, 0.6);
+    color: @custom-primary;
+    border-radius: 3px;
+    padding: 1px 3px;
+    margin-left: 3px;
+    border: 1px solid alpha(@custom-border, 0.1);
+    font-size: 7.5pt;
+}
+.popup-volume .apps-box .app-box .btn-mute:hover {
+    background-color: alpha(@custom-surface, 0.8);
+    color: @custom-accent;
+}
+.popup-volume .apps-box .app-box .btn-mute.muted {
+    background-color: @custom-highlight;
+    color: @custom-background;
+}
+tooltip.background {
+    background-color: alpha(@custom-background, 0.95);
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid @custom-surface;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+tooltip label {
+    color: @custom-primary;
+    font-size: 9.5pt;
+    font-weight: normal;
+}
+
+.power-menu {
+    margin-left: 10px;
+}
+.power-menu #power-btn {
+    color: @custom-primary;
+    background-color: alpha(@custom-surface, 0.3);
+}
+.power-menu #power-btn:hover {
+    background-color: alpha(@custom-background, 0.3);
+}
+.popup-power-menu {
+    padding: 1em;
+}
+.popup-power-menu #header {
+    color: @custom-primary;
+    font-size: 1.4em;
+    border-bottom: 1px solid alpha(@custom-border, 0.5);
+    padding-bottom: 0.4em;
+    margin-bottom: 0.8em;
+}
+.popup-power-menu .power-btn {
+    color: @custom-primary;
+    background-color: alpha(@custom-surface, 0.3);
+    border: 1px solid alpha(@custom-border, 0.5);
+    padding: 0.6em 1em;
+}
+.popup-power-menu .power-btn + .power-btn {
+    margin-left: 1em;
+}
+.popup-power-menu .power-btn:hover {
+    background-color: alpha(@custom-background, 0.3);
+}

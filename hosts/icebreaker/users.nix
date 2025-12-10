@@ -32,6 +32,14 @@ in {
         libreoffice-qt6
         spotify
         strawberry
+        gcc
+        gdb
+        gnumake
+        cyberchef
+        shntool
+        cuetools
+        flac
+        flacon
 
         # ai
         # aider-chat
