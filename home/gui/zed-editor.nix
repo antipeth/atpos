@@ -4,7 +4,7 @@
   lib,
   ...
 }: {
-  home.file.".config/ironbar" = {
+  home.file.".config/zed" = {
     force = true;
     recursive = true;
     source = ../../dotfiles/.config/zed;
