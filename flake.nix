@@ -2,7 +2,6 @@
   description = "AtpOS";
 
   inputs = {
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     daeuniverse.url = "github:daeuniverse/flake.nix";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     disko = {
@@ -23,7 +22,6 @@
   };
 
   outputs = {
-    chaotic,
     daeuniverse,
     nixpkgs,
     nixvim,
@@ -44,7 +42,6 @@
         };
         modules = [
           ./hosts/${host}/config.nix
-          chaotic.nixosModules.default
           daeuniverse.nixosModules.daed
           inputs.disko.nixosModules.disko
           inputs.stylix.nixosModules.stylix
