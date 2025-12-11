@@ -27,7 +27,7 @@
 
   # Window Manager
   WM = "niri"; # options: Hyprland, niri or none
-  BAR = "ironbar"; # options: waybar or ironbar
+  BAR = "waybar"; # options: waybar or ironbar
 
   # System
   BootLoader = "systemd-boot"; # options: systemd-boot, grub, grub-mirror
