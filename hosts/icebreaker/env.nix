@@ -31,7 +31,7 @@
 
   # System
   BootLoader = "systemd-boot"; # options: systemd-boot, grub, grub-mirror
-  KernelPackages = "linuxPackages_cachyos"; # see https://search.nixos.org/options?show=boot.kernelPackages https://www.nyx.chaotic.cx/#using-sched-ext-schedulers
+  KernelPackages = "linuxPackages_zen"; # see https://search.nixos.org/options?show=boot.kernelPackages https://www.nyx.chaotic.cx/#using-sched-ext-schedulers
   QEMU = true;
   Transparent-Proxy = false;
   ZFS-Support = true;
