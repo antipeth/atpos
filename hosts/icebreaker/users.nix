@@ -40,6 +40,7 @@ in {
         cuetools
         flac
         flacon
+        thunderbird-bin
 
         # ai
         # aider-chat
