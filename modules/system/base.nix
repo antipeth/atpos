@@ -151,8 +151,5 @@ in
       hostPlatform = "x86_64-linux";
     };
 
-    system = {
-      rebuild.enableNg = true;
-      stateVersion = "26.05";
-    };
+    system.stateVersion = "26.05";
   }
