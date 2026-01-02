@@ -1,7 +1,6 @@
-{lib, ...}:
-lib.mkIf false {
+_: {
   virtualisation.virtualbox.host = {
-    enable = true;
+    enable = false;
     addNetworkInterface = false;
     enableKvm = true;
   };
