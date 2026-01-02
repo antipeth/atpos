@@ -17,7 +17,7 @@ in
           "zfs_force=1"
         ];
         zfs = {
-          package = mkIf (KernelPackages == "linuxPackages_cachyos") pkgs.zfs_cachyos;
+          package = pkgs.zfs_unstable;
           forceImportRoot = false;
           devNodes = "/dev/disk/by-id";
         };
