@@ -43,5 +43,5 @@ in {
   services.displayManager.enable = true;
   console.keyMap = KeyboardLayout;
 
-  boot.kernelParams = ["zfs.zfs_arc_max=40802189312"];
+  boot.kernelParams = ["zfs.zfs_arc_max=6442450944"];
 }
