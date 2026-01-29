@@ -36,11 +36,9 @@ in {
         gdb
         gnumake
         cyberchef
-        shntool
-        cuetools
-        flac
         flacon
         thunderbird-bin
+        kid3
 
         # ai
         # aider-chat
